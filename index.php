@@ -1,57 +1,43 @@
 <!-------------------------------------------INDEX-->
 <!DOCTYPE html>
 <html lang="fr">
-
-<?php require  ("views/includes/head.php"); ?>
-<body>
-    <!--HEADER-->
-    <?php require  ("views/includes/header.php"); ?>
-
-    <!--MAIN CONTAINER -->
-    <div class="main_container" id="home_author_main_container">
-        <!--PAGE MAIN BLOCK-->
-        <div class="mainblock">
-            <!--PAGE TITLE-->
-            <hgroup class="website_main_titles">
-                <h1>JEAN FORTEROCHE</h1>
-                <h3>Ecrivain et acteur</h3>
-            </hgroup>
-
-            <!--PAGE SUBBLOCK 1-->
-            <div class="subblock_1">
-                <!--***DYNAMIC PICTURE***-->
-                <img class="subblock_picture" id="dynamic_subblock_picture" src="assets/images/typewriter_whitecircle.png" alt="machine à écrire" />
-            </div>
-
-            <!--PAGE SUBBLOCK 2-->
-            <div class="subblock_2">
-                <!--PAGE SUBTITLES GROUP-->
-                <hgroup class="subblock2_subtitles">
+    <?php require  ("views/includes/head.php"); ?>
+    <body>
+        <!--HEADER-->
+        <?php require  ("views/includes/header.php"); ?>
+        
+        <!--MAIN CONTAINER -->
+        <main class="main_container" id="pages_main_container">
+            <!--PAGE MAIN BLOCK-->
+            <section class="mainblock">
+                <!--Dynamic picture => picture page -->  
+                <img class="main_picture" id="dynamic_main_picture" src="assets/images/typewriter_whitecircle.png" alt="machine à écrire" />
+                <!--WEBSITE MAIN SUBTITLES -->
+                <hgroup class="main_subtitles">
                     <h2 class="book_title" id="alaska_book">"Billet simple pour l'Alaska"</h2>
-                    <img src="assets/images/goldpaint_separator" alt="trace peinture or" />
-                    <h3 class="action_title">Un volume à suivre en ligne</h3>
+                    <img id="goldpaint_separator" src="assets/images/goldpaint_separator.png" alt="trace peinture or" />
+                    <!--Dynamic title => page title-->
+                    <h3 class="dynamic_title" >Un volume à suivre <a id="dots_link" href="">"en lignes"...</a></h3>
                 </hgroup>
-            </div>
+            </section> 
 
-            <!--PAGE SUBBLOCK 3 CONTENT (AUTHOR/EXTRACTS/CHAPTERS)-->
-            <div class="subblock_3">
+            <!--SECTION CONTENT BLOCK - DYNAMIC (AUTHOR/EXTRACTS/CHAPTERS)-->
+            <section class="content_block">
                 <!--***DYNAMIC TITLE AND INFO***-->
-                <h2 class="page_title"></h2>
-                <h3 class="page_info"></h3> 
-
-            </div>
-            <!--FOOTER-->
-            <?php require  ("views/includes/footer.php"); ?>
-
-        </div>
-      
-
-    </div> 
-
-
-
-
-
-</body>
-
+                <img/>
+                <hgroup class="content_titles">
+                    <h2 class="page_title">Titre de la page dynamique (auteur, extraits, chapitres) </h2>
+                    <h3 class="page_info">Infos de page dynamique</h3>
+                </hgroup> 
+                    
+                <div class="content_text">
+                    <p>Ici le contenu dynamique de la page concernée. </br>Je vous propose ici un voyage dans ma contrée littéraire, 
+                    d'emprunter un chemin de traverse afin de découvrir, pas à pas, mon nouveau livre "Billet simple pour l'Alaska".
+                    Une avanture numérique, hors des sentiers battus, car je sèmerais, tel le Petit Poucet, les chapitres, "segments", de mon dernier roman, avec l'espoir que celui-ci vous tienne suffisamment en haleine pour que nous puissions nous retrouver ensemble à échanger au bout de la route.</p>
+                </div>
+            <section>
+        </main>    
+        <!--FOOTER-->
+        <?php require  ("views/includes/footer.php"); ?>
+    </body>
 </html>

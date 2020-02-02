@@ -29,6 +29,7 @@ p,a,article
 {
     font-family: "secrettypewriter","arial","sans serif";
     font-size: 1em;
+   
 }
 
 h1
@@ -39,14 +40,16 @@ h1
     color:white;
 }
 
-h2,h3,h4,h5,h6
+h3,h4,h5,h6
 {
     font-family: "rajdhanisembold";
 }
 
 h2
 {
-    font-size: 1.8em;
+    font-size: 2.2em;
+    font-family: "rajdhanibold";
+    font-weight: bold;
 }
 
 h3
@@ -68,28 +71,16 @@ h5
 /*****BODY******/
 body{
     width: 100%;
-    min-width: 320px;
-    height:auto;
+    height:100%;
     margin:0;
+    display: flex;
+    flex-direction: column;
+   
+
 }
 
-/****MAIN CONTAINER****/
-.main_container
-{
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-}
-
-/***WEBSITE MAIN TITLES***/
-.website_main_titles
-{
-    width:100%;
-    margin-top: 20px;
-}
-
-/*******HEADER*******/
+/*******HEADER*******
+***********************/
 header #background_mainmenu
 {
     width: 100%;
@@ -99,34 +90,35 @@ header #background_mainmenu
     position: relative;  
 }
 
-header #background_mainmenu img
-{   
-    width: 100%;
-    bottom: 251PX;
-    margin-left: -66px;
-    filter:brightness(75%);
+header #background_mainmenu 
+{
+    width: 188PX;
+    bottom: 0px;
     transform: rotate(5deg);
-    position: relative;
+    overflow: hidden;
 }
 
 
 header
 {
-    width: 188px;
-    height: 215px;
-    top:-10px;
-    position: absolute; 
+    width: 100%;
+    height: 200px;
+    top: -20PX;
+    position: fixed;
     z-index: 100;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #316b75;
+    box-shadow: 0px 5px 10px 0px #31353a45;
 }
 
 header nav
 {
     position: relative;
-    float: left;
     transform: rotate(5deg);
-    left: 12px;
-    bottom: -41px;
+    bottom: -38PX;
     z-index: 90;
+    
 }
 
 header nav img
@@ -137,8 +129,11 @@ header nav img
 }
 header nav ul 
 {
+    width: 150PX;
     list-style-type: none;
-    padding: 0;    
+    padding: 0;
+    position: absolute;
+    overflow: hidden;
 }
 
 nav ul li a
@@ -146,63 +141,116 @@ nav ul li a
     display: block;
     color: #422103;
     text-align: center;
-    padding: 4px 2px;
+    padding: 5px 3px;
     text-decoration: none;
     text-shadow: 0 1px 2px #eee8d4;
     font-weight: bold;
 }
-/*****PAGE MAIN BLOCK***/
-.mainblock
+
+/**hgroup website main titles**/
+.website_main_titles
+{
+    text-align: right;
+   
+}
+
+
+/*********MAIN CONTAINER****
+****************************/
+main
 {
     width: 100%;
-    height:100%;
-    overflow: hidden;
     margin: 0;
-    padding: 0;
-    text-align: center;
+    margin-top: 20PX;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
-    background: #3fb6ca;
-    box-shadow: inset -50px 0px 50px -50px rgba(47, 130, 144);    
+    align-items: center;
+    background-color: #3fb6ca;
+    box-shadow: inset -50px 0px 50px -50px rgba(47, 130, 144); 
+}
+/*****SECTION MAIN BLOCK***/
+.mainblock
+{
+    width: 80%;
+    height: 85VH;
+    margin: 0;
+    padding: 0;
+    margin-top: 160px;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
-/*****PAGE SUBBLOCK****/
-/**subblock1**/
-.subblock_1
+/**main picture**/
+section .main_picture
+{
+    width: 30%;
+    
+}
+
+/**hgroup website main subtitles**/
+section .main_subtitles
 {
     width: 100%;
-    overflow: hidden;
 }
 
-.subblock_1 img
+section hgroup #alaska_book
 {
-    width:50vh;
-}
-
-/**subblock2**/
-.subblock_2
-{
+    color:white;
+    font-size: 3em;
 
 }
-.subblock_2 img
+section hgroup #goldpaint_separator
 {
     width:10%;
 }
 
+section hgroup #dots_link
+{
+    
+    font-weight: bold;
+    color: black;  
+    text-decoration: none;
+}
 
-/******FOOTER******/
+/**section content block***/
+.content_block 
+{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.content_block img
+{
+
+}
+
+.content_block hgroup
+{
+    width: 70%;
+}
+
+.content_block .content_text
+{
+    text-align: left;
+    width: 70%;
+}
+
+/******FOOTER*******
+*********************/
 footer
 {
    
-    background-color: #316b75;
-    border-top: groove 2px goldenrod;
+background-color: #316b75;   
+border-top: groove 2px rgb(85, 64, 11);   
+height: 120px;
+align-items: center;
 }
 
-.website_info
-{
-    
-}
 #mention 
 {
     width: 100%;
@@ -211,7 +259,6 @@ footer
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    
 }
 #mention a
 {
@@ -225,5 +272,8 @@ footer
 
 /*********************************HOME PAGE*****************************************
 ***********************************************************************************/
+
+
+
 
 
