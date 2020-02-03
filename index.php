@@ -11,11 +11,11 @@
             <!--PAGE MAIN BLOCK-->
             <section class="mainblock">
                 <!--Dynamic picture => picture page -->  
-                <img class="main_picture" id="dynamic_main_picture" src="assets/images/typewriter_whitecircle.png" alt="machine à écrire" />
+                <img class="main_picture" id="dynamic_main_picture" src="public/images/typewriter_whitecircle.png" alt="machine à écrire" />
                 <!--WEBSITE MAIN SUBTITLES -->
                 <hgroup class="main_subtitles">
                     <h2 class="book_title" id="alaska_book">"Billet simple pour l'Alaska"</h2>
-                    <img id="goldpaint_separator" src="assets/images/goldpaint_separator.png" alt="trace peinture or" />
+                    <img id="goldpaint_separator" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
                     <!--Dynamic title => page title-->
                     <h3 class="dynamic_title" >Un volume à suivre <a id="dots_link" href="">"en lignes"...</a></h3>
                 </hgroup>
@@ -23,6 +23,7 @@
 
             <!--SECTION CONTENT BLOCK - DYNAMIC (AUTHOR/EXTRACTS/CHAPTERS)-->
             <section class="content_block">
+
                 <!--***DYNAMIC TITLE AND INFO***-->
                 <img/>
                 <hgroup class="content_titles">

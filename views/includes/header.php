@@ -4,7 +4,7 @@
             <ul> 
                 <li>
                     <a href="home.php">
-                        <img src="assets/images/home2.png" alt="baleine à travers un cercle doré" />
+                        <img src="public/images/home2.png" alt="baleine à travers un cercle doré" />
                     </a>
                 </li>
                 <li>
@@ -21,13 +21,13 @@
                 </li>       
                 <li>
                     <a href="">
-                        <img src="assets/images/connexion2.png" alt="cadenas doré" />
+                        <img src="public/images/connexion2.png" alt="cadenas doré" />
                     </a>
                 </li>
             </ul>
         </nav>
 
-        <img id="background_mainmenu" src="assets/images/ticket_menu1.png" alt="papier étiquette"/>
+        <img id="background_mainmenu" src="public/images/ticket_menu1.png" alt="papier étiquette"/>
     </div>
 
     <!--PAGE MAIN TITLES-->
