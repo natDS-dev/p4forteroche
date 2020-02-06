@@ -6,7 +6,10 @@
     <script>
     tinymce.init({
         selector: '#mytextarea',
-        language: "fr_FR"
+        language: "fr_FR",
+        themes: "mobile",
+        plugins : "table, fullpage,fullscreen,autosave,link,quickbars,image,template,preview,emoticons,media,pagebreak,insertdatetime,visualblocks"
+        
     });
     </script>
 

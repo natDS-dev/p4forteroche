@@ -1,6 +1,6 @@
 <header>
     <div class="menu_block">
-        <nav class="main_menu" id="bloc_main_menu"> <!--fixe gauche sorte toggle-->
+        <nav class="main_menu" id="bloc_main_menu"> 
             <ul> 
                 <li>
                     <a href="home.php">
@@ -8,10 +8,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="pages.php">L'Angle</a><!--description auteur-->
+                    <a href="pages.php">L'Angle</a>
                 </li>
                 <li>
-                    <a href="">L'Auteur</a><!--description auteur-->
+                    <a href="">L'Auteur</a>
                 </li>
                 <li>
                     <a href="">Les Segments</a>
@@ -31,9 +31,8 @@
     </div>
 
     <!--PAGE MAIN TITLES-->
-    <hgroup class="website_main_titles">
+    <div class="website_main_titles">
         <h1>JEAN FORTEROCHE</h1>
-        <h3>"Ecrivain et acteur"</h3>
-        
-    </hgroup>
+        <h3>"Ecrivain et acteur"</h3>        
+    </div>
 </header>

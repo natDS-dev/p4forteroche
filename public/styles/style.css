@@ -25,7 +25,7 @@
 
 
 
-p,a,article
+p,a,article,label,button,td,th
 {
     font-family: "secrettypewriter","arial","sans serif";
     font-size: 1em;
@@ -40,7 +40,7 @@ h1
     color:white;
 }
 
-h3,h4,h5,h6
+h3,h4,h5,h6,th,td
 {
     font-family: "rajdhanisembold";
 }
@@ -58,7 +58,7 @@ h3
     font-style: italic;
 }
 
-h4
+h4,
 {
     font-size: 1.2em;
     font-weight: bold;
@@ -68,7 +68,9 @@ h5
 {
     font-size: 1.2em; 
 }
-/*****BODY******/
+/**********BODY********
+FOR ALL PAGES
+***********************/
 body{
     width: 100%;
     height:100%;
@@ -79,25 +81,9 @@ body{
 
 }
 
-/*******HEADER*******
-***********************/
-header #background_mainmenu
-{
-    width: 100%;
-    bottom: 241PX;
-    margin-left: -66px;
-    transform: rotate(5deg);
-    position: relative;  
-}
-
-header #background_mainmenu 
-{
-    width: 188PX;
-    bottom: 0px;
-    transform: rotate(5deg);
-    overflow: hidden;
-}
-
+/**************HEADER MAIN*********************************
+FOR PAGES : HOME - EXTRACTS - CHAPTERS - CONNECT - CONTACT
+***********************************************************/
 
 header
 {
@@ -111,6 +97,9 @@ header
     background-color: #316b75;
     box-shadow: 0px 5px 10px 0px #31353a45;
 }
+
+
+
 
 header nav
 {
@@ -127,6 +116,7 @@ header nav img
     height: 40px;
     z-index: 100;
 }
+
 header nav ul 
 {
     width: 150PX;
@@ -147,7 +137,17 @@ nav ul li a
     font-weight: bold;
 }
 
-/**hgroup website main titles**/
+header #background_mainmenu 
+{
+    width: 188PX;
+    bottom: 0px;
+    transform: rotate(5deg);
+    overflow: hidden;
+    margin-left: -66px;   
+    position: relative; 
+}
+
+/**website main titles**/
 .website_main_titles
 {
     text-align: right;
@@ -155,8 +155,9 @@ nav ul li a
 }
 
 
-/*********MAIN CONTAINER****
-****************************/
+/*********MAIN (=first block)******************
+ FOR  PAGES : HOME - EXTRACTS - CHAPTERS 
+***********************************************/
 main
 {
     width: 100%;
@@ -188,32 +189,36 @@ section .main_picture
     
 }
 
-/**hgroup website main subtitles**/
+/**website main subtitles**/
 section .main_subtitles
 {
     width: 100%;
 }
 
-section hgroup #alaska_book
+section .main_subtitles #alaska_book
 {
     color:white;
     font-size: 3em;
 
 }
-section hgroup #goldpaint_separator
+.goldpaint_separator
 {
     width:10%;
 }
 
-section hgroup #dots_link
+
+#anchor_to_bottom
 {
     
-    font-weight: bold;
-    color: black;  
-    text-decoration: none;
 }
 
-/**section content block***/
+#anchor_to_bottom img
+{
+    width : 5%;
+}
+
+/****SECTION CONTENT BLOCK*****/
+
 .content_block 
 {
     width: 100%;
@@ -222,16 +227,13 @@ section hgroup #dots_link
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
-
-.content_block img
-{
-
+    margin: 50px 0 50px 0;  
 }
 
 .content_block hgroup
 {
     width: 70%;
+    margin-top: 10px;
 }
 
 .content_block .content_text
@@ -240,8 +242,9 @@ section hgroup #dots_link
     width: 70%;
 }
 
-/******FOOTER*******
-*********************/
+/****************FOOTER MAIN*******************************
+FOR PAGES : HOME - EXTRACTS - CHAPTERS - CONNECT - CONTACT 
+***********************************************************/
 footer
 {
    
@@ -270,10 +273,240 @@ align-items: center;
    
 }
 
-/*********************************HOME PAGE*****************************************
+/*******************FORMS GENERAL***************************
+ FOR PAGES : CHAPTERS (comments) - CONTACT - ADMIN (tinymce) 
+ ***********************************************************/
+
+form
+{
+    
+    background-color: #d0d9da;
+    padding: 10px 10px 10px 10px;
+}
+
+.place_form
+{
+    
+    align-items: center;
+    margin: 5px 0 5px 0; 
+}
+
+label
+{
+
+}
+
+input
+{
+    width: 40%;
+    height: 30px;
+    
+}
+
+textarea
+{
+    width: 100%;
+    height:auto;
+    margin: 5px 0 5px 0; 
+}
+
+.button_form
+{
+    text-align: right;
+}
+
+form button
+{
+    background-color: #ffffff;
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+    margin-top: 10px;
+}
+
+
+
+/******************************GENERAL CHAPTER AND EXTRACT PAGE*************************************
+*********************************************************************************/
+.content_extracts_chapters
+{
+
+}
+
+.content_extracts_chapters article
+{
+
+}
+
+.content_extracts_chapters img
+{
+
+}
+
+.content_extracts_chapters h3
+{
+
+}
+
+.content_extracts_chapters p
+{
+
+}
+
+/*********************CHAPTERS******************************************/
+/***Block posted comments + form****/
+.comments_block
+{
+
+}
+
+/****Block posted comments***/
+.posted_comments
+{
+    background-color: #c3bfbb1c;
+    margin: 80px 0px 30px 0px;
+    border-bottom: 2px solid #4a4823;
+    padding: 10px 10px 10px 10px;
+}
+
+.posted_comments h4
+{
+
+}
+
+.posted_comments h5
+{
+
+}
+
+
+.posted_comments p
+{
+
+}
+
+/****Block comment form****/
+.comments_block form
+{
+
+}
+
+.comments_block form label
+{
+
+}
+
+.comments_block form button
+{
+
+}
+
+
+/*********************************SPECIAL PAGES*****************************************
+CONNECT - ADMIN
 ***********************************************************************************/
 
+/*******CONNECT PAGE*********
+*****************************/
+
+/****CONNECT CONTENT****/
 
 
+/********ADMIN PAGE**********
+*****************************/
+
+/***ADMIN HEADER***/
+#admin_page_title
+{
+    margin-right: 25px;
+    text-align: right;
+}
+#logout img
+{
+    width: 40px;
+    height: 40px;
+}
+
+#logout a
+{
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+    color: #ffffff;
+}
 
 
+/****ADMIN CONTENT***/
+.admin_main_container
+{
+    width: 100%;
+    height:auto;
+    margin-top: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3fb6ca;
+    box-shadow: inset -50px 0px 50px -50px rgba(47, 130, 144); 
+}
+
+.admin_main_block
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#316b75 ;
+}
+
+.admin_main_block h4
+{
+    color:white;
+    text-align: left;
+}
+
+table
+{
+    width:90%;
+    margin:30px 0 30px 0;
+}
+
+table,
+td {
+    border: 1px solid #316b75;
+    background-color: white;
+}
+
+th
+{
+    width:20%;
+    color:white;
+    background-color:#3fb6ca; 
+}
+
+thead,tfoot 
+{
+    background-color: #ffffff;
+    color:black;
+}
+
+.admin_main_container .admin_subtitles
+{
+    text-align: center;
+    margin:30px 0 30px 0;
+
+}
+
+.admin_main_container .admin_subtitles h2
+{
+    color: white;
+}
+
+.admin_main_block .tinymce_block
+{
+   width:90%; 
+   margin-bottom: 60px;
+
+}
+/***ADMIN FOOTER****/
