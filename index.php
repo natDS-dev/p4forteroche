@@ -11,6 +11,6 @@
         <?php require ("views/admin_view.php"); ?>
             
         <!--FOOTER-->
-        
+       
     </body>
 </html>

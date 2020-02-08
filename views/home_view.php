@@ -39,7 +39,7 @@
             de mon dernier roman, avec l'espoir que celui-ci vous tienne suffisamment en haleine pour que nous puissions nous retrouver
             ensemble à échanger au bout de la route.</p>
         </div>
-    <section>
+    </section>
 
 <?=$content = ob_get_clean(); ?>
 

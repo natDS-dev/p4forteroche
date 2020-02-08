@@ -25,10 +25,11 @@
 
 
 
-p,a,article,label,button,td,th
+p,a,article,button
 {
     font-family: "secrettypewriter","arial","sans serif";
     font-size: 1em;
+    text-decoration: none;
    
 }
 
@@ -40,7 +41,7 @@ h1
     color:white;
 }
 
-h3,h4,h5,h6,th,td
+h3,h4,h5,h6,label,caption,th,td
 {
     font-family: "rajdhanisembold";
 }
@@ -52,13 +53,13 @@ h2
     font-weight: bold;
 }
 
-h3
+h3,caption
 {
     font-size: 1.5em; 
     font-style: italic;
 }
 
-h4,
+h4
 {
     font-size: 1.2em;
     font-weight: bold;
@@ -126,7 +127,7 @@ header nav ul
     overflow: hidden;
 }
 
-nav ul li a
+header nav ul li a
 {
     display: block;
     color: #422103;
@@ -269,7 +270,7 @@ align-items: center;
     font-size: 0.8em;
     color: white;
     font-weight: bold;
-    text-decoration: none;
+    
    
 }
 
@@ -279,21 +280,20 @@ align-items: center;
 
 form
 {
-    
     background-color: #d0d9da;
     padding: 10px 10px 10px 10px;
 }
 
 .place_form
 {
-    
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     margin: 5px 0 5px 0; 
 }
 
 label
 {
-
+   margin-bottom: 5px; 
 }
 
 input
@@ -305,23 +305,27 @@ input
 
 textarea
 {
-    width: 100%;
+    width: 80%;
     height:auto;
     margin: 5px 0 5px 0; 
 }
 
 .button_form
 {
-    text-align: right;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
 }
 
 form button
 {
-    background-color: #ffffff;
+    background-color:#316b75;
     text-shadow: none;
     box-shadow: none;
     border: none;
     margin-top: 10px;
+    color: white;
+    padding: 4px 4px 4px 4px;
 }
 
 
@@ -348,9 +352,11 @@ form button
 
 }
 
-.content_extracts_chapters p
+.content_extracts_chapters a
 {
-
+    color:white;
+    background-color: #316b75; 
+    padding: 4px 4px 4px 4px;
 }
 
 /*********************CHAPTERS******************************************/
@@ -432,7 +438,6 @@ CONNECT - ADMIN
     align-items: center;
     display: flex;
     justify-content: flex-end;
-    text-decoration: none;
     color: #ffffff;
 }
 
@@ -457,39 +462,80 @@ CONNECT - ADMIN
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:#316b75 ;
+    background-color:#6d6b67 ;
 }
 
-.admin_main_block h4
+/**Admin page menu**/
+.menu_admin
 {
-    color:white;
-    text-align: left;
+    width: 90%;
+}
+
+.menu_admin ul
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style: none;
+}
+
+.menu_admin li
+{
+    width: 100PX;
+    padding: 15px;
+    margin: 5px;
+    background-color: white;
+    border: 3px solid #a7a4a4;
+    text-align: center;
+
+}
+
+.menu_admin li a
+{
+    color:black;
+}
+
+.table a
+{
+    font-family:"rajdhanisembold" ;
+    
 }
 
 table
 {
-    width:90%;
-    margin:30px 0 30px 0;
-}
+    border: 3px solid #a7a4a4;    
+    width: 90%;
+    table-layout: fixed;
+ 
 
-table,
-td {
-    border: 1px solid #316b75;
-    background-color: white;
 }
-
-th
+  
+table caption
 {
-    width:20%;
-    color:white;
-    background-color:#3fb6ca; 
+    color: white;
+    margin: 30px 0 5px 0;
+    text-align: left;
 }
-
-thead,tfoot 
+  
+table tr 
 {
-    background-color: #ffffff;
-    color:black;
+    background-color: #f8f8f8;
+    border: 1px solid #a7a4a4;
 }
+  
+table th,  table td 
+{
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+}
+  
+table th 
+{
+   
+    background-color:#d0d9da ;
+}
+  
 
 .admin_main_container .admin_subtitles
 {
@@ -506,7 +552,83 @@ thead,tfoot
 .admin_main_block .tinymce_block
 {
    width:90%; 
-   margin-bottom: 60px;
+   margin: 60px 0 60px 0;
+   display: flex;
+   flex-direction: column;
+   border: 3px solid #a7a4a4;   
 
 }
-/***ADMIN FOOTER****/
+
+.tinymce_block #tinymce_title
+{
+  
+    margin-bottom: 10px;
+}
+
+.tinymce_block #tinymce_title #input_tinymce_title
+{
+    font-family: "rajdhanisembold";
+    font-size: 1.5em; 
+    font-style: italic;
+}
+
+
+
+/********MEDIA QUERIES*************
+************************************/
+/***Table****/
+@media screen and (max-width: 600px) {
+table 
+{
+   border: 0;
+}
+  
+table caption 
+{
+    font-size: 1.3em;
+}
+    
+table thead
+{
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+    
+table tr 
+{
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+    
+}
+    
+table td 
+{
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+}
+    
+    
+table td::before 
+{   
+      
+    content: attr(data-label);
+    float: left; 
+    text-transform: uppercase;
+}
+    
+    
+table td:last-child 
+{
+    border-bottom: 0;
+}
+
+}

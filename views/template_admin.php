@@ -24,7 +24,7 @@
     
     <body>
         <?php include_once("includes/header_admin.php") ;?>
-        <?= $content ?>
+        <?=$content?>        
         
     </body>
     

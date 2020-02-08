@@ -40,15 +40,14 @@
                     <!--***DYNAMIC TITLE PICTURE AND INFO***-->
                                          <!---COM PERSO : penser "for each"--->
                     <img/>    
-                    <h3>**Variable titre chapitre + numéro chapitre**</h3>
-                    <p>Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte
-                    aléatoire. Il trouve ses racines dans une oeuvre de la littérature latine classique
-                    datant de 45 av. J.-C., le rendant vieux de 2000 ans. Un professeur du Hampden-Sydney
-                    College, en Virginie, s'est intéressé à un des mots latins les plus obscurs, consectetur,
-                    extrait d'un passage du Lorem Ipsum, et en étudiant tous les usages de ce mot dans la
-                    littérature classique
+                    <h3>**BDD Variable titre chapitre + numéro chapitre**</h3>
+                    <p>**BDD Variable contenu chapitre,**BDD Variable contenu chapitre,**BDD Variable contenu chapitre,
+                    **BDD Variable contenu chapitre,**BDD Variable contenu chapitre,**BDD Variable contenu chapitre,
                     </p>                    
                 </article>
+                <p>
+                    <a href="">Retour</a> <!--COM PERSO : LIEN VERS PAGE LISTE EXTRAITS -->
+                </p>             
             </div>
 
             <div class="comments_block">
