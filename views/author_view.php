@@ -3,7 +3,8 @@
 <?= $title = "L'auteur "; ?>
 <?= $picturePage = "public/images/author.png" ; ?>
 
-<?= ob_start(); ?>
+
+<!--?php ob_start(); ? -->
 
     <main class="main_container" id="pages_main_container">
         <!--PAGE MAIN BLOCK-->
@@ -38,6 +39,6 @@
             ont jeté l'encre, à mes pieds.Entre ces verres à pied, pas de vers ni de pied, les mots sont d'air et non d'eau,
             ils n'ont le pied marin, mais des ailes pour voler très haut....</p>
         </div>
-    <section>
+    </section>
 
-<?=$content = ob_get_clean(); ?>
+<!--?php $content = ob_get_clean(); ?-->

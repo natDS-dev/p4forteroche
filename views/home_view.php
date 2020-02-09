@@ -3,7 +3,7 @@
 <?= $title = "Un volume à suivre en ligne..."; ?>
 <?= $picturePage = "public/images/home_typewriter.png" ; ?>
 
-<?= ob_start(); ?>
+<?php ob_start(); ?>
 
     <main class="main_container" id="pages_main_container">
         <!--PAGE MAIN BLOCK-->
@@ -41,5 +41,5 @@
         </div>
     </section>
 
-<?=$content = ob_get_clean(); ?>
+<?php $content = ob_get_clean(); ?>
 

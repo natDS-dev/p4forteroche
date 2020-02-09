@@ -2,12 +2,13 @@
 ------------------->
 
 <?= $title = "Le volume"; ?>
-<?= $picturePage = "public/images/postcards.png" ; ?>
+<?= $picturePage = "public/images/chap.png" ; ?>
                     <!--COM PERSO : variables à prévoir en + : 
                     chapterPicture/ chapterTitle / chapterNumber / authorName / commentName + commentSubject + commentContent -->
 
 
-<?= ob_start(); ?>
+<!--?php ob_start(); ? -->
+
     <main class="main_container" id="pages_main_container">
         <!--PAGE MAIN BLOCK-->
         <section class="mainblock">
@@ -82,4 +83,5 @@
     </section>
 
   
-<?=$content = ob_get_clean(); ?>
+
+<!--?php $content = ob_get_clean(); ?-->

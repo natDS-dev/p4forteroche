@@ -7,9 +7,7 @@
                         <img src="public/images/home2.png" alt="baleine à travers un cercle doré" />
                     </a>
                 </li>
-                <li>
-                    <a href="pages.php">L'Angle</a>
-                </li>
+                
                 <li>
                     <a href="">L'Auteur</a>
                 </li>
@@ -18,6 +16,9 @@
                 </li>
                 <li>
                     <a href="">Le Volume</a>
+                </li>
+                <li>
+                    <a href="">Le lien</a>
                 </li>       
                 <li>
                     <a href="">

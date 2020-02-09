@@ -4,7 +4,8 @@
 <?= $picturePage = "public/images/connect_admin.png"  ?>
 
 
-<?= ob_start(); ?>
+
+<!--?php ob_start(); ? -->
     <main class="main_container" id="pages_main_container">
         <!--PAGE MAIN BLOCK-->
         <section class="mainblock">
@@ -53,5 +54,6 @@
        
     </section>
 
-<?=$content = ob_get_clean(); ?>
+
+<!--?php $content = ob_get_clean(); ?-->
 

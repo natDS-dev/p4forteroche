@@ -446,7 +446,7 @@ CONNECT - ADMIN
 .admin_main_container
 {
     width: 100%;
-    height:auto;
+    min-height: 100vh;
     margin-top: 160px;
     display: flex;
     flex-direction: column;
@@ -496,6 +496,17 @@ CONNECT - ADMIN
     color:black;
 }
 
+/****************/
+
+/***General admin action blocks : chapters & comments**/
+.admin_action_block
+{
+    display: flex;
+    justify-content: center;
+    
+}
+
+ 
 .table a
 {
     font-family:"rajdhanisembold" ;
@@ -506,6 +517,7 @@ table
 {
     border: 3px solid #a7a4a4;    
     width: 90%;
+    margin-bottom: 30px;
     table-layout: fixed;
  
 
