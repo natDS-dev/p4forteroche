@@ -2,9 +2,7 @@
 ------------------->
 
 <?= $title = "Erreur page"; ?>
-<?= $picturePage = "public/images/black_ink.png" ; ?>
-                    <!--COM PERSO : variables à prévoir en + : 
-                    chapterPicture/ chapterTitle / chapterNumber / authorName / commentName + commentSubject + commentContent -->
+
 
 
 <!--?php ob_start(); ? -->
@@ -13,7 +11,7 @@
         <!--PAGE MAIN BLOCK-->
         <section class="mainblock">
             <!--Dynamic picture => picture page -->  
-            <img class="main_picture" id="dynamic_main_picture" src=<?= $picturePage ?> alt="profil d'homme dessiné" />
+            <img class="main_picture" id="dynamic_main_picture" src="public/images/black_ink.png" alt="profil d'homme dessiné" />
             <!--WEBSITE MAIN SUBTITLES -->
             <div class="main_subtitles">
                 <h2 class="book_title" id="alaska_book">"Oups...il y a un problème ! Encrier renversé"</h2>

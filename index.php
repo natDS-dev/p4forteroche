@@ -4,15 +4,15 @@
     <?php require  ("views/includes/head.php"); ?>
     <body>
         <!--HEADER-->
-        <?php require  ("views/includes/header.php"); ?>
+        <?php require  ("views/includes/header_admin.php"); ?>
         
         <!--MAIN CONTAINER -->
         
-        <?php require ("views/contact_view.php"); ?>
+        <?php require ("views/admin_view.php"); ?>
         
             
         <!--FOOTER-->
-        <?php require ("views/includes/footer.php"); ?>
+        
        
     </body>
 </html>

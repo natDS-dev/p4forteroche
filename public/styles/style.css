@@ -4,21 +4,21 @@
 /****FONTS*****/
 @font-face{
     font-family: "secrettypewriter";
-    src: url("fonts/text/web fonts/secrettypewriter_regular_macroman/veteran_typewriter-webfont.woff");
+    src: url("fonts/text/web_fonts/secrettypewriter_regular_macroman/veteran_typewriter-webfont.woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face{
     font-family: "rajdhanisembold";
-    src: url("fonts/main title/web fonts/rajdhani_semibold_macroman/rajdhani-semibold-webfont.woff");
+    src: url("fonts/main_title/web_fonts/rajdhani_semibold_macroman/rajdhani-semibold-webfont.woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face{
     font-family: "rajdhanibold";
-    src: url("fonts/main title/web fonts/rajdhani_bold_macroman/rajdhani-bold-webfont.woff");
+    src: url("fonts/main_title/web_fonts/rajdhani_bold_macroman/rajdhani-bold-webfont.woff");
     font-weight: normal;
     font-style: normal;
 }
@@ -234,7 +234,7 @@ section .main_subtitles #alaska_book
 .content_block hgroup
 {
     width: 70%;
-    margin-top: 10px;
+    margin: 10px 0 40px 0;
 }
 
 .content_block .content_text
@@ -334,29 +334,66 @@ form button
 *********************************************************************************/
 .content_extracts_chapters
 {
-
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
 }
 
 .content_extracts_chapters article
 {
-
+    margin-bottom: 100px;
+    background-color: #ffffff;
+    border-bottom: 10px solid rgba(49, 107, 117, 0.08);
 }
 
 .content_extracts_chapters img
 {
-
+    width: 150px;
+    height: 150px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 60px; 
+    box-shadow: -5px 5px 15px rgba(128, 128, 128, 0.48);
+    border-radius: 100px;
+    border: 5px solid #e89f0a7d;
 }
+
+
 
 .content_extracts_chapters h3
 {
-
+    text-align: center;
+    color: #3fb6ca;
+    border-bottom: 2px solid;
+    margin: 20px;
 }
+
+.content_extracts_chapters .date_chapter
+{
+    margin-left: 15px;
+    font-style: italic;
+}
+
+.content_extracts_chapters .text_chapter
+{
+    text-align: justify; 
+    margin: 0 15px 5px 15px;
+}
+
 
 .content_extracts_chapters a
 {
-    color:white;
-    background-color: #316b75; 
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: #316b75;
     padding: 4px 4px 4px 4px;
+    margin: 15px 15px 50px auto;   
+    
+    
 }
 
 /*********************CHAPTERS******************************************/

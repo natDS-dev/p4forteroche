@@ -3,32 +3,32 @@
         <nav class="main_menu" id="bloc_main_menu"> 
             <ul> 
                 <li>
-                    <a href="home.php">
-                        <img src="public/images/home2.png" alt="baleine à travers un cercle doré" />
+                    <a href="<?= "../views/home_view.php" ?>">
+                        <img src="../public/images/home2.png" alt="baleine à travers un cercle doré" />
                     </a>
                 </li>
                 
                 <li>
-                    <a href="">L'Auteur</a>
+                    <a href="<?= "../views/author_view.php" ?>">L'Auteur</a>
                 </li>
                 <li>
-                    <a href="">Les Segments</a>
+                    <a href="<?= "../views/extracts_view.php" ?>">Les Segments</a>
                 </li>
                 <li>
-                    <a href="">Le Volume</a>
+                    <a href="<?= "../views/chapters_view.php" ?>">Le Volume</a>
                 </li>
                 <li>
-                    <a href="">Le lien</a>
+                    <a href="<?= "../views/contact_view.php" ?>">Le lien</a>
                 </li>       
                 <li>
-                    <a href="">
-                        <img src="public/images/connexion2.png" alt="cadenas doré" />
+                    <a href="<?= "../views/connect_view.php" ?>">
+                        <img src="../public/images/connexion2.png" alt="cadenas doré" />
                     </a>
                 </li>
             </ul>
         </nav>
 
-        <img id="background_mainmenu" src="public/images/ticket_menu1.png" alt="papier étiquette"/>
+        <img id="background_mainmenu" src="../public/images/ticket_menu1.png" alt="papier étiquette"/>
     </div>
 
     <!--PAGE MAIN TITLES-->
