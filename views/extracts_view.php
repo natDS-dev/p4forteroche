@@ -3,7 +3,8 @@
 <?= $title = "Les segments"; ?>
 
                 <!--COM PERSO : variables à réutiliser même que chapters:  chapterTitle / chapterNumber / chapterPicture --->
-<?php require ("../models/manager.php"); ?>
+<?php require("../models/front/manager.php"); ?>
+<?php require("../models/front/posts_manager.php"); ?>
 
 <?php ob_start(); ?>
 
@@ -36,18 +37,17 @@
         <div class="content_text">
             <div class="content_extracts_chapters">
                 <?php                     
-                    $req = $db->query("SELECT * FROM chapters ORDER BY number_chapter");
-                    $extracts = $req->fetchAll();
-                    foreach ($extracts as $extract) : 
+                   
+                    foreach ($allPosts as $allPost) : 
                 ?>
 
                 <article> 
-                    <img  src=" <?= ($extract['picture_chapter']) ?> "/>    
-                    <h3><?= htmlspecialchars($extract['number_chapter']) ?>. <?= htmlspecialchars($extract['title_chapter']) ; ?></h3>
-                    <p class="date_chapter"><?=  nl2br(htmlspecialchars($extract['date_chapter'])); ?></p>
+                    <img  src=" <?= ($allPost['picture_chapter']) ?> "/>    
+                    <h3><?= htmlspecialchars($allPost['number_chapter']) ?>. <?= htmlspecialchars($allPost['title_chapter']) ; ?></h3>
+                    <p class="date_chapter"><?=  nl2br(htmlspecialchars($allPost['date_chapter'])); ?></p>
                     <p class="text_chapter">
-                        <?php if(strlen($extract['content_chapter']) > 100) {$extract['content_chapter'] = substr($extract['content_chapter'], 0, 70); } ?>
-                        <?= htmlspecialchars($extract['content_chapter']);?>...</p>
+                        <?php if(strlen($allPost['content_chapter']) > 30) {$allPost['content_chapter'] = substr($allPost['content_chapter'], 0, 70); } ?>
+                        <?= htmlspecialchars($allPost['content_chapter']);?>...</p>
                     <p>
                         <a href="">Lire la suite</a>
                     </p>
@@ -55,7 +55,7 @@
 
                 <?php
                     endforeach;
-                    $req->closeCursor();
+                   
                 ?>
             </div>
         </div>

@@ -1,6 +1,8 @@
 <?php
 //CONNECT TO DATABASE (db)
 
+function dbConnect()
+{
 
   try
   { 
@@ -12,9 +14,9 @@
     die('Erreur : ' . $e->getMessage());
     require ('../views/error_view.php');
   }
+  
 
-
-
+}
 //POO class Manager
 // méthodes : 
 

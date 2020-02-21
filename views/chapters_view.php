@@ -5,7 +5,7 @@
 
                     <!--COM PERSO : variables à prévoir en + : 
                     chapterPicture/ chapterTitle / chapterNumber / authorName / commentName + commentSubject + commentContent -->
-<?php require ("../models/manager.php"); ?>
+<?php require ("../models/front/manager.php"); ?>
 
 <?php ob_start(); ?>
 
