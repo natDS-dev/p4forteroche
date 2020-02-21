@@ -1,7 +1,7 @@
 <?php
-require ('../models/front/posts_manager.php');
-require ('../models/front/comments_manager.php');
-require ('../models/front/manager.php');
+require ('models/front/posts_manager.php');
+require ('models/front/comments_manager.php');
+//require ('./models/front/manager.php');
 
 // Get all posts datas from posts_manager.php and show all posts(chapters) in extract page (limited words) 
 function showListPosts()
@@ -9,7 +9,7 @@ function showListPosts()
     $allPosts=getAllPosts();
    
 
-    require ('../views/extracts_view.php');
+    require ('views/extracts_view.php');
 
 
 
@@ -20,7 +20,7 @@ function showOnePost()
 {
     $onePost=getOnePost($_GET['id']);
     $comments=getComments($_GET['id']);
-    require ('../views/chapters_view.php');
+    require ('views/chapters_view.php');
     
 }
 
@@ -29,7 +29,7 @@ function showOnePost()
 function showError()
 { 
 
-    require_once ('../views/error_view.php');
+    require_once ('views/error_view.php');
     
 }
 
@@ -37,5 +37,5 @@ function showError()
 
 function defaultPage()
 {
-    require_once ('../views/home_view.php');
+    require_once ('views/home_view.php');
 }

@@ -2,7 +2,8 @@
 
    //Front
 
-    
+    //REQUIRE manager.php TO CONNECT TO DATABASE (db)
+    require_once ("models/front/manager.php");
     //req from db (select) : require all post's associated comments from db by id  
     function getComments($idpost)
     {

@@ -5,7 +5,7 @@
 
                     <!--COM PERSO : variables à prévoir en + : 
                     chapterPicture/ chapterTitle / chapterNumber / authorName / commentName + commentSubject + commentContent -->
-<?php require ("../models/front/manager.php"); ?>
+
 
 <?php ob_start(); ?>
 
@@ -13,15 +13,15 @@
         <!--PAGE MAIN BLOCK-->
         <section class="mainblock">
             <!--Dynamic picture => picture page -->  
-            <img class="main_picture" id="dynamic_main_picture" src="../public/images/chap.png" alt="profil d'homme dessiné" />
+            <img class="main_picture" id="dynamic_main_picture" src="public/images/chap.png" alt="profil d'homme dessiné" />
             <!--WEBSITE MAIN SUBTITLES -->
             <div class="main_subtitles">
                 <h2 class="book_title" id="alaska_book">"Billet simple pour l'Alaska"</h2>
-                <img class="goldpaint_separator" id="goldpaint_separator1" src="../public/images/goldpaint_separator.png" alt="trace peinture or" />
+                <img class="goldpaint_separator" id="goldpaint_separator1" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
                 <!--Dynamic title => page title-->
                 <h3 class="dynamic_title" ><?= $title ?> </h3>
                 <a class="anchor" id="anchor_to_bottom" href="#goldpaint_separator2">
-                    <img class="arrow" id="arrow_bottom" src="../public/images/paper_arrow1.png">
+                    <img class="arrow" id="arrow_bottom" src="public/images/paper_arrow1.png">
                 </a>        
             </div>    
         </section>
@@ -31,23 +31,22 @@
     <section class="content_block">        
         <hgroup class="content_titles">
             <h2 class="page_title">Découverte par chapitre</h2>
-            <img class="goldpaint_separator" id="goldpaint_separator2" src="../public/images/goldpaint_separator.png" alt="trace peinture or" />
+            <img class="goldpaint_separator" id="goldpaint_separator2" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
             <h3 class="page_info">Bonne lecture !</h3>
         </hgroup> 
                         
         <div class="content_text">
             <div class="content_extracts_chapters">
                 <?php                     
-                    $req = $db->query("SELECT * FROM chapters ORDER BY number_chapter");
-                    $chapters = $req->fetchAll();
-                    foreach ($chapters as $chapter) : 
+                    
+                    foreach ($allposts as $allpost) : 
                 ?>
 
                 <article>
-                    <img  src=" <?= ($chapter['picture_chapter']) ?> "/>    
-                    <h3><?= htmlspecialchars($chapter['number_chapter']) ?>. <?= htmlspecialchars($chapter['title_chapter']) ; ?></h3>
-                    <p class="date_chapter"><?=  nl2br(htmlspecialchars($chapter['date_chapter'])); ?></p>
-                    <p class="text_chapter"><?=  nl2br(htmlspecialchars($chapter['content_chapter'])) ?></p>
+                    <img  src=" <?= ($$allPost['picture_$allPost']) ?> "/>    
+                    <h3><?= htmlspecialchars($$allPost['number_chapter']) ?>. <?= htmlspecialchars($allPost['title_chapter']) ; ?></h3>
+                    <p class="date_chapter"><?=  nl2br(htmlspecialchars($allPost['date_chapter'])); ?></p>
+                    <p class="text_chapter"><?=  nl2br(htmlspecialchars($allPost['content_chapter'])) ?></p>
                     <p>
                         <a href="">Retour</a>
                     </p>   
@@ -55,7 +54,7 @@
 
                 <?php
                     endforeach;
-                    $req->closeCursor();
+                    
                 ?>
                 
             </div>

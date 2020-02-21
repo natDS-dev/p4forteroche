@@ -1,7 +1,7 @@
 <?php
 
 //REQUIRE manager.php TO CONNECT TO DATABASE (db)
-require_once ("../models/front/manager.php");
+require_once ("models/front/manager.php");
 
 //GET ALL CHAPTERS FROM DATABASE TO HAVE EXTRACTS
 

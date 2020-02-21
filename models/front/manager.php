@@ -7,15 +7,16 @@ function dbConnect()
   try
   { 
     $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
+   
   }
   //MANAGE ERRORS
   catch (Exception $e)
   {
     die('Erreur : ' . $e->getMessage());
-    require ('../views/error_view.php');
+    require ('views/error_view.php');
   }
   
-
+  return $db;
 }
 //POO class Manager
 // méthodes : 

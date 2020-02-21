@@ -2,7 +2,7 @@
 
 //Ask the right controllers
 require ('controllers/front_controller.php');
-require ('controllers/back_controller.php');
+//require ('controllers/back_controller.php');
 
 
 //Test param "action" and ask the right controller
@@ -12,7 +12,7 @@ if (isset($_GET['action'])) {
         showListPosts();
     }
 
-    elseif ($_GET['action'] == 'showOnepost') {
+    elseif ($_GET['action'] == 'showOnePost') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             showOnepost();
         }

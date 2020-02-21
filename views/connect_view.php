@@ -30,7 +30,7 @@
         <!--***DYNAMIC TITLE AND INFO***-->
         <hgroup class="content_titles">
             <h2 class="page_title">Connexion à l'espace administrateur</h2>
-            <img class="goldpaint_separator" id="goldpaint_separator2" src="../public/images/goldpaint_separator.png" alt="trace peinture or" />
+            <img class="goldpaint_separator" id="goldpaint_separator2" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
             <h3 class="page_info">Veuillez vous connecter </h3>
         </hgroup> 
                         
