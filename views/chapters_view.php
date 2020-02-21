@@ -39,11 +39,11 @@
             <div class="content_extracts_chapters">
                 <?php                     
                     
-                    foreach ($allposts as $allpost) : 
+                    foreach ($allPosts as $allPost) : 
                 ?>
 
                 <article>
-                    <img  src=" <?= ($$allPost['picture_$allPost']) ?> "/>    
+                    <img  src=" <?= ($$allPost['picture_chapter']) ?> "/>    
                     <h3><?= htmlspecialchars($$allPost['number_chapter']) ?>. <?= htmlspecialchars($allPost['title_chapter']) ; ?></h3>
                     <p class="date_chapter"><?=  nl2br(htmlspecialchars($allPost['date_chapter'])); ?></p>
                     <p class="text_chapter"><?=  nl2br(htmlspecialchars($allPost['content_chapter'])) ?></p>

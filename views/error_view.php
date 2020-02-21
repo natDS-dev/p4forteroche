@@ -5,7 +5,7 @@
 
 
 
-<!--?php ob_start(); ? -->
+<?php ob_start(); ?>
 
     <main class="main_container" id="pages_main_container">
         <!--PAGE MAIN BLOCK-->
@@ -25,4 +25,5 @@
 
   
 
-<!--?php $content = ob_get_clean(); ?-->
+<?php $content = ob_get_clean(); ?>
+<?php require_once("main_template.php"); ?>
