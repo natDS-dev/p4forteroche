@@ -21,11 +21,11 @@ require_once ("models/front/manager.php");
 
     //req to db(select) - gets the corresponding post/chapter by clicking on an extract
     //requête à la db - obtenir le bon chapitre en cliquant sur un extrait  
-    function getOnePost($idPost)
+    function getOnePost($chapterId)
     {
         $db=dbConnect();
         $req = $db->prepare('SELECT * FROM chapters WHERE id = ?');
-        $req->execute(array($idPost));
+        $req->execute(array($chapterId));
         $onePost = $req->fetch();
 
        

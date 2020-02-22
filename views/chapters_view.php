@@ -37,25 +37,18 @@
                         
         <div class="content_text">
             <div class="content_extracts_chapters">
-                <?php                     
-                    
-                    foreach ($allPosts as $allPost) : 
-                ?>
-
+               
                 <article>
-                    <img  src=" <?= ($$allPost['picture_chapter']) ?> "/>    
-                    <h3><?= htmlspecialchars($$allPost['number_chapter']) ?>. <?= htmlspecialchars($allPost['title_chapter']) ; ?></h3>
-                    <p class="date_chapter"><?=  nl2br(htmlspecialchars($allPost['date_chapter'])); ?></p>
-                    <p class="text_chapter"><?=  nl2br(htmlspecialchars($allPost['content_chapter'])) ?></p>
+                    <img  src=" <?= ($onePost['picture_chapter']) ?> "/>    
+                    <h3><?= htmlspecialchars($onePost['number_chapter']) ?>. <?= htmlspecialchars($onePost['title_chapter']) ; ?></h3>
+                    <p class="date_chapter"><?=  nl2br(htmlspecialchars($onePost['date_chapter'])); ?></p>
+                    <p class="text_chapter"><?=  nl2br(htmlspecialchars($onePost['content_chapter'])) ?></p>
                     <p>
                         <a href="">Retour</a>
                     </p>   
                 </article>
 
-                <?php
-                    endforeach;
-                    
-                ?>
+                
                 
             </div>
 
