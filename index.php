@@ -8,18 +8,27 @@ require ('controllers/front_controller.php');
 //Test param "action" and ask the right controller
 if (isset($_GET['action'])) {
 
+    if ($_GET['action'] == 'showHome'){
+         showHome();
+        }
+    if ($_GET['action'] == 'showAuthor')  {
+        showAuthor();
+    }  
+
     if ($_GET['action'] == 'showListPosts') {
         showListPosts();
-    }
-
-    elseif ($_GET['action'] == 'showOnePost') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            showOnepost();
+    } elseif ($_GET['action'] == 'showOnePost') {
+        $chapterId = $_GET['id'];
+        if (isset($_GET['id']) && $_GET['id'] > 0) {            
+            showOnepost($chapterId);
         }
         //Show error page
         else {
             showError();
         }
+    }
+    else{
+        showError();
     }
 }
 //Show extracts page

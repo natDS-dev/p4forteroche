@@ -48,7 +48,7 @@
                         <?php if(strlen($allPost['content_chapter']) > 30) {$allPost['content_chapter'] = substr($allPost['content_chapter'], 0, 70); } ?>
                         <?= htmlspecialchars($allPost['content_chapter']);?>...</p>
                     <p>
-                        <a href="">Lire la suite</a>
+                        <a href="index.php?action=showOnePost&id=<?= $allPost['id'] ?>">Lire la suite</a>
                     </p>
                 </article>
 

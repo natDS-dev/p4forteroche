@@ -44,7 +44,7 @@
                     <p class="date_chapter"><?=  nl2br(htmlspecialchars($onePost['date_chapter'])); ?></p>
                     <p class="text_chapter"><?=  nl2br(htmlspecialchars($onePost['content_chapter'])) ?></p>
                     <p>
-                        <a href="">Retour</a>
+                        <a href="index.php?action=showListPosts">Retour</a>
                     </p>   
                 </article>
 

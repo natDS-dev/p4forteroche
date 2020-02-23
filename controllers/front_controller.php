@@ -1,20 +1,33 @@
 <?php
 require ('models/front/posts_manager.php');
 require ('models/front/comments_manager.php');
-//require ('./models/front/manager.php');
 
+//STATIC PAGES
+
+//HOME PAGE whale picture (static)
+function showHome()
+{
+    require ('views/home_view.php');
+}
+
+//AUTHOR PAGE "l'auteur" (static)
+function showAuthor()
+{
+    require ('views/author_view.php');
+}
+
+
+//DYNAMIC PAGES
+
+//EXTRACT PAGE "segments"
 // Get all posts datas from posts_manager.php and show all posts(chapters) in extract page (limited words) 
 function showListPosts()
 {
     $allPosts=getAllPosts();
-   
-
     require ('views/extracts_view.php');
-
-
-
 }
 
+//CHAPTER PAGE "volume"
 // Get one post data + comments datas from posts_manager.php and show only the post(chapter) asked by the user with the linked comments  
 function showOnePost()
 {
@@ -25,7 +38,7 @@ function showOnePost()
 }
 
 
-//IF PAGE ERROR
+//ERROR PAGE
 function showError()
 { 
 
@@ -39,3 +52,4 @@ function defaultPage()
 {
     require_once ('views/home_view.php');
 }
+

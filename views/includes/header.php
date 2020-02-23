@@ -3,19 +3,19 @@
         <nav class="main_menu" id="bloc_main_menu"> 
             <ul> 
                 <li>
-                    <a href="<?= "views/home_view.php" ?>">
+                    <a href="index.php?action=showHome">
                         <img src="public/images/home2.png" alt="baleine à travers un cercle doré" />
                     </a>
                 </li>
                 
                 <li>
-                    <a href="<?= "views/author_view.php" ?>">L'Auteur</a>
+                    <a href="index.php?action=showAuthor">L'Auteur</a>
                 </li>
                 <li>
-                    <a href="<?= "views/extracts_view.php" ?>">Les Segments</a>
+                    <a href="index.php?action=showListPosts">Les Segments</a>
                 </li>
                 <li>
-                    <a href="<?= "views/chapters_view.php" ?>">Le Volume</a>
+                    <a href="index.php?action=showOnePost&id=1">Le Volume</a>
                 </li>
                 <li>
                     <a href="<?= "views/contact_view.php" ?>">Le lien</a>

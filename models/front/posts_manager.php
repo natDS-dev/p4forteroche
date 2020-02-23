@@ -27,7 +27,7 @@ require_once ("models/front/manager.php");
         $req = $db->prepare('SELECT * FROM chapters WHERE id = ?');
         $req->execute(array($chapterId));
         $onePost = $req->fetch();
-
+        $req->closeCursor();
        
 
         return $onePost;
