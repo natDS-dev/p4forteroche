@@ -43,7 +43,7 @@
                 <article> 
                     <img  src=" <?= ($allPost['picture_chapter']) ?> "/>    
                     <h3><?= htmlspecialchars($allPost['number_chapter']) ?>. <?= htmlspecialchars($allPost['title_chapter']) ; ?></h3>
-                    <p class="date_chapter"><?=  nl2br(htmlspecialchars($allPost['date_chapter'])); ?></p>
+                    <p class="date_chapter">Posté le : <?=  nl2br(htmlspecialchars($allPost['date_chapter_fr'])); ?></p>
                     <p class="text_chapter">
                         <?php if(strlen($allPost['content_chapter']) > 30) {$allPost['content_chapter'] = substr($allPost['content_chapter'], 0, 70); } ?>
                         <?= htmlspecialchars($allPost['content_chapter']);?>...</p>

@@ -41,7 +41,7 @@
                 <article>
                     <img  src=" <?= ($onePost['picture_chapter']) ?> "/>    
                     <h3><?= htmlspecialchars($onePost['number_chapter']) ?>. <?= htmlspecialchars($onePost['title_chapter']) ; ?></h3>
-                    <p class="date_chapter"><?=  nl2br(htmlspecialchars($onePost['date_chapter'])); ?></p>
+                    <p class="date_chapter">Posté le : <?=  nl2br(htmlspecialchars($onePost['date_chapter_fr'])); ?></p>
                     <p class="text_chapter"><?=  nl2br(htmlspecialchars($onePost['content_chapter'])) ?></p>
                     <p>
                         <a href="index.php?action=showListPosts">Retour</a>
@@ -75,13 +75,22 @@
 
                 <div class="posted_comments">
                     <h3>Les derniers messages</h3>
-                    <h4 id="posted_pseudo">Récupération pseudo BDD  </h4>
-                    <h4 id="posted_date">Récupération date</h4> 
-                    <h5 id="posted_subject">Récupération sujet message BDD</h5>
-                    <p id="posted_message">Récupération message BDD</p>
+                    <?php                     
+                   
+                   foreach ($comments as $comment) : 
+                    ?>
+
+                    <h4 id="posted_pseudo"><?= htmlspecialchars($comment['author_comment']) ?> </h4>
+                    <h4 id="posted_date"><?=  nl2br(htmlspecialchars($comment['date_comment_fr'])); ?></h4> 
+                    <h5 id="posted_subject"></h5>
+                    <p id="posted_message"> <?= htmlspecialchars($comment['content_comment']);?></p>
                     <div class="button_form">
                         <button type="submit">Signaler</button>
                     </div>
+
+                    <?php
+                    endforeach;                   
+                    ?>
                 </div>
                
 

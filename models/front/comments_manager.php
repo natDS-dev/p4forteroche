@@ -8,7 +8,8 @@
     function getComments($chapterId)
     {
         $db=dbConnect();
-        $comments = $db->prepare('SELECT * FROM comments ORDER BY date_comment DESC');
+        $comments = $db->prepare('SELECT id,title_comment,author_comment,content_comment,chapters_id,DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\')
+        AS date_comment_fr FROM comments  WHERE chapters_id = ? ORDER BY date_comment_fr DESC');
         $comments->execute(array($chapterId));
     
 
