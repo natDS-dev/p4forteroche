@@ -12,7 +12,7 @@ require_once ("models/front/manager.php");
     function getAllPosts()
     {
         $db = dbConnect();
-        $req = $db->query('SELECT id, number_chapter,title_chapter,content_chapter,picture_chapter,DATE_FORMAT(date_chapter, \'%d/%m/%Y à %Hh%imin%ss\') AS date_chapter_fr FROM chapters ORDER BY number_chapter ');
+        $req = $db->query('SELECT id,number_chapter,title_chapter,content_chapter,picture_chapter,DATE_FORMAT(date_chapter, \'%d/%m/%Y à %Hh%imin%ss\') AS date_chapter_fr FROM chapters ORDER BY number_chapter ');
         $allPosts = $req->fetchAll();
         $req->closeCursor();
          
@@ -24,7 +24,7 @@ require_once ("models/front/manager.php");
     function getOnePost($chapterId)
     {
         $db=dbConnect();
-        $req = $db->prepare('SELECT number_chapter,title_chapter,content_chapter,picture_chapter,DATE_FORMAT(date_chapter, \'%d/%m/%Y à %Hh%imin%ss\') AS date_chapter_fr  FROM chapters WHERE id = ?');
+        $req = $db->prepare('SELECT id,number_chapter,title_chapter,content_chapter,picture_chapter,DATE_FORMAT(date_chapter, \'%d/%m/%Y à %Hh%imin%ss\') AS date_chapter_fr  FROM chapters WHERE id = ?');
         $req->execute(array($chapterId));
         $onePost = $req->fetch();
         $req->closeCursor();

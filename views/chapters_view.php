@@ -52,50 +52,50 @@
                 
             </div>
 
-            <div class="comments_block">
-                <form id="comments_form" action="" method="post"> <!--COM PERSO : remplir action -->
+            <section class="comments_block">
+                <form id="comments_form" action="index.php?action=showComment&id=<?= $onePost['id'] ?>" method="post"> <!--COM PERSO : remplir action -->
                     <h3>A vous de prendre votre plume !</h3>
-                                        
+                                    
                     <div class="place_form">
-                        <label for="pseudo">Pseudo :</label>
-                        <input type="text" id="pseudo" name="user_pseudo">
+                        <label for="comment_pseudo">Pseudo : </label>
+                        <input type="text" id="pseudo" name="comment_pseudo">
                     </div>
                     <div class="place_form">
-                        <label for="subject">Sujet :</label>
-                        <input type="text" id="subject" name="user_subject">
+                        <label for="comment_subject">Sujet :</label>
+                        <input type="text" id="subject" name="comment_subject">
                     </div>
                     <div class="place_form" >
-                        <label for="comment">Message :</label>
-                        <textarea id="comment" name="user_comment"></textarea>
+                        <label for="comment_content">Message : </label>
+                        <textarea id="comment" name="comment_content"></textarea>
                     </div>
                     <div class="button_form">
                         <button type="submit">Envoyer</button>
                     </div>
                 </form>
-
-                <div class="posted_comments">
-                    <h3>Les derniers messages</h3>
-                    <?php                     
-                   
-                   foreach ($comments as $comment) : 
-                    ?>
-
-                    <h4 id="posted_pseudo"><?= htmlspecialchars($comment['author_comment']) ?> </h4>
-                    <h4 id="posted_date"><?=  nl2br(htmlspecialchars($comment['date_comment_fr'])); ?></h4> 
-                    <h5 id="posted_subject"></h5>
-                    <p id="posted_message"> <?= htmlspecialchars($comment['content_comment']);?></p>
-                    <div class="button_form">
-                        <button type="submit">Signaler</button>
-                    </div>
-
-                    <?php
-                    endforeach;                   
-                    ?>
-                </div>
-               
-
                 
-            </div>
+                <section class="all_posted_comments">
+                    <h3>Les derniers messages</h3>
+                    <?php   
+                    foreach ($comments as $comment) : 
+                    ?>
+                    <section class="posted_comments">             
+                    
+
+                        <h4 id="posted_pseudo">Posté par : <?= htmlspecialchars($comment['author_comment']) ?><br/>  le <?=  nl2br(htmlspecialchars($comment['date_comment_fr'])); ?> </h4>
+                        
+                        <h5 id="posted_subject"><?= htmlspecialchars($comment['title_comment']) ?></h5>
+                        <p id="posted_message"> <?= htmlspecialchars($comment['content_comment']);?></p>
+                        <div class="button_form">
+                            <button type="submit">Signaler</button>
+                        </div>                   
+                    </section>
+                    <?php
+                        endforeach;                   
+                    ?>
+                </section>
+
+                    
+            </section>
         </div>
     </section>
 

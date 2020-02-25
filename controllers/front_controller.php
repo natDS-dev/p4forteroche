@@ -27,7 +27,7 @@ function showListPosts()
     require ('views/extracts_view.php');
 }
 
-//CHAPTER PAGE "volume"
+//********************************POST/CHAPTER PAGE "volume"*************************
 // Get one post data + comments datas from posts_manager.php and show only the post(chapter) asked by the user with the linked comments  
 function showOnePost()
 {
@@ -35,6 +35,19 @@ function showOnePost()
     $comments=getComments($_GET['id']);
     require ('views/chapters_view.php');
     
+}
+
+//Comment form =>test request return + add comment to bdd
+function addComment($chapterId,$commentAuthor,$commentSubject,$commentContent)
+{
+    $commentLines = postComment($chapterId,$commentAuthor,$commentSubject,$commentContent);
+    //test request return    
+    if ($commentLines === false) {
+        die('Oups, votre commentaire n\'a pas pu être ajouté');
+    }
+    else {
+        header('Location: index.php?action=showOnePost&id=' . $chapterId);
+    }
 }
 
 
