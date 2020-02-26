@@ -9,16 +9,16 @@
                 </li>
                 
                 <li>
-                    <a href="index.php?action=showAuthor">L'Auteur</a>
+                    <a href="index.php?action=showAuthor#goldpaint_separator2">L'Auteur</a>
                 </li>
                 <li>
-                    <a href="index.php?action=showListPosts">Les Segments</a>
+                    <a href="index.php?action=showListPosts#goldpaint_separator2">Les Segments</a>
                 </li>
                 <li>
-                    <a href="index.php?action=showOnePost&id=1">Le Volume</a>
+                    <a href="index.php?action=showOnePost&id=1#goldpaint_separator2">Le Volume</a>
                 </li>
                 <li>
-                    <a href="index.php?action=showContact">Le lien</a>
+                    <a href="index.php?action=showContact#goldpaint_separator2">Le lien</a>
                 </li>       
                 <li>
                     <a href="<?= "views/connect_view.php" ?>">
