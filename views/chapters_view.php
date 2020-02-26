@@ -58,15 +58,15 @@
                                     
                     <div class="place_form">
                         <label for="comment_pseudo">Pseudo : </label>
-                        <input type="text" id="pseudo" name="comment_pseudo">
+                        <input type="text" id="pseudo" name="comment_pseudo" required>
                     </div>
                     <div class="place_form">
                         <label for="comment_subject">Sujet :</label>
-                        <input type="text" id="subject" name="comment_subject">
+                        <input type="text" id="subject" name="comment_subject" required>
                     </div>
                     <div class="place_form" >
                         <label for="comment_content">Message : </label>
-                        <textarea id="comment" name="comment_content"></textarea>
+                        <textarea id="comment" name="comment_content" required></textarea>
                     </div>
                     <div class="button_form">
                         <button type="submit">Envoyer</button>

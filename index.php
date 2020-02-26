@@ -16,15 +16,28 @@ if (isset($_GET['action'])) {
         showAuthor();
     }  
 
+    if ($_GET['action'] == 'showContact')  {
+        showContact(); 
+    }  
+    
+
+
+
     if ($_GET['action'] == 'showListPosts') {
         showListPosts();
-    } 
+
+    }
+
     
     elseif ($_GET['action'] == 'showOnePost') {
-        $chapterId = $_GET['id'];
-        if (isset($_GET['id']) && $_GET['id'] > 0) {            
+        $chapterId = $_GET['id']; 
+        if (isset($_GET['id']) && $_GET['id'] > 0 ) {
+              
+                           
             showOnepost($chapterId);
-        }
+            
+        } 
+
         //Show error page
         else {
             showError();
@@ -38,7 +51,7 @@ if (isset($_GET['action'])) {
                 addComment($_GET['id'], $_POST['comment_pseudo'], $_POST['comment_subject'],$_POST['comment_content']);
             }
             else {
-                echo 'Erreur : les champs ne sont pas tous complétés';
+                echo 'Erreur : les champs ne sont pas tous complétés'; //gérer vue
             }
         }
         else {
@@ -46,13 +59,13 @@ if (isset($_GET['action'])) {
         }
     }
 
-
-
-
-
-    else{
+    else {
         showError();
     }
+
+
+
+    
 }
 //Show extracts page
 else{

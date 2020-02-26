@@ -162,8 +162,7 @@ header #background_mainmenu
 main
 {
     width: 100%;
-    margin: 0;
-    margin-top: 20PX;
+    margin: 0;    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -243,9 +242,9 @@ section .main_subtitles #alaska_book
     width: 70%;
 }
 
-/****************FOOTER MAIN*******************************
-FOR PAGES : HOME - EXTRACTS - CHAPTERS - CONNECT - CONTACT 
-***********************************************************/
+/****************FOOTER MAIN**************************************
+FOR PAGES : HOME - EXTRACTS - CHAPTERS - CONNECT - CONTACT - ERROR
+******************************************************************/
 footer
 {
    
@@ -451,8 +450,9 @@ form button
 
 
 /*********************************SPECIAL PAGES*****************************************
-CONNECT - ADMIN
+ERROR - CONNECT - ADMIN  
 ***********************************************************************************/
+/***ERROR***/
 
 /*******CONNECT PAGE*********
 *****************************/

@@ -18,7 +18,7 @@
                     <a href="index.php?action=showOnePost&id=1">Le Volume</a>
                 </li>
                 <li>
-                    <a href="<?= "views/contact_view.php" ?>">Le lien</a>
+                    <a href="index.php?action=showContact">Le lien</a>
                 </li>       
                 <li>
                     <a href="<?= "views/connect_view.php" ?>">

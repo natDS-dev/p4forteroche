@@ -16,6 +16,12 @@ function showAuthor()
     require ('views/author_view.php');
 }
 
+//CONTACT PAGE "le lien" (static)
+function showContact()
+{
+    require('views/contact_view.php');
+}
+
 
 //DYNAMIC PAGES
 
@@ -33,6 +39,13 @@ function showOnePost()
 {
     $onePost=getOnePost($_GET['id']);
     $comments=getComments($_GET['id']);
+    if ($onePost === false)
+    {
+        require ('views/error_view.php');
+    }
+    else{
+
+    }
     require ('views/chapters_view.php');
     
 }
