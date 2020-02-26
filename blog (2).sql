@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 26 fév. 2020 à 11:17
+-- Généré le :  mer. 26 fév. 2020 à 15:07
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -79,9 +79,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `date_comment` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `content_comment` mediumtext NOT NULL,
   `chapters_id` int(11) NOT NULL,
-  `post_user_comment` tinyint(1) NOT NULL DEFAULT '1',
-  `signal_user_comment` tinyint(1) DEFAULT NULL,
-  `erase_user_comment` tinyint(1) DEFAULT NULL,
+  `statut_user_comment` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_comments_chapters1_idx` (`chapters_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -90,10 +88,10 @@ CREATE TABLE IF NOT EXISTS `comments` (
 -- Déchargement des données de la table `comments`
 --
 
-INSERT INTO `comments` (`id`, `title_comment`, `author_comment`, `date_comment`, `content_comment`, `chapters_id`, `post_user_comment`, `signal_user_comment`, `erase_user_comment`) VALUES
-(1, 'Superbe aventure !', 'Lala SKA', '2020-02-18 10:33:13', 'Quel plaisir de vous lire, de sentir le froid à travers vos mots, du coup je n\'ai pas besoin de clim pour cet été ! ', 1, 1, NULL, NULL),
-(2, 'Les fanons m\'en tombent !', 'Baba LAINE', '2020-02-24 16:27:16', 'Quel beau plongeon dans l\'encre vive de votre roman. ', 2, 1, NULL, NULL),
-(3, 'Gel\'ial', 'LALA SKA', '2020-02-25 11:36:29', 'Un roman glaçant !', 1, 1, NULL, NULL);
+INSERT INTO `comments` (`id`, `title_comment`, `author_comment`, `date_comment`, `content_comment`, `chapters_id`, `statut_user_comment`) VALUES
+(1, 'Superbe aventure !', 'Lala SKA', '2020-02-18 10:33:13', 'Quel plaisir de vous lire, de sentir le froid à travers vos mots, du coup je n\'ai pas besoin de clim pour cet été ! ', 1, 1),
+(2, 'Les fanons m\'en tombent !', 'Baba LAINE', '2020-02-24 16:27:16', 'Quel beau plongeon dans l\'encre vive de votre roman. ', 2, 1),
+(3, 'Gel\'ial', 'LALA SKA', '2020-02-25 11:36:29', 'Un roman glaçant !', 1, 1);
 
 -- --------------------------------------------------------
 
