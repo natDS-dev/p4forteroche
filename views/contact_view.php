@@ -1,7 +1,7 @@
 <!--CONTACT VIEW------
 ------------------->
 
-<?= $title = "Le lien"; ?>
+<?php $title = "Le lien"; ?>
 
                     <!--COM PERSO : variables à prévoir en + : 
                     chapterPicture/ chapterTitle / chapterNumber / authorName / commentName + commentSubject + commentContent -->

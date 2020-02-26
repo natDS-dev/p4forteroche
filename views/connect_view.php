@@ -1,6 +1,6 @@
 <!--CONNECT VIEW------
 ------------------->
-<?= $title = "Accès administrateur" ?>
+<?php $title = "Accès administrateur" ?>
 
 
 

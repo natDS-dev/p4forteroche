@@ -1,6 +1,6 @@
 <!--AUTHOR VIEW------
 ------------------->
-<?= $title = "L'auteur "; ?>
+<?php $title = "L'auteur "; ?>
 
 
 <?php ob_start(); ?>

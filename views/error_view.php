@@ -1,7 +1,7 @@
 <!--ERROR VIEW------
 ------------------->
 
-<?= $title = "Erreur page"; ?>
+<?php $title = "Erreur page"; ?>
 <?php ob_start(); ?>
 
     <main class="main_container" id="pages_main_container">

@@ -1,6 +1,6 @@
 <!--HOME VIEW------
 ------------------->
-<?= $title = "Un volume à suivre en ligne..."; ?>
+<?php $title = "Un volume à suivre en ligne..."; ?>
 
 
 <?php ob_start(); ?>

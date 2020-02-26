@@ -44,9 +44,9 @@ function showOnePost()
         require ('views/error_view.php');
     }
     else{
-
+        require ('views/chapters_view.php');
     }
-    require ('views/chapters_view.php');
+    
     
 }
 

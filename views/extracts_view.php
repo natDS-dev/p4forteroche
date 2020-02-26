@@ -1,6 +1,6 @@
 <!--EXTRACTS VIEW------
 ------------------->
-<?= $title = "Les segments"; ?>
+<?php $title = "Les segments"; ?>
 
                 <!--COM PERSO : variables à réutiliser même que chapters:  chapterTitle / chapterNumber / chapterPicture --->
 

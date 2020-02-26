@@ -1,7 +1,7 @@
 <!--CHAPTERS VIEW------
 ------------------->
 
-<?= $title = "Le volume"; ?>
+<?php $title = "Le volume"; ?>
 
                     <!--COM PERSO : variables à prévoir en + : 
                     chapterPicture/ chapterTitle / chapterNumber / authorName / commentName + commentSubject + commentContent -->
@@ -102,4 +102,4 @@
   
 
 <?php $content = ob_get_clean(); ?>
-<?php require_once("main_template.php"); ?>
+<?php require_once("views/main_template.php"); ?>
