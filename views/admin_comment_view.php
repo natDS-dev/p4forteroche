@@ -1,17 +1,13 @@
-<!--ADMIN COMMENT VIEW------
-------------------->
+<!--ADMIN COMMENT VIEW-->
 
-<?= $title = "Administration commentaires"; ?>
+<?php $title = "Administration commentaires"; ?>
 
 <?php ob_start(); ?>
-
-        <!----COM PERSO : PENSER RESTRICTION => Accès seulement si id et mp corrects sinon => id et mp incorrects-->
+    <!--COM PERSO : PENSER RESTRICTION => Accès seulement si id et mp corrects sinon => id et mp incorrects-->
     <main class="admin_main_container">
-        <?php require_once("includes/subtitles_admin.php") ;?>
-     
+        <?php require_once("includes/subtitles_admin.php"); ?>
         <section class="admin_main_block">
-            <?php require_once("includes/menu_admin.php") ;?>
-
+            <?php require_once("includes/menu_admin.php"); ?>
             <section class="admin_action_block" id="admin_comments_view">                
                 <table class="table" id="comments_table">
                     <caption>Commentaires en ligne non signalés</caption>
@@ -55,18 +51,12 @@
                                 <p><a href="">Enlever signalement</a></p> <!--COM PERSO : Compléter lien-->
                                 <p><a href="">Suppr.</a></p> <!--COM PERSO : Compléter lien-->                           
                             </td>
-                           
-                                
                         </tr>
                     </tbody>
                 </table>
-            </section> 
-
+            </section>
         </section>
     </main>   
-    
-
-
 
 <?php $content = ob_get_clean(); ?>
 <?php require_once("template_admin.php"); ?>

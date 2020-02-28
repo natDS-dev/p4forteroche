@@ -416,20 +416,32 @@ form button
     padding: 10px 10px 10px 10px;
 }
 
-.posted_comments h4
+.comment_status 
 {
-
+    text-align: center;
 }
 
-.posted_comments h5
+.comment_status a
 {
+    text-decoration: none;
+    background-color: #989c9c;
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+    margin-top: 10px;
+    color: black;
+    padding: 4px 4px 4px 4px;
+}
 
+.posted_comments .validated_comment
+{
+    color:green;
 }
 
 
-.posted_comments p
+.posted_comments .reported_comment
 {
-
+    color:rgb(190, 42, 42);
 }
 
 /****Block comment form****/

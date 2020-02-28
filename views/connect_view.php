@@ -1,9 +1,5 @@
-<!--CONNECT VIEW------
-------------------->
+<!--CONNECT VIEW-->
 <?php $title = "Accès administrateur" ?>
-
-
-
 
 <?php ob_start(); ?>
     <main class="main_container" id="pages_main_container">
@@ -18,25 +14,22 @@
                 <!--Dynamic title => page title-->
                 <h3 class="dynamic_title" ><?= $title ?> </h3>
                 <a class="anchor" id="anchor_to_bottom" href="#goldpaint_separator2">
-                    <img class="arrow" id="arrow_bottom" src="../public/images/paper_arrow1.png">
+                    <img class="arrow" id="arrow_bottom" alt="flèche marron descendante" src="../public/images/paper_arrow1.png">
                 </a>        
             </div>    
         </section>
     </main> 
-
     <!--SECTION CONTENT BLOCK - DYNAMIC (AUTHOR/EXTRACTS/CHAPTERS)-->
     <section class="content_block">
-
         <!--***DYNAMIC TITLE AND INFO***-->
-        <hgroup class="content_titles">
+        <div class="content_titles">
             <h2 class="page_title">Connexion à l'espace administrateur</h2>
             <img class="goldpaint_separator" id="goldpaint_separator2" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
             <h3 class="page_info">Veuillez vous connecter </h3>
-        </hgroup> 
-                        
+        </div>                         
         <div class="content_text">
+            <!--Connect form-->
            <form id="connect_form" action="" method="POST"> <!--COM PERSO : remplir action -->
-                                        
                 <div class="place_form">
                     <label for="name">Identifiant : </label>
                     <input type="text" id="login" name="login">
@@ -50,10 +43,7 @@
                 </div>
             </form>
         </div>
-
-       
     </section>
-
 
 <?php $content = ob_get_clean(); ?>
 <?php require_once("main_template.php"); ?>

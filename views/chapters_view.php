@@ -1,14 +1,8 @@
-<!--CHAPTERS VIEW------
-------------------->
+<!--CHAPTERS VIEW-->
 
 <?php $title = "Le volume"; ?>
 
-                    <!--COM PERSO : variables à prévoir en + : 
-                    chapterPicture/ chapterTitle / chapterNumber / authorName / commentName + commentSubject + commentContent -->
-
-
 <?php ob_start(); ?>
-
     <main class="main_container" id="pages_main_container">
         <!--PAGE MAIN BLOCK-->
         <section class="mainblock">
@@ -21,41 +15,41 @@
                 <!--Dynamic title => page title-->
                 <h3 class="dynamic_title" ><?= $title ?> </h3>
                 <a class="anchor" id="anchor_to_bottom" href="#goldpaint_separator2">
-                    <img class="arrow" id="arrow_bottom" src="public/images/paper_arrow1.png">
+                    <img class="arrow" id="arrow_bottom" alt="flèche marron descendante" src="public/images/paper_arrow1.png">
                 </a>        
             </div>    
         </section>
     </main> 
-
     <!--SECTION CONTENT BLOCK - DYNAMIC CONTENT-->
     <section class="content_block">        
-        <hgroup class="content_titles">
+        <div class="content_titles">
             <h2 class="page_title">Découverte par chapitre</h2>
             <img class="goldpaint_separator" id="goldpaint_separator2" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
             <h3 class="page_info">Bonne lecture !</h3>
-        </hgroup> 
+        </div> 
                         
         <div class="content_text">
             <div class="content_extracts_chapters">
-               
                 <article>
+                    <p>
+                        <a id="backto_extracts" href="index.php?action=showListPosts">Retour aux extraits </a>
+                    </p>
                     <img  src=" <?= ($onePost['picture_chapter']) ?> "/>    
                     <h3><?= htmlspecialchars($onePost['number_chapter']) ?>. <?= htmlspecialchars($onePost['title_chapter']) ; ?></h3>
                     <p class="date_chapter">Posté le : <?=  nl2br(htmlspecialchars($onePost['date_chapter_fr'])); ?></p>
-                    <p class="text_chapter"><?=  nl2br(htmlspecialchars($onePost['content_chapter'])) ?></p>
-                    <p>
-                        <a href="index.php?action=showListPosts">Retour</a>
-                    </p>   
+                    <p class="text_chapter"><?=  nl2br(htmlspecialchars($onePost['content_chapter'])) ?></p>                                        
+                    <?php if (!is_null($idPrev)): ?>
+                        <a href="index.php?action=showOnePost&id=<?= $idPrev ?>">Précédent</a>
+                    <?php endif; ?>
+                    <?php if (!is_null($idNext)): ?>
+                        <a href="index.php?action=showOnePost&id=<?= $idNext ?>">Suivant</a>
+                    <?php endif; ?>
                 </article>
-
-                
-                
             </div>
-
+            <!--Comment form-->
             <section class="comments_block">
                 <form id="comments_form" action="index.php?action=showComment&id=<?= $onePost['id'] ?>" method="post"> <!--COM PERSO : remplir action -->
                     <h3>A vous de prendre votre plume !</h3>
-                                    
                     <div class="place_form">
                         <label for="comment_pseudo">Pseudo : </label>
                         <input type="text" id="pseudo" name="comment_pseudo" required>
@@ -72,34 +66,29 @@
                         <button type="submit">Envoyer</button>
                     </div>
                 </form>
-                
+                <!--comment list-->
                 <section class="all_posted_comments">
                     <h3>Les derniers messages</h3>
-                    <?php   
-                    foreach ($comments as $comment) : 
-                    ?>
-                    <section class="posted_comments">             
-                    
-
-                        <h4 id="posted_pseudo">Posté par : <?= htmlspecialchars($comment['author_comment']) ?><br/>  le <?=  nl2br(htmlspecialchars($comment['date_comment_fr'])); ?> </h4>
-                        
-                        <h5 id="posted_subject"><?= htmlspecialchars($comment['title_comment']) ?></h5>
-                        <p id="posted_message"> <?= htmlspecialchars($comment['content_comment']);?></p>
-                        <div class="button_form">
-                            <button type="submit">Signaler</button>
-                        </div>                   
-                    </section>
-                    <?php
-                        endforeach;                   
-                    ?>
+                    <?php foreach ($comments as $comment): ?>
+                        <section class="posted_comments"> 
+                            <h4>Posté par : <?= htmlspecialchars($comment['author_comment']) ?><br/>  le <?=  nl2br(htmlspecialchars($comment['date_comment_fr'])); ?> </h4>
+                            <h5><?= htmlspecialchars($comment['title_comment']) ?></h5>
+                            <p><?= htmlspecialchars($comment['content_comment']) ?></p>
+                            <p class="comment_status">
+                                <?php if($comment['statut_user_comment'] =='posted'):?>
+                                    <a class="report_link" href="index.php?action=toReportComment&id=<?= $comment['id']; ?>&chapter_id=<?= $onePost['id']; ?>">Signaler</a>
+                                <?php elseif($comment['statut_user_comment'] =='validated') :?>
+                                    <p class="validated_comment">Le commentaire a été validé par l'administrateur</p>
+                                <?php else: ?>
+                                    <p  class="reported_comment">Le commentaire a déjà été signalé</p>
+                                <?php endif; ?> 
+                            </p>                   
+                        </section>
+                    <?php endforeach; ?>
                 </section>
-
-                    
             </section>
         </div>
     </section>
-
-  
 
 <?php $content = ob_get_clean(); ?>
 <?php require_once("views/main_template.php"); ?>

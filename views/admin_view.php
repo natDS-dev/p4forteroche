@@ -1,17 +1,12 @@
-<!--ADMIN GENERAL VIEW = POST LIST ------
-------------------->
-
-<?= $title = "Administration"; ?>
+<!--ADMIN GENERAL VIEW = POST LIST-->
+<?php $title = "Administration"; ?>
 
 <?php ob_start(); ?>
-
-        <!----COM PERSO : PENSER RESTRICTION => Accès seulement si id et mp corrects sinon => id et mp incorrects-->
+        <!--COM PERSO : PENSER RESTRICTION => Accès seulement si id et mp corrects sinon => id et mp incorrects-->
     <main class="admin_main_container">
-        <?php require_once("includes/subtitles_admin.php") ;?>
-     
+        <?php require_once("includes/subtitles_admin.php"); ?>     
         <section class="admin_main_block">
-            <?php require_once("includes/menu_admin.php") ;?>
-
+            <?php require_once("includes/menu_admin.php"); ?>
             <section class="admin_action_block" id="admin_plublished_posts_view">
                 <table class="table" id="chapter_table">
                     <caption>Publié(s)</caption>
@@ -35,7 +30,6 @@
                     </tbody>
                 </table>
             </section>  
-
             <section class="admin_action_block" id="admin_plublished_posts_view">
                 <table class="table" id="draft_chapter_table">
                     <caption>Brouillon(s) en attente</caption>
@@ -58,15 +52,10 @@
                     </tr>
                     </tbody>
                 </table>
-            </section> 
-            
-            
+            </section>           
         </section>
     </main>   
     
-
-
-
 <?php $content = ob_get_clean(); ?>
 <?php require_once("template_admin.php"); ?>
 

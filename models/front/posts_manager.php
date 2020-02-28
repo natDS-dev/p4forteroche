@@ -1,13 +1,10 @@
 <?php
 
-//REQUIRE manager.php TO CONNECT TO DATABASE (db)
-require_once ("models/front/manager.php");
+    //REQUIRE manager.php TO CONNECT TO DATABASE (db)
+    require_once ("models/front/manager.php");
 
-//GET ALL CHAPTERS FROM DATABASE TO HAVE EXTRACTS
-
-//POO : class PostManager
-   
-    //req to db(select) - gets chapter's list in order to produce the extracts (limited string in the controller)
+       
+    //req to db(select) - gets chapter's/post's list in order to produce the extracts/list posts (limited string in the controller)
     // requête à la db -obtenir la liste des chapitres avec contenu pour construire les extraits (limite de mots dans le controller) 
     function getAllPosts()
     {
@@ -33,7 +30,16 @@ require_once ("models/front/manager.php");
         return $onePost;
     }
 
-
+    function getNumberChapter()  
+    {
+        $db = dbConnect();
+        $req = $db->query('SELECT id FROM chapters  ORDER BY number_chapter ');
+        $listNumbChapter = $req->fetchAll();
+        $req->closeCursor();
+         
+        return $listNumbChapter;
+    }  
+//POO : class PostManager
   
     
 

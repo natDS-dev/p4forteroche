@@ -23,6 +23,9 @@ function showContact()
 }
 
 
+
+
+
 //DYNAMIC PAGES
 
 //EXTRACT PAGE "segments"
@@ -35,33 +38,67 @@ function showListPosts()
 
 //********************************POST/CHAPTER PAGE "volume"*************************
 // Get one post data + comments datas from posts_manager.php and show only the post(chapter) asked by the user with the linked comments  
-function showOnePost()
+function showOnePost($chapterId)
 {
-    $onePost=getOnePost($_GET['id']);
-    $comments=getComments($_GET['id']);
+    $onePost=getOnePost($chapterId);
+    $comments=getComments($chapterId); 
+     
     if ($onePost === false)
     {
-        require ('views/error_view.php');
-    }
-    else{
+        require('views/error_view.php');
+    } else {
+        $listNumbChapter = []; 
+        foreach (getNumberChapter() as $getNumberchapter){
+            $listNumbChapter[] = $getNumberchapter['id'];
+        };
+        $tempId= (string)$onePost['id'];
+        $actualIndexChapter = array_search( $tempId, $listNumbChapter , true);
+        $idPrev = null;
+        if ($actualIndexChapter > 0 && count($listNumbChapter) > 1) { 
+            $idPrev = $listNumbChapter[$actualIndexChapter - 1];
+        }
+        $idNext = null;
+        if ($actualIndexChapter < count($listNumbChapter) - 1  && count($listNumbChapter) > 1) { 
+            $idNext = $listNumbChapter[$actualIndexChapter + 1];
+        }
         require ('views/chapters_view.php');
     }
     
     
 }
 
+
+
+//**COMMENTS**
+
 //Comment form =>test request return + add comment to bdd
 function addComment($chapterId,$commentAuthor,$commentSubject,$commentContent)
 {
-    $commentLines = postComment($chapterId,$commentAuthor,$commentSubject,$commentContent);
+    $affectedLines = postComment($chapterId,$commentAuthor,$commentSubject,$commentContent);
     //test request return    
-    if ($commentLines === false) {
-        die('Oups, votre commentaire n\'a pas pu être ajouté');
+    if ($affectedLines === false) {
+        require ('views/error_view.php');
     }
     else {
         header('Location: index.php?action=showOnePost&id=' . $chapterId);
     }
 }
+
+function toReportComment($commentId,$chapterId)
+{
+    $reportComment = reportComment($commentId);
+    if($reportComment === false)
+    {
+        showError();
+    }
+    else{
+       
+        header('Location: index.php?action=showOnePost&id=' .$chapterId );
+
+    }
+}
+
+
 
 
 //ERROR PAGE

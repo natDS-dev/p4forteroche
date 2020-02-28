@@ -1,10 +1,7 @@
-<!--HOME VIEW------
-------------------->
+<!--HOME VIEW-->
 <?php $title = "Un volume à suivre en ligne..."; ?>
 
-
 <?php ob_start(); ?>
-
     <main class="main_container" id="pages_main_container">
         <!--PAGE MAIN BLOCK-->
         <section class="mainblock">
@@ -17,7 +14,7 @@
                 <!--Dynamic title => page title-->
                 <h3 class="dynamic_title" ><?= $title ?></h3>
                 <a class="anchor" id="anchor_to_bottom" href="#goldpaint_separator2">
-                    <img class="arrow" id="arrow_bottom" src="public/images/paper_arrow1.png">
+                    <img class="arrow" id="arrow_bottom" alt="flèche marron descendante" src="public/images/paper_arrow1.png">
                 </a>        
             </div>    
         </section>
@@ -25,13 +22,12 @@
 
     <!--SECTION CONTENT BLOCK - STATIC(but could be dynamic) -->
     <section class="content_block">        
-        <hgroup class="content_titles">
+        <div class="content_titles">
             <h2 class="page_title">Bienvenue</h2>
             <img class="goldpaint_separator" id="goldpaint_separator2" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
             <h3 class="page_info">Partons en voyage</h3>
-        </hgroup> 
-                     <!------(//OPTION// : possibility of a dynamic content => Jean could have his own presentation text)---->
-        
+        </div> 
+        <!------(//OPTION// : possibility of a dynamic content => Jean could have his own presentation text)---->
         <div class="content_text">
             <p>Je vous propose ici un voyage dans ma contrée littéraire, 
             d'emprunter un chemin de traverse afin de découvrir, pas à pas, mon nouveau livre "Billet simple pour l'Alaska".

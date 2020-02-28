@@ -1,11 +1,5 @@
-<!--CONTACT VIEW------
-------------------->
-
+<!--CONTACT VIEW-->
 <?php $title = "Le lien"; ?>
-
-                    <!--COM PERSO : variables à prévoir en + : 
-                    chapterPicture/ chapterTitle / chapterNumber / authorName / commentName + commentSubject + commentContent -->
-
 
 <?php ob_start(); ?>
     <main class="main_container" id="pages_main_container">
@@ -20,24 +14,22 @@
                 <!--Dynamic title => page title-->
                 <h3 class="dynamic_title" ><?= $title ?> </h3>
                 <a class="anchor" id="anchor_to_bottom" href="#goldpaint_separator2">
-                    <img class="arrow" id="arrow_bottom" src="public/images/paper_arrow1.png">
+                    <img class="arrow" id="arrow_bottom" alt="flèche marron descendante" src="public/images/paper_arrow1.png">
                 </a>        
             </div>    
         </section>
     </main> 
-
     <!--SECTION CONTENT BLOCK - DYNAMIC CONTENT-->
     <section class="content_block">        
         <hgroup class="content_titles">
             <h2 class="page_title">CONTACT</h2>
             <img class="goldpaint_separator" id="goldpaint_separator2" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
             <h3 class="page_info">Une question ou suggestion ? Prenez votre plume !</h3>
-        </hgroup> 
-                        
+        </hgroup>                         
         <div class="content_text">
             <div class="contact_block">
-                <form id="contact_form" action="" method="post"> <!--COM PERSO : remplir action -->
-                                        
+                <!--Contact form-->
+                <form id="contact_form" action="" method="post"> <!--COM PERSO : remplir action -->                                        
                     <div class="place_form">
                         <label for="contact_surname">Nom* :</label>
                         <input type="text" id="contact_surname" name="contact_user_surname" required>
@@ -65,7 +57,6 @@
             </div>
         </div>
     </section>
-
   
 <?php $content = ob_get_clean(); ?>
 <?php require_once("main_template.php"); ?>
