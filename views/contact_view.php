@@ -29,26 +29,22 @@
         <div class="content_text">
             <div class="contact_block">
                 <!--Contact form-->
-                <form id="contact_form" action="" method="post"> <!--COM PERSO : remplir action -->                                        
+                <form id="contact_form" action="index.php?action=postMail" method="post"> <!--COM PERSO : remplir action -->                                        
                     <div class="place_form">
-                        <label for="contact_surname">Nom* :</label>
-                        <input type="text" id="contact_surname" name="contact_user_surname" required>
-                    </div>
-                    <div class="place_form">
-                        <label for="contact_name">Prénom* :</label>
-                        <input type="text" id="contact_name" name="contact_user_name" required>
+                        <label for="contact_name">Nom-Prénom* :</label>
+                        <input type="text" id="contact_name" name="contact_name" required>
                     </div>
                     <div class="place_form">
                         <label for="contact_mail">Email* :</label>
-                        <input type="email" id="contact_mail" name="contact_user_mail" required>
+                        <input type="email" id="contact_mail" name="contact_mail" required>
                     </div>
                     <div class="place_form">
                         <label for="contact_subject">Sujet :</label>
-                        <input type="text" id="contact__subject" name="contact_user_subject">
+                        <input type="text" id="contact_subject" name="contact_subject">
                     </div>
                     <div class="place_form" >
                         <label for="contact_content">Message* :</label>
-                        <textarea id="contact_content" name="contact_user_content" required></textarea>
+                        <textarea id="contact_content" name="contact_content" required></textarea>
                     </div>
                     <div class="button_form">
                         <button type="submit">Envoyer</button>

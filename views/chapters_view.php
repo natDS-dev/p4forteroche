@@ -31,19 +31,26 @@
         <div class="content_text">
             <div class="content_extracts_chapters">
                 <article>
+                    
+                    <img  src=" <?= ($onePost['picture_chapter']) ?> "/>    
+                    <h3><?= htmlspecialchars($onePost['number_chapter']) ?>. <?= htmlspecialchars($onePost['title_chapter']) ; ?></h3>
                     <p>
                         <a id="backto_extracts" href="index.php?action=showListPosts">Retour aux extraits </a>
                     </p>
-                    <img  src=" <?= ($onePost['picture_chapter']) ?> "/>    
-                    <h3><?= htmlspecialchars($onePost['number_chapter']) ?>. <?= htmlspecialchars($onePost['title_chapter']) ; ?></h3>
                     <p class="date_chapter">Posté le : <?=  nl2br(htmlspecialchars($onePost['date_chapter_fr'])); ?></p>
                     <p class="text_chapter"><?=  nl2br(htmlspecialchars($onePost['content_chapter'])) ?></p>                                        
-                    <?php if (!is_null($idPrev)): ?>
-                        <a href="index.php?action=showOnePost&id=<?= $idPrev ?>">Précédent</a>
-                    <?php endif; ?>
-                    <?php if (!is_null($idNext)): ?>
-                        <a href="index.php?action=showOnePost&id=<?= $idNext ?>">Suivant</a>
-                    <?php endif; ?>
+                    <div class="chapter_buttons">
+                        <p>
+                            <?php if (!is_null($idPrev)): ?>
+                                <a href="index.php?action=showOnePost&id=<?= $idPrev ?>#goldpaint_separator2">Précédent</a>
+                            <?php endif; ?>
+                        </p>
+                        
+                        <p>
+                            <?php if (!is_null($idNext)): ?>
+                                <a href="index.php?action=showOnePost&id=<?= $idNext ?>#goldpaint_separator2">Suivant</a>
+                            <?php endif; ?>
+                        </p>
                 </article>
             </div>
             <!--Comment form-->

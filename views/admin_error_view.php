@@ -1,11 +1,10 @@
-<!--ERROR VIEW-->
+<!--ADMIN ERROR VIEW-->
+<?php $title = "Erreur page admin"; ?>
 
-<?php $title = "Erreur page"; ?>
 <?php ob_start(); ?>
-
-    <main class="main_container" id="pages_main_container">
-        <!--PAGE MAIN BLOCK-->
-        <section class="mainblock" id="pages_main_block">
+        <!--COM PERSO : PENSER RESTRICTION => Accès seulement si id et mp corrects sinon => id et mp incorrects-->
+    <main class="admin_main_container" id="admin_main">
+    <section class="mainblock" id="pages_main_block">
             <!--Dynamic picture => picture page -->  
             <img class="main_picture" id="dynamic_main_picture" src="public/images/black_ink.png" alt="profil d'homme dessiné" />
             <!--WEBSITE MAIN SUBTITLES -->
@@ -15,11 +14,12 @@
                 <!--Dynamic title => page title-->
                 <h3 class="dynamic_title" ><?= $title ?> </h3>
                 <p>
-                    <a href="index.php?action=showListPosts">Retour à la liste des chapitres</a>
+                    <a href="index.php?action=adminHome">Retour accueil admin</a><!--LIENNNNN-->
                 </p>   
             </div>    
         </section>
-    </main> 
-
+    </main>   
+    
 <?php $content = ob_get_clean(); ?>
-<?php require_once("main_template.php"); ?>
+<?php require_once("template_admin.php"); ?>
+

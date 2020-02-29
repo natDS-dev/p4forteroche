@@ -1,8 +1,9 @@
 <?php
 require ('models/front/posts_manager.php');
 require ('models/front/comments_manager.php');
+require ('models/front/contact_manager.php');
 
-//STATIC PAGES
+//**STATIC PAGES
 
 //HOME PAGE whale picture (static)
 function showHome()
@@ -24,9 +25,7 @@ function showContact()
 
 
 
-
-
-//DYNAMIC PAGES
+//**DYNAMIC PAGES
 
 //EXTRACT PAGE "segments"
 // Get all posts datas from posts_manager.php and show all posts(chapters) in extract page (limited words) 
@@ -36,16 +35,15 @@ function showListPosts()
     require ('views/extracts_view.php');
 }
 
-//********************************POST/CHAPTER PAGE "volume"*************************
+//POST/CHAPTER PAGE "volume"
 // Get one post data + comments datas from posts_manager.php and show only the post(chapter) asked by the user with the linked comments  
 function showOnePost($chapterId)
 {
     $onePost=getOnePost($chapterId);
     $comments=getComments($chapterId); 
-     
     if ($onePost === false)
     {
-        require('views/error_view.php');
+        showError();
     } else {
         $listNumbChapter = []; 
         foreach (getNumberChapter() as $getNumberchapter){
@@ -63,8 +61,6 @@ function showOnePost($chapterId)
         }
         require ('views/chapters_view.php');
     }
-    
-    
 }
 
 
@@ -77,12 +73,13 @@ function addComment($chapterId,$commentAuthor,$commentSubject,$commentContent)
     $affectedLines = postComment($chapterId,$commentAuthor,$commentSubject,$commentContent);
     //test request return    
     if ($affectedLines === false) {
-        require ('views/error_view.php');
+        showError();
     }
     else {
         header('Location: index.php?action=showOnePost&id=' . $chapterId);
     }
 }
+
 
 function toReportComment($commentId,$chapterId)
 {
@@ -99,6 +96,27 @@ function toReportComment($commentId,$chapterId)
 }
 
 
+//**CONTACT
+//Mail list BACK
+function showListMails()
+   {
+       $contactMails=getMails();
+       require ('views/admin_view.php');
+   }
+
+//Contact form => test req return + add message to bdd
+function addMail($nameContact, $mailContact, $subjectContact, $messageContact)
+{ 
+    $affectedLines = postMail($nameContact, $mailContact, $subjectContact, $messageContact);
+    //test request return    
+    if ($affectedLines === false) {
+      
+       showError();
+    }
+    else {
+        require('views/contact_view.php');
+    }
+}
 
 
 //ERROR PAGE
@@ -116,3 +134,10 @@ function defaultPage()
     require_once ('views/home_view.php');
 }
 
+
+
+//BACKKKKKKKKKKKKKKK
+function showErrorAdmin()//METTRE DANS LE BACKKKKKK
+{
+    require_once('views/admin_error_view.php');
+}

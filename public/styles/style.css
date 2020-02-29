@@ -387,13 +387,21 @@ form button
     width: 100px;
     display: flex;
     justify-content: center;
+    text-align: center;
     color: white;
     background-color: #316b75;
     padding: 4px 4px 4px 4px;
-    margin: 15px 15px 50px auto;   
-    
+    margin-left: 15px; 
     
 }
+
+.content_extracts_chapters .chapter_buttons
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 
 /*********************CHAPTERS******************************************/
 /***Block posted comments + form****/
@@ -590,10 +598,11 @@ table tr
     border: 1px solid #a7a4a4;
 }
   
-table th,  table td 
+table th,table td 
 {
     padding: 5px 5px 5px 5px;
     text-align: center;
+    overflow-wrap: break-word;
 }
   
 table th 
