@@ -2,6 +2,7 @@
 require ('models/front/posts_manager.php');
 require ('models/front/comments_manager.php');
 require ('models/front/contact_manager.php');
+require ('models/front/connect_manager.php');
 
 //**STATIC PAGES
 
@@ -23,7 +24,10 @@ function showContact()
     require('views/contact_view.php');
 }
 
-
+function showConnect()
+{
+    require('views/connect_view.php');
+}
 
 //**DYNAMIC PAGES
 
@@ -68,14 +72,20 @@ function showOnePost($chapterId)
 //**COMMENTS**
 
 //Comment form =>test request return + add comment to bdd
-function addComment($chapterId,$commentAuthor,$commentSubject,$commentContent)
+function addComment($chapterId)
 {
-    $affectedLines = postComment($chapterId,$commentAuthor,$commentSubject,$commentContent);
+    if (empty($_POST['comment_pseudo']) || empty($_POST['comment_subject']) || empty($_POST['comment_content'])){
+        showError();
+    } else {       
+        $commentAuthor = htmlspecialchars($_POST['comment_pseudo']);
+        $commentSubject = htmlspecialchars($_POST['comment_subject']);
+        $commentContent = htmlspecialchars($_POST['comment_content']);
+        $affectedLines = postComment($chapterId, $commentAuthor, $commentSubject, $commentContent);
+    }
     //test request return    
     if ($affectedLines === false) {
         showError();
-    }
-    else {
+    } else {
         header('Location: index.php?action=showOnePost&id=' . $chapterId);
     }
 }
@@ -95,6 +105,42 @@ function toReportComment($commentId,$chapterId)
     }
 }
 
+function adminVerify()
+{ 
+    $login = $_POST['login'];    
+    $adminInfos = adminConnect($login);
+    if (!empty($_POST['login']) && !empty($_POST['password']))
+    {   
+        $correctPassword=password_verify($_POST['password'], $adminInfos['password']);
+        if(!$adminInfos || !$correctPassword){
+            echo "mauvais identifiants";
+        } else {            
+            $_SESSION['id'] = $adminInfos['id'];
+            $_SESSION['login'] = $login;
+            header('Location: index.php?action=adminHome');
+            
+        }
+        
+    } else {
+        //echo "Veuillez remplir les champs";
+    }
+}
+
+/*function sessionLog()
+{   
+    if (isset($_SESSION['id']) && isset($_SESSION['login']))
+    {
+       echo 'Bonjour '.$_SESSION['login'];
+    }
+}*/
+
+//BACK
+function adminDisconnect()
+{
+    unset($_SESSION['id']);
+    unset($_SESSION['login']);
+    header('Location: index.php?action=showConnect');
+}
 
 //**CONTACT
 //Mail list BACK
@@ -105,19 +151,25 @@ function showListMails()
    }
 
 //Contact form => test req return + add message to bdd
-function addMail($nameContact, $mailContact, $subjectContact, $messageContact)
+function addMail()
 { 
-    $affectedLines = postMail($nameContact, $mailContact, $subjectContact, $messageContact);
+    if (!empty($_POST['contact_name']) && !empty($_POST['contact_mail']) && !empty($_POST['contact_subject']) && !empty($_POST['contact_content'])){
+        $nameContact = htmlspecialchars($_POST['contact_name']);
+        $mailContact = htmlspecialchars($_POST['contact_mail']);
+        $subjectContact = htmlspecialchars($_POST['contact_subject']);
+        $messageContact = htmlspecialchars($_POST['contact_content']);
+        $affectedLines = postMail($nameContact, $mailContact, $subjectContact, $messageContact);
+    } else {
+        var_dump($affectedLines);
+        showError();
+    }
     //test request return    
     if ($affectedLines === false) {
-      
-       showError();
-    }
-    else {
+        showError();
+    } else {
         require('views/contact_view.php');
     }
 }
-
 
 //ERROR PAGE
 function showError()

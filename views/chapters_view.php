@@ -75,23 +75,27 @@
                 </form>
                 <!--comment list-->
                 <section class="all_posted_comments">
-                    <h3>Les derniers messages</h3>
-                    <?php foreach ($comments as $comment): ?>
-                        <section class="posted_comments"> 
-                            <h4>Posté par : <?= htmlspecialchars($comment['author_comment']) ?><br/>  le <?=  nl2br(htmlspecialchars($comment['date_comment_fr'])); ?> </h4>
-                            <h5><?= htmlspecialchars($comment['title_comment']) ?></h5>
-                            <p><?= htmlspecialchars($comment['content_comment']) ?></p>
-                            <p class="comment_status">
-                                <?php if($comment['statut_user_comment'] =='posted'):?>
-                                    <a class="report_link" href="index.php?action=toReportComment&id=<?= $comment['id']; ?>&chapter_id=<?= $onePost['id']; ?>">Signaler</a>
-                                <?php elseif($comment['statut_user_comment'] =='validated') :?>
-                                    <p class="validated_comment">Le commentaire a été validé par l'administrateur</p>
-                                <?php else: ?>
-                                    <p  class="reported_comment">Le commentaire a déjà été signalé</p>
-                                <?php endif; ?> 
-                            </p>                   
-                        </section>
-                    <?php endforeach; ?>
+                    <?php if(!empty($comments)):?>
+                        <h3>Les derniers messages</h3>
+                        <?php foreach ($comments as $comment): ?>
+                            <section class="posted_comments"> 
+                                <h4>Posté par : <?= htmlspecialchars($comment['author_comment']) ?><br/>  le <?=  nl2br(htmlspecialchars($comment['date_comment_fr'])); ?> </h4>
+                                <h5><?= htmlspecialchars($comment['title_comment']) ?></h5>
+                                <p><?= htmlspecialchars($comment['content_comment']) ?></p>
+                                <p class="comment_status">
+                                    <?php if($comment['statut_user_comment'] =='posted'):?>
+                                        <a class="report_link" href="index.php?action=toReportComment&id=<?= $comment['id']; ?>&chapter_id=<?= $onePost['id']; ?>">Signaler</a>
+                                    <?php elseif($comment['statut_user_comment'] =='validated') :?>
+                                        <p class="validated_comment">Le commentaire a été validé par l'administrateur</p>
+                                    <?php else: ?>
+                                        <p  class="reported_comment">Le commentaire a déjà été signalé</p>
+                                    <?php endif; ?> 
+                                </p>                   
+                            </section>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        <h3>Aucun message</h3>    
+                    <?php endif; ?> 
                 </section>
             </section>
         </div>

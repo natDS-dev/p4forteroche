@@ -4,7 +4,7 @@
         <h1>JEAN FORTEROCHE</h1>
         <h3>Espace administrateur</h3>
         <div id="logout">  
-            <a href="<?= "views/connect_view.php" ?>"> <!---COM PERSO : sortie du compte + lien vers page connexion--->
+            <a href="index.php?action=adminDisconnect"> 
                 <img src="public/images/connexion2.png" alt="cadenas doré" />
             Se déconnecter</a>
         </div>

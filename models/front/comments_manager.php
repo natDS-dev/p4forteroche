@@ -18,7 +18,7 @@
         AS date_comment_fr FROM comments  WHERE chapters_id = ? ORDER BY date_comment_fr DESC');
         $comments->execute(array($chapterId));
 
-        return $comments;
+        return $comments->fetchAll();
     }
 
     //COMMENT FORM => to db (insert) : insert all comments(individually) added by the form into db 
