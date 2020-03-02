@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 29 fév. 2020 à 18:58
+-- Généré le :  lun. 02 mars 2020 à 06:22
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -31,10 +31,17 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
+  `login` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `admin`
+--
+
+INSERT INTO `admin` (`id`, `login`, `password`) VALUES
+(1, 'Jeannot', '$2y$10$nDLA1hFFK.gWVqht81UdHucIWkolZ5nhWuP2SPb6dBQTCqJVGpJ8C');
 
 -- --------------------------------------------------------
 
@@ -82,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `statut_user_comment` varchar(128) NOT NULL DEFAULT 'posted',
   PRIMARY KEY (`id`),
   KEY `fk_comments_chapters1_idx` (`chapters_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `comments`
@@ -92,7 +99,8 @@ INSERT INTO `comments` (`id`, `title_comment`, `author_comment`, `date_comment`,
 (1, 'Superbe aventure !', 'Lala SKA', '2020-02-18 10:33:13', 'Quel plaisir de vous lire, de sentir le froid à travers vos mots, du coup je n\'ai pas besoin de clim pour cet été ! ', 1, 'reported'),
 (2, 'Les fanons m\'en tombent !', 'Baba LAINE', '2020-02-24 16:27:16', 'Quel beau plongeon dans l\'encre vive de votre roman. ', 2, 'reported'),
 (3, 'Gel\'ial', 'LALA SKA', '2020-02-25 11:36:29', 'Un roman glaçant !', 1, 'validated'),
-(4, 'yes', 'yop', '2020-02-29 16:36:34', '<script>alert(\"ahhhhhh!\")</script>', 1, 'posted');
+(4, 'yes', 'yop', '2020-02-29 16:36:34', '<script>alert(\"ahhhhhh!\")</script>', 1, 'posted'),
+(5, 'klnlknm!', 'uibiobb', '2020-03-01 18:10:48', 'lknM?M?M.!', 1, 'posted');
 
 -- --------------------------------------------------------
 
@@ -109,16 +117,19 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `message_contact` mediumtext NOT NULL,
   `date_contact` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `contact`
 --
 
 INSERT INTO `contact` (`id`, `user_name_contact`, `user_mail_contact`, `subject_contact`, `message_contact`, `date_contact`) VALUES
-(1, 'Nat', 'machintructesttt@yahoo.bidule', 'test', 'test du formulaire de contact afin de savoir si tout fonctionne correctement,soit que les données sont bien récupérées. ', '2020-02-29 12:09:09'),
-(5, 'nat2', 'machinchosetruc@yahoo.truc', 'test2', 'test encore', '2020-02-29 12:13:57'),
-(8, 'Nat', 'trucmuche@yo.com', 'super', 'fkyugiuho', '2020-02-29 16:32:08');
+(1, 'Nat', 'machintructesttt@yahoo.bidule', 'Demande de renseignements', 'Bonjour Mr Forteroche,\r\nJ\'aurais aimé savoir si votre livre existe ou existera un jour au format papier, car en ce cas, je serais ravie de pouvoir l\'offrir à une amie.\r\nVous remerciant,\r\nBonne journée \r\n', '2020-02-29 12:09:09'),
+(5, 'LALA SKA', 'machinchosetruc@yahoo.truc', 'Salon écrivains', 'Mr Forteroche,\r\nTout d\'abord, bravo pour votre roman qui est vraiment passionnant.\r\nAussi, à l\'égard de votre talent, je serais ravie de vous convier au Salon des écrivains qui se tiendra cet été à Romans.\r\nSi cela vous intéresse, je vous laisse me recontacter au plus vite.\r\nCordialement,\r\nL. SKA', '2020-02-29 12:13:57'),
+(8, 'Nat', 'trucmuche@yo.com', 'Super', 'Bravo encore !', '2020-02-29 16:32:08'),
+(9, 'SAKAÏ Sek', 'ndstrucchose@yestest.comtest', 'Vague de froid', 'Merci pour la fraîcheur de votre roman.\r\nSAKAÏ S.', '2020-03-01 07:27:59'),
+(10, 'Baba LAINE', 'uheuhih@huhiuh.v', 'Remise de prix', 'Mr Forteroche,\r\nJe tenais à vous informer du prix qu\'il a été décidé de vous donner pour votre roman en ligne.\r\nMerci de me contacter\r\n', '2020-03-01 18:25:37'),
+(11, 'Nat', 'rerfe@hgiui.f', 'L\'éléPHPant et les baleines', 'Bonjour Jeannot,\r\nJ\'espère que tu vas bien.\r\nJe voulais te proposer une idée pour un nouveau roman, qui s\'intitulerait \"L\'éléPHPant et les baleines\".Je souhaiterais que l\'on puisse allier nos compétences, l\'écriture et l\'informatique, afin que nous proposions un roman ludique pour l\'apprentissage du langage PHP, ce à travers diverses métaphores relatives à l\'Alaska.\r\nTiens moi au jus\r\nBises', '2020-03-01 18:26:08');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

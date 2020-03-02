@@ -1,21 +1,21 @@
 <?php
-require ('models/front/posts_manager.php');
-require ('models/front/comments_manager.php');
-require ('models/front/contact_manager.php');
-require ('models/front/connect_manager.php');
+require('models/front/posts_manager.php');
+require('models/front/comments_manager.php');
+require('models/front/contact_manager.php');
+require('models/front/connect_manager.php');
 
-//**STATIC PAGES
+//**STATIC PAGES**
 
 //HOME PAGE whale picture (static)
 function showHome()
 {
-    require ('views/home_view.php');
+    require('views/home_view.php');
 }
 
 //AUTHOR PAGE "l'auteur" (static)
 function showAuthor()
 {
-    require ('views/author_view.php');
+    require('views/author_view.php');
 }
 
 //CONTACT PAGE "le lien" (static)
@@ -24,22 +24,23 @@ function showContact()
     require('views/contact_view.php');
 }
 
+//CONNECT PAGE heart picture
 function showConnect()
 {
     require('views/connect_view.php');
 }
 
-//**DYNAMIC PAGES
+//**DYNAMIC PAGES**
 
-//EXTRACT PAGE "segments"
+//EXTRACT PAGE "les segments"
 // Get all posts datas from posts_manager.php and show all posts(chapters) in extract page (limited words) 
 function showListPosts()
 {
-    $allPosts=getAllPosts();
-    require ('views/extracts_view.php');
+    $allPosts = getAllPosts();
+    require('views/extracts_view.php');
 }
 
-//POST/CHAPTER PAGE "volume"
+//POST/CHAPTER PAGE "le volume"
 // Get one post data + comments datas from posts_manager.php and show only the post(chapter) asked by the user with the linked comments  
 function showOnePost($chapterId)
 {
@@ -66,11 +67,7 @@ function showOnePost($chapterId)
         require ('views/chapters_view.php');
     }
 }
-
-
-
-//**COMMENTS**
-
+//Comments
 //Comment form =>test request return + add comment to bdd
 function addComment($chapterId)
 {
@@ -90,8 +87,8 @@ function addComment($chapterId)
     }
 }
 
-
-function toReportComment($commentId,$chapterId)
+//Report/signal comment
+function toReportComment($commentId, $chapterId)
 {
     $reportComment = reportComment($commentId);
     if($reportComment === false)
@@ -101,55 +98,10 @@ function toReportComment($commentId,$chapterId)
     else{
        
         header('Location: index.php?action=showOnePost&id=' .$chapterId );
-
     }
 }
 
-function adminVerify()
-{ 
-    $login = $_POST['login'];    
-    $adminInfos = adminConnect($login);
-    if (!empty($_POST['login']) && !empty($_POST['password']))
-    {   
-        $correctPassword=password_verify($_POST['password'], $adminInfos['password']);
-        if(!$adminInfos || !$correctPassword){
-            echo "mauvais identifiants";
-        } else {            
-            $_SESSION['id'] = $adminInfos['id'];
-            $_SESSION['login'] = $login;
-            header('Location: index.php?action=adminHome');
-            
-        }
-        
-    } else {
-        //echo "Veuillez remplir les champs";
-    }
-}
-
-/*function sessionLog()
-{   
-    if (isset($_SESSION['id']) && isset($_SESSION['login']))
-    {
-       echo 'Bonjour '.$_SESSION['login'];
-    }
-}*/
-
-//BACK
-function adminDisconnect()
-{
-    unset($_SESSION['id']);
-    unset($_SESSION['login']);
-    header('Location: index.php?action=showConnect');
-}
-
-//**CONTACT
-//Mail list BACK
-function showListMails()
-   {
-       $contactMails=getMails();
-       require ('views/admin_view.php');
-   }
-
+//CONTACT PAGE
 //Contact form => test req return + add message to bdd
 function addMail()
 { 
@@ -171,12 +123,39 @@ function addMail()
     }
 }
 
+//CONNECT PAGE 
+//Check entry login & password
+function adminVerify()
+{ 
+    $login = $_POST['login'];    
+    $adminInfos = adminConnect($login);
+    if (!empty($_POST['login']) && !empty($_POST['password']))
+    {   //compare password entry with db hashed password 
+        $correctPassword=password_verify($_POST['password'], $adminInfos['password']);
+        if(!$adminInfos || !$correctPassword){
+            //echo "mauvais identifiants";
+        } else {            
+            $_SESSION['id'] = $adminInfos['id'];
+            $_SESSION['login'] = $login;
+            header('Location: index.php?action=adminHome');
+        }
+    } else {
+        //echo "Veuillez remplir les champs";
+    }
+}
+
+/*function sessionLog()
+{   
+    if (isset($_SESSION['id']) && isset($_SESSION['login']))
+    {
+       echo 'Bonjour '.$_SESSION['login'];
+    }
+}*/
+
 //ERROR PAGE
 function showError()
 { 
-
     require_once ('views/error_view.php');
-    
 }
 
 //DEFAULT PAGE
@@ -188,7 +167,25 @@ function defaultPage()
 
 
 
-//BACKKKKKKKKKKKKKKK
+//***********BACK********
+
+//Disconnect from admin page
+function adminDisconnect()
+{
+    unset($_SESSION['id']);
+    unset($_SESSION['login']);
+    header('Location: index.php?action=showConnect');
+}
+
+//CONTACT 
+//Mail list 
+function showListMails()
+{
+   $contactMails=getMails();
+   require ('views/admin_view.php');
+}
+
+//ERROR ADMIN PAGE
 function showErrorAdmin()//METTRE DANS LE BACKKKKKK
 {
     require_once('views/admin_error_view.php');

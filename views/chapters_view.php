@@ -100,6 +100,5 @@
             </section>
         </div>
     </section>
-
 <?php $content = ob_get_clean(); ?>
 <?php require_once("views/main_template.php"); ?>

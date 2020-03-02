@@ -73,7 +73,6 @@ try {
     } else {//Show extracts page
         showListPosts();
     }
-
 }
 catch(Exception $e) { 
     echo 'Erreur : ' . $e->getMessage();
