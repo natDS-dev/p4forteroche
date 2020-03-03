@@ -17,7 +17,7 @@
     </head>
     
     <body>
-        <?php require_once("includes/header_admin.php") ;?>
+        <?php require_once("includes/header.php") ;?>
         
         <?=$content?>   
 

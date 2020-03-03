@@ -7,7 +7,7 @@ require_once ("models/front/manager.php");
 function getMails()
 {
     $db = dbConnect();
-    $req = $db->query('SELECT id, user_name_contact, user_mail_contact, subject_contact, message_contact, DATE_FORMAT(date_contact, \'%d/%m/%Y à %Hh%imin%ss\') AS date_contact_fr FROM contact ORDER BY date_contact DESC');
+    $req = $db->query('SELECT id, user_name_contact, user_mail_contact, subject_contact, message_contact, DATE_FORMAT(date_contact, \'%d/%m/%Y à %Hh%imin%ss\') AS date_contact_fr, statut_mail_contact FROM contact ORDER BY  date_contact_fr ASC');
     $contactMails = $req->fetchAll();
     $req->closeCursor();
     return $contactMails;

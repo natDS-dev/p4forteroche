@@ -17,15 +17,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td data-label="N° chapitre">$réccup num</td>
-                        <td data-label="Titre">$récup titre</td>
-                        <td data-label="Action ?">
-                            <p><a href="">Editer</a></p> <!--COM PERSO : Compléter lien-->
-                            <p><a href="">Mettre dans brouillon</a></p>
-                            <p><a href="">Suppr.</a></p>
-                        </td>
-                    </tr>
+                        <?php foreach ($publishedPosts as $publishedPost): ?>
+                            <tr>
+                                <td data-label="N° chapitre"><?= htmlspecialchars($publishedPost['number_chapter']) ?></td>
+                                <td data-label="Titre"><?= htmlspecialchars($publishedPost['title_chapter']) ?></td>
+                                <td data-label="Action ?">
+                                    <p><a href="">Editer</a></p> <!--COM PERSO : Compléter lien-->
+                                    <p><a href="">Mettre dans brouillon</a></p>
+                                    <p><a href="">Suppr.</a></p>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?> 
                     </tbody>
                 </table>
             </section>  
@@ -40,15 +42,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td data-label="N° chapitre">$réccup num</td>
-                        <td data-label="Titre">$récup titre</td>
-                        <td data-label="Action ?">
-                            <p><a href="">Editer</a></p> <!--COM PERSO : Compléter lien-->
-                            <p><a href="">Publier</a></p>
-                            <p><a href="">Suppr.</a></p>
-                        </td>
-                    </tr>
+                        <?php foreach ($draftPosts as $draftPost): ?>
+                            <tr>
+                                <td data-label="N° chapitre"><?= htmlspecialchars($draftPost['number_chapter']) ?></td>
+                                <td data-label="Titre"><?= htmlspecialchars($draftPost['title_chapter']) ?></td>
+                                <td data-label="Action ?">
+                                    <p><a href="">Editer</a></p> <!--COM PERSO : Compléter lien-->
+                                    <p><a href="">Publier</a></p>
+                                    <p><a href="">Suppr.</a></p>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?> 
                     </tbody>
                 </table>
             </section>

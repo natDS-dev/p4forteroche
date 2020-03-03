@@ -4,14 +4,17 @@
 //Ask manager.php to connect to database (db)
 require_once ("models/front/manager.php");
 
+//****FRONT****
+
 //**POST/CHAPTER PAGE "volume"** 
     
 //ALL COMMENTS => req from db (select) : require all posts with the associated comments from db by id  
+
 function getComments($chapterId)
 {
     $db=dbConnect();
     $comments = $db->prepare('SELECT id,title_comment,author_comment,content_comment,statut_user_comment,chapters_id,DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\')
-    AS date_comment_fr FROM comments  WHERE chapters_id = ? ORDER BY date_comment_fr DESC');
+    AS date_comment_fr FROM comments  WHERE chapters_id = ? ORDER BY id DESC');
     $comments->execute(array($chapterId));
     return $comments->fetchAll();
 }
@@ -33,14 +36,33 @@ function reportComment($commentId)
     return $reportComment->execute(array($commentId));
 }
 
-//to db (select) - Get the
-//function postIdComment()
+//***BACK***
+//to db (select) - Get all reported comments in order to have it in admin view
+  
 
+function getAdminComments($statutComment)
+{
+    $db = dbConnect();
+    $req = $db->query('SELECT id,title_comment,author_comment,content_comment,statut_user_comment,DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\')
+    AS date_comment_fr FROM comments  WHERE statut_user_comment = "' . $statutComment . '" ORDER BY date_comment_fr DESC');
+    return $req->fetchAll();
+}
 
+function adminEraseComment($commentId)
+{
+    $db=dbConnect();
+    $deleteComment = $db->prepare('DELETE FROM comments WHERE id=? ' );
+    return $deleteComment->execute(array($commentId));
+}
 
+function adminConfirmComment($commentId)
+{
+    $db=dbConnect();
+    $confirmComment = $db->prepare('UPDATE comments SET statut_user_comment = "validated" WHERE id=? ' );
+    return $confirmComment->execute(array($commentId));
+}
 
-
-
-
+/*SELECT comments.*, chapters.number_chapter FROM comments
+INNER JOIN chapters ON chapters.id = comments.chapters_id
 
 //POO CLASS ComManager

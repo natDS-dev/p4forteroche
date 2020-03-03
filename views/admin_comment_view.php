@@ -8,8 +8,33 @@
         <?php require_once("includes/subtitles_admin.php"); ?>
         <section class="admin_main_block">
             <?php require_once("includes/menu_admin.php"); ?>
-            <section class="admin_action_block" id="admin_comments_view">                
-                <table class="table" id="comments_table">
+            <section class="admin_action_block" id="admin_comments_view"> 
+                <table class="table" id="validated_comments_table">
+                    <caption>Commentaires validés</caption>s
+                    <thead>
+                    <tr>
+                        <th scope="col">Auteur </th>
+                        <th scope="col">Sujet</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Action ?</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($validatedComments as $validatedComment): ?>
+                            <tr>
+                                <td data-label="Auteur"><?= htmlspecialchars($validatedComment['author_comment']) ?></td>
+                                <td data-label="Sujet"><?= htmlspecialchars($validatedComment['title_comment']) ?></td>
+                                <td data-label="Message"><?= htmlspecialchars($validatedComment['content_comment']) ?></td>                            
+                                <td data-label="Action ?">
+                                    <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($validatedComment['id']) ?>">Suppr.</a></p>                          
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>                         
+                    </tbody>
+                </table>
+            </section>  
+            <section class="admin_action_block" id="admin_posted_comments_view">               
+                <table class="table" id="posted_comments_table">
                     <caption>Commentaires en ligne non signalés</caption>
                     <thead>
                     <tr>
@@ -20,19 +45,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td data-label="Auteur">$réccup auteur</td>
-                            <td data-label="Sujet">$récup sujet</td>
-                            <td data-label="Message">$recup message</td>                            
-                            <td data-label="Action ?">
-                                <p><a href="">Suppr.</a></p> <!--COM PERSO : Compléter lien-->
-                            </td>
-                        </tr>
+                        <?php foreach ($postedComments as $postedComment): ?>
+                            <tr>
+                                <td data-label="Auteur"><?= htmlspecialchars($postedComment['author_comment']) ?></td>
+                                <td data-label="Sujet"><?= htmlspecialchars($postedComment['title_comment']) ?></td>
+                                <td data-label="Message"><?= htmlspecialchars($postedComment['content_comment']) ?></td>                            
+                                <td data-label="Action ?">
+                                    <p><a href="">Valider et publier</a></p> <!--COM PERSO : Compléter lien-->
+                                    <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($postedComment['id']) ?>">Suppr.</a></p> <!--COM PERSO : Compléter lien-->                           
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>                         
                     </tbody>
                 </table>
             </section> 
-            <section class="admin_action_block" id="admin_signaled_comments_view">
-                <table class="table" id="comments_signaled_table">                    
+            <section class="admin_action_block" id="admin_reported_comments_view">
+                <table class="table" id="signaled_comments_table">                    
                     <caption>Commentaires en ligne signalés</caption>
                     <thead>
                         <tr>
@@ -43,15 +71,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td data-label="Auteur">$réccup auteur</td>
-                            <td data-label="Sujet">$récup sujet</td>
-                            <td data-label="Message">$recup message</td>                            
-                            <td data-label="Action ?">
-                                <p><a href="">Enlever signalement</a></p> <!--COM PERSO : Compléter lien-->
-                                <p><a href="">Suppr.</a></p> <!--COM PERSO : Compléter lien-->                           
-                            </td>
-                        </tr>
+                        <?php foreach ($reportedComments as $reportedComment): ?>
+                            <tr>
+                                <td data-label="Auteur"><?= htmlspecialchars($reportedComment['author_comment']) ?></td>
+                                <td data-label="Sujet"><?= htmlspecialchars($reportedComment['title_comment']) ?></td>
+                                <td data-label="Message"><?= htmlspecialchars($reportedComment['content_comment']) ?></td>                            
+                                <td data-label="Action ?">
+                                    <p><a href="index.php?action=adminConfirmComment&id=<?= htmlspecialchars($reportedComment['id']) ?>">Valider et publier</a></p> <!--COM PERSO : Compléter lien-->
+                                    <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($reportedComment['id']) ?>">Suppr.</a></p>  
+                                </td>
+                            </tr>
+                        <?php endforeach; ?> 
                     </tbody>
                 </table>
             </section>

@@ -21,9 +21,14 @@
                     <a href="index.php?action=showContact#goldpaint_separator2">Le lien</a>
                 </li>       
                 <li>
-                    <a href="<?= "index.php?action=showConnect#goldpaint_separator2" ?>">
-                        <img src="public/images/connexion2.png" alt="cadenas doré" />
-                    </a>
+                    <?php if(adminConnected()) : ?>
+                        <a href="index.php?action=adminHome">Admin</a>
+                        <a href="index.php?action=adminDisconnect">Déconnexion</a>
+                    <?php else : ?>
+                        <a href="<?= "index.php?action=showConnect#goldpaint_separator2" ?>">
+                            <img src="public/images/connexion2.png" alt="cadenas doré" />
+                        </a>
+                    <?php endif; ?>
                 </li>
             </ul>
         </nav>

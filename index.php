@@ -62,9 +62,28 @@ try {
                 addMail();
             break;
             //BACK
-            //List mails contact       
+            //List mails contact 
             case 'adminHome':
-                showListMails();            
+                showAdminHome();
+            break;      
+            case 'adminMail':
+                showListMails();      //revoir adresse page pour adresse page unique      
+            break;
+            case 'adminPostsList':
+                adminLPostsList();
+            break;
+            case 'adminCommentsList':
+                adminCommentsList();
+            break;
+            case 'adminDeleteComment': 
+                if(isset($_GET['id']) && $_GET['id'] > 0 ) {
+                    adminDeleteComment($_GET['id']);
+                }
+            break;
+            case 'adminConfirmComment': 
+                if(isset($_GET['id']) && $_GET['id'] > 0 ) {
+                    adminValidComment($_GET['id']);
+                }
             break;
             default:
                 showError();//!!!!REVOIR rajouter un if pour gestion erreur pour différencier les vues erreurs si connecté ou pas 

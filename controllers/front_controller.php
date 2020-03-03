@@ -144,6 +144,11 @@ function adminVerify()
     }
 }
 
+function adminConnected()
+{
+    return  isset( $_SESSION['id'] );
+}
+
 /*function sessionLog()
 {   
     if (isset($_SESSION['id']) && isset($_SESSION['login']))
@@ -155,20 +160,24 @@ function adminVerify()
 //ERROR PAGE
 function showError()
 { 
-    require_once ('views/error_view.php');
+    require_once('views/error_view.php');
 }
 
 //DEFAULT PAGE
 
 function defaultPage()
 {
-    require_once ('views/home_view.php');
+    require_once('views/home_view.php');
 }
 
 
 
 //***********BACK********
-
+//Admin home
+function showAdminHome()
+{
+    require_once('views/admin_home_view.php');
+}
 //Disconnect from admin page
 function adminDisconnect()
 {
@@ -177,16 +186,50 @@ function adminDisconnect()
     header('Location: index.php?action=showConnect');
 }
 
+//COMMENTS
+//comment list by status
+function adminCommentsList()
+{   
+   $postedComments = getAdminComments("posted");
+   $reportedComments = getAdminComments("reported");
+   $validatedComments = getAdminComments("validated");
+   require('views/admin_comment_view.php');
+}
+
+function adminDeleteComment($id)
+{
+    adminEraseComment($id);
+    header('Location: index.php?action=adminCommentsList');
+    
+}
+
+function adminValidComment($id)
+{
+    adminConfirmComment($id);
+    header('Location: index.php?action=adminCommentsList');
+}
+
+
+
 //CONTACT 
 //Mail list 
 function showListMails()
 {
    $contactMails=getMails();
-   require ('views/admin_view.php');
+   require ('views/admin_mail_view.php');
 }
 
 //ERROR ADMIN PAGE
 function showErrorAdmin()//METTRE DANS LE BACKKKKKK
 {
     require_once('views/admin_error_view.php');
+}
+
+//POST
+//Post by status
+function adminLPostsList()
+{
+    $publishedPosts = getAdminPosts("published");
+    $draftPosts = getAdminPosts("draft");
+    require('views/admin_post_view.php');
 }
