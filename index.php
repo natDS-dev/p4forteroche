@@ -64,13 +64,33 @@ try {
             //BACK
             //List mails contact 
             case 'adminHome':
-                showAdminHome();
+                showAdminHome();                
             break;      
             case 'adminMail':
-                showListMails();      //revoir adresse page pour adresse page unique      
+                showListMails();                      //revoir adresse page pour adresse page unique      
+            break;
+            case 'adminReadMail':
+                if(isset($_GET['id']) && $_GET['id'] > 0 ) {
+                   adminStatusMail ($_GET['id']);
+                }   
             break;
             case 'adminPostsList':
                 adminLPostsList();
+            break;
+            case 'adminValidPost':
+                if(isset($_GET['id']) && $_GET['id'] > 0 ) {
+                    adminValidPost($_GET['id']);
+                }
+            break;
+            case 'adminDraftPost':
+                if(isset($_GET['id']) && $_GET['id'] > 0 ) {
+                    adminToDraftPost($_GET['id']);
+                }
+            break;
+            case 'adminDeletePost':
+                if(isset($_GET['id']) && $_GET['id'] > 0 ) {
+                    adminDeletePost($_GET['id']);
+                }
             break;
             case 'adminCommentsList':
                 adminCommentsList();
@@ -84,6 +104,9 @@ try {
                 if(isset($_GET['id']) && $_GET['id'] > 0 ) {
                     adminValidComment($_GET['id']);
                 }
+            break;
+            case 'adminCreatePost':
+                adminCreatePost();
             break;
             default:
                 showError();//!!!!REVOIR rajouter un if pour gestion erreur pour différencier les vues erreurs si connecté ou pas 

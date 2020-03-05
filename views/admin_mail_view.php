@@ -21,17 +21,16 @@
                 </thead>
                 <tbody>
                     <?php foreach ($contactMails as $contactMail): ?>
-                        <tr>
+                        <tr class="status_mail" <?php if ($contactMail['status_mail_contact'] !== 'read') echo ' class="unread_mail"'; ?>>
                             <td data-label="Date"><?= htmlspecialchars($contactMail['date_contact_fr']) ?></td>
                             <td data-label="Auteur"><?= htmlspecialchars($contactMail['user_name_contact']) ?></td>
                             <td data-label="Adresse mail"><?= htmlspecialchars($contactMail['user_mail_contact']) ?></td>
                             <td data-label="Objet"><?= htmlspecialchars($contactMail['subject_contact']) ?></td>
                             <td data-label="Contenu">
-                                <?php if(strlen($contactMail['message_contact']) > 30) {$contactMail['message_contact'] = substr($contactMail['message_contact'], 0, 70); } ?>
-                                <?= htmlspecialchars($contactMail['message_contact']) ?>...
+                                <?= htmlspecialchars($contactMail['message_contact']) ?>
                             </td>
                             <td data-label="Action ?">
-                                <p><a href="">Lire</a></p> <!--COM PERSO : Compléter lien-->
+                                <p><a href="">Marquer comme "non lu"</a></p> <!--COM PERSO : Compléter lien-->
                                 <p><a href="">Suppr.</a></p>
                             </td>
                         </tr>

@@ -23,8 +23,8 @@
                                 <td data-label="Titre"><?= htmlspecialchars($publishedPost['title_chapter']) ?></td>
                                 <td data-label="Action ?">
                                     <p><a href="">Editer</a></p> <!--COM PERSO : Compléter lien-->
-                                    <p><a href="">Mettre dans brouillon</a></p>
-                                    <p><a href="">Suppr.</a></p>
+                                    <p><a href="index.php?action=adminDraftPost&id=<?= htmlspecialchars($publishedPost['id']) ?>">Mettre dans brouillon</a></p>
+                                    <p><a href="index.php?action=adminDeletePost&id=<?= htmlspecialchars($publishedPost['id']) ?>" onclick="return confirm('Ce chapitre sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce chapitre ?');">Suppr.</a></p>
                                 </td>
                             </tr>
                         <?php endforeach; ?> 
@@ -48,8 +48,8 @@
                                 <td data-label="Titre"><?= htmlspecialchars($draftPost['title_chapter']) ?></td>
                                 <td data-label="Action ?">
                                     <p><a href="">Editer</a></p> <!--COM PERSO : Compléter lien-->
-                                    <p><a href="">Publier</a></p>
-                                    <p><a href="">Suppr.</a></p>
+                                    <p><a href="index.php?action=adminValidPost&id=<?= htmlspecialchars($draftPost['id']) ?>">Publier</a></p>
+                                    <p><a href="index.php?action=adminDeletePost&id=<?= htmlspecialchars($draftPost['id']) ?>"onclick="return confirm('Ce chapitre sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce chapitre ?');">Suppr.</a></p>
                                 </td>
                             </tr>
                         <?php endforeach; ?> 

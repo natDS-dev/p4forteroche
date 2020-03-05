@@ -20,11 +20,11 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td data-label="Total publications">$réccup nb publi</td>
-                    <td data-label="Total brouillon">$récup nb brouillons</td>
-                    <td data-label="Mails non lus">$récup nb mails non lus</td>
-                    <td data-label="Commentaires à valider">$récup titre</td>
-                    <td data-label="Commentaires signalés">$récup titre</td>
+                    <td data-label="Total publications"><?=$data['nbPost'] ?></t"d>
+                    <td data-label="Total brouillon"><?=$data['nbDraft'] ?></td>
+                    <td data-label="Mails non lus"><?=$data['nbUnreadMails'] ?></td>
+                    <td data-label="Commentaires à valider"><?=$data['nbValidCom'] ?></td>
+                    <td data-label="Commentaires signalés"><?=$data['nbReportedCom'] ?></td>
                 </tr>
                 </tbody>
             </table>

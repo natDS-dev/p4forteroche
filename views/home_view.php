@@ -31,7 +31,7 @@
         <div class="content_text">
             <p>Je vous propose ici un voyage dans ma contrée littéraire, 
             d'emprunter un chemin de traverse afin de découvrir, pas à pas, mon nouveau livre "Billet simple pour l'Alaska".
-            Une avanture numérique, hors des sentiers battus, car je sèmerais, tel le Petit Poucet, les chapitres, "segments",
+            Une aventure numérique, hors des sentiers battus, car je sèmerais, tel le Petit Poucet, les chapitres, "segments",
             de mon dernier roman, avec l'espoir que celui-ci vous tienne suffisamment en haleine pour que nous puissions nous retrouver
             ensemble à échanger au bout de la route.</p>
         </div>

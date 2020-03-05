@@ -2,9 +2,9 @@
 
 //REQUIRE manager.php TO CONNECT TO DATABASE (db)
 require_once ("models/front/manager.php");
-    
+
+//EXTRACTS(segments)
 //req to db(select) - gets chapter's/post's list in order to produce the extracts/list posts (limited string in the controller)
-// requête à la db -obtenir la liste des chapitres avec contenu pour construire les extraits (limite de mots dans le controller) 
 function getAllPosts()
 {
     $db = dbConnect();
@@ -14,8 +14,8 @@ function getAllPosts()
     return $allPosts;
 }
 
+//POST (volume)
 //req to db(select) - gets the corresponding post/chapter by clicking on an extract
-//requête à la db - obtenir le bon chapitre en cliquant sur un extrait  
 function getOnePost($chapterId)
 {
     $db=dbConnect();
@@ -27,7 +27,8 @@ function getOnePost($chapterId)
     return $onePost;
 }
 
-//req to db(select) - gets chapter's number
+
+//req to db(select) - gets chapter's/post number
 function getNumberChapter()  
 {
     $db = dbConnect();
@@ -40,6 +41,28 @@ function getNumberChapter()
 
 //***BACK***
 
+//ADMIN HOME QUICK VIEW
+// To db select & count - Get & count values of  posts/reported comments/unread mails  
+function adminHomeValues()
+{
+    $data=[];
+    $db = dbConnect();
+    $req =$db->query ('SELECT COUNT(*) as nbPost FROM chapters WHERE status_chapter = "published"');
+    $data['nbPost'] = $req->fetch()['nbPost'];
+    $req =$db->query ('SELECT COUNT(*) as nbDraftPost FROM chapters WHERE status_chapter = "draft"');
+    $data['nbDraft'] = $req->fetch()['nbDraftPost'];
+    $req =$db->query ('SELECT COUNT(*) as nbUnreadMails FROM contact WHERE status_mail_contact = "unread"');
+    $data['nbUnreadMails'] = $req->fetch()['nbUnreadMails'];
+    $req =$db->query ('SELECT COUNT(*) as nbValidCom FROM comments WHERE statut_user_comment = "posted"');
+    $data['nbValidCom'] = $req->fetch()['nbValidCom'];
+    $req =$db->query ('SELECT COUNT(*) as nbReportedCom FROM comments WHERE statut_user_comment = "reported"');
+    $data['nbReportedCom'] = $req->fetch()['nbReportedCom'];
+    return $data;
+}
+
+
+//ADMIN POST
+//select from db - get post by status (posted/reported/validated)
 function getAdminPosts($statusPost)
 {
     $db = dbConnect();
@@ -48,15 +71,32 @@ function getAdminPosts($statusPost)
     return $req->fetchAll();
 }
 
-function adminErasePost($chapterId)
+//Erase from db - erase a post
+function adminErasePost($postId)
 {
     $db=dbConnect();
     $deletePost = $db->prepare('DELETE FROM chapters WHERE id=? ' );
-    return $deletePost->execute(array($chapterId));
+    $deletePost->execute(array($postId));
+    $deleteComment = $db->prepare('DELETE FROM comments WHERE chapters_id=? ' );
+    $deleteComment->execute(array($postId));
+    return ($deletePost && $deleteComment);
 }
 
-   
-    
+//Update db - draft post => published/validated post
+function adminPublishPost($postId)
+{
+    $db=dbConnect();
+    $publishPost = $db->prepare('UPDATE chapters SET status_chapter = "published" WHERE id=? ' );
+    return $publishPost->execute(array($postId));
+}
+ 
+//Update db - published/validated post => draft post
+function adminDraftPost($postId)
+{
+    $db=dbConnect();
+    $draftPost = $db->prepare('UPDATE chapters SET status_chapter = "draft" WHERE id=? ' );
+    return $draftPost->execute(array($postId));
+}
 
 
 

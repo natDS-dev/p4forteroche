@@ -8,13 +8,13 @@
                 <a href="index.php?action=adminMail">Mails</a>
             </li>
             <li>
-                <a href="">Publications</a>
+                <a href=" index.php?action=adminPostsList">Publications</a>
             </li>
             <li>
                 <a href="index.php?action=adminCommentsList">Commentaires</a>
             </li>
             <li>
-                <a href="">Rédiger</a>
+                <a href="index.php?action=adminCreatePost">Rédiger</a>
             </li>                        
         </ul>
     </nav>                          

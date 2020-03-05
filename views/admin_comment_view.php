@@ -51,8 +51,8 @@
                                 <td data-label="Sujet"><?= htmlspecialchars($postedComment['title_comment']) ?></td>
                                 <td data-label="Message"><?= htmlspecialchars($postedComment['content_comment']) ?></td>                            
                                 <td data-label="Action ?">
-                                    <p><a href="">Valider et publier</a></p> <!--COM PERSO : Compléter lien-->
-                                    <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($postedComment['id']) ?>">Suppr.</a></p> <!--COM PERSO : Compléter lien-->                           
+                                    <p><a href="index.php?action=adminConfirmComment&id=<?= htmlspecialchars($postedComment['id']) ?>">Valider et publier</a></p> <!--COM PERSO : Compléter lien-->
+                                    <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($postedComment['id']) ?>"onclick="return confirm('Ce commentaire sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce commentaire ?');">Suppr.</a></p> <!--COM PERSO : Compléter lien-->                           
                                 </td>
                             </tr>
                         <?php endforeach; ?>                         
@@ -78,7 +78,7 @@
                                 <td data-label="Message"><?= htmlspecialchars($reportedComment['content_comment']) ?></td>                            
                                 <td data-label="Action ?">
                                     <p><a href="index.php?action=adminConfirmComment&id=<?= htmlspecialchars($reportedComment['id']) ?>">Valider et publier</a></p> <!--COM PERSO : Compléter lien-->
-                                    <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($reportedComment['id']) ?>">Suppr.</a></p>  
+                                    <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($reportedComment['id']) ?>"onclick="return confirm('Ce commentaire sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce commentaire ?');">Suppr.</a></p>  
                                 </td>
                             </tr>
                         <?php endforeach; ?> 

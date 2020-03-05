@@ -610,7 +610,11 @@ table th
    
     background-color:#d0d9da ;
 }
-  
+
+table tr .unread_mail
+{
+    color: yellow;
+}
 
 .admin_main_container .admin_subtitles
 {
