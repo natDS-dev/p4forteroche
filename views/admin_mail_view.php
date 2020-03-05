@@ -31,7 +31,7 @@
                             </td>
                             <td data-label="Action ?">
                                 <p><a href="">Marquer comme "non lu"</a></p> <!--COM PERSO : Compléter lien-->
-                                <p><a href="">Suppr.</a></p>
+                                <p><a href=""onclick="return confirm('Ce mail sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce mail ?');">Suppr.</a></p>
                             </td>
                         </tr>
                     <?php endforeach; ?>  
