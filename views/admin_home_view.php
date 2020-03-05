@@ -8,7 +8,7 @@
         <?php require_once("includes/menu_admin.php"); ?>
         <section class="admin_action_block" id="admin_plublished_posts_view">
             <table class="table" id="resume_table">
-                <caption>Vue rapide</caption>
+                <caption>Vue rapide - Accès en 1 click </caption>                
                 <thead>
                     <tr>
                         <th scope="col">Total publications </th>
@@ -20,14 +20,24 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td data-label="Total publications"><?=$data['nbPost'] ?></t"d>
-                    <td data-label="Total brouillon"><?=$data['nbDraft'] ?></td>
-                    <td data-label="Mails non lus"><?=$data['nbUnreadMails'] ?></td>
-                    <td data-label="Commentaires à valider"><?=$data['nbValidCom'] ?></td>
-                    <td data-label="Commentaires signalés"><?=$data['nbReportedCom'] ?></td>
+                    <td data-label="Total publications">
+                        <a href="index.php?action=adminPostsList"><?=$data['nbPost'] ?><a>
+                    </td>
+                    <td data-label="Total brouillon">
+                        <a href="index.php?action=adminPostsList"><?=$data['nbDraft'] ?></a>
+                    </td>
+                    <td data-label="Mails non lus">
+                        <a href="index.php?action=adminMail "><?=$data['nbUnreadMails'] ?></a>
+                    </td>
+                    <td data-label="Commentaires à valider">
+                        <a href="index.php?action=adminCommentsList"><?=$data['nbValidCom'] ?></a>
+                    </td>
+                    <td data-label="Commentaires signalés">
+                        <a href="index.php?action=adminCommentsList"><?=$data['nbReportedCom'] ?></a>
+                    </td>
                 </tr>
                 </tbody>
-            </table>
+            </table>           
         </section> 
     </section>
 </main> 

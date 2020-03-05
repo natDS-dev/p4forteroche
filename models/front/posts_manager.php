@@ -71,7 +71,7 @@ function getAdminPosts($statusPost)
     return $req->fetchAll();
 }
 
-//Erase from db - erase a post
+//Erase from db - erase a post and associated comments
 function adminErasePost($postId)
 {
     $db=dbConnect();
@@ -96,6 +96,15 @@ function adminDraftPost($postId)
     $db=dbConnect();
     $draftPost = $db->prepare('UPDATE chapters SET status_chapter = "draft" WHERE id=? ' );
     return $draftPost->execute(array($postId));
+}
+
+function adminAllNumbChapter()
+{
+    $db = dbConnect();
+    $req = $db->query('SELECT number_chapter FROM chapters ORDER BY number_chapter ');
+    $numbChapter = $req->fetchAll();
+    $req->closeCursor();
+    return $numbChapter;
 }
 
 

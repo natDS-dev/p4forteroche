@@ -29,7 +29,7 @@
         </div>                         
         <div class="content_text">
             <!--Connect form-->
-           <form id="connect_form" action="index.php?action=adminVerify" method="POST"> <!--COM PERSO : remplir action -->
+           <form id="connect_form" action="index.php?action=connectVerify" method="POST"> <!--COM PERSO : remplir action -->
                 <div class="place_form">
                     <label for="name">Identifiant : </label>
                     <input type="text" id="login" name="login" required>

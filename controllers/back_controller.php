@@ -1,13 +1,7 @@
 <?php
-require('models/front/posts_manager.php');
-require('models/front/comments_manager.php');
-require('models/front/contact_manager.php');
-require('models/front/connect_manager.php');
-
-//***********BACK********
 //ADMIN HOME - QUICK VIEW
 //Quick values : number of published & draft posts  , unread mails, reported comments 
-function showAdminHome()
+function adminHome()
 {   
     $data=adminHomeValues();
     require_once('views/admin_home_view.php');
@@ -23,7 +17,7 @@ function adminDisconnect()
 
 //ADMIN POST
 //Post by status
-function adminLPostsList()
+function adminPostsList()
 {
     $publishedPosts = getAdminPosts("published");
     $draftPosts = getAdminPosts("draft");
@@ -42,12 +36,11 @@ function adminValidPost($id)
     header('Location: index.php?action=adminPostsList');
 }
 //Change status of a published post , published to draft
-function adminToDraftPost($id)
+function adminToDraftPost($id)//!!!!!!!!!!!!!!!!!!!!!!!!!!!pb = action ok mais page blanche
 {
     adminDraftPost($id);
     header('Location: index.php?action=adminPostsList');
 }
-
 
 //ADMIN COMMENTS
 //comment list by status
@@ -59,38 +52,54 @@ function adminCommentsList()
    require('views/admin_comment_view.php');
 }
 
+//Delete comment
 function adminDeleteComment($id)
 {
     adminEraseComment($id);
     header('Location: index.php?action=adminCommentsList');
     
 }
-
+//Validate & publish comment
 function adminValidComment($id)
 {
     adminConfirmComment($id);
     header('Location: index.php?action=adminCommentsList');
 }
 
-
-
 //ADMIN CONTACT 
 //Mail list 
-function showListMails()
+function adminMail()
 {
    $contactMails=getMails();
    require ('views/admin_mail_view.php');
 }
 
-function adminStatusMail($id)
+//Change status mail (unread to read)
+function adminReadMail($id)
 {
-    adminUpdateMail($mailId);
+    adminUpdateMail($id);
     header('Location: index.php?action=adminMail');
 }
+
+
+//ADMIN CREATE POST
+//Create a post with right number chapter value
+function adminCreatePost()
+{
+    $numbChapter = adminAllNumbChapter();
+    $unavailableNumChap=[];
+    foreach($numbChapter as $key=>$value){
+        $unavailableNumChap[]=(int)$value['number_chapter'];
+    }
+    $maxChapter = end($unavailableNumChap)+20;
+    require('views/admin_createpost_view.php');
+}
+
 //ERROR ADMIN PAGE
-function showErrorAdmin()
+function adminShowError()
 {
     require_once('views/admin_error_view.php');
 }
+
 
 
