@@ -33,22 +33,25 @@ function showConnect()
 // Get all posts datas from posts_manager.php and show all posts(chapters) in extract page (limited words) 
 function showListPosts()
 {
-    $allPosts = getAllPosts();
+    $pman = new PostsManager();
+    $allPosts = $pman->getAllPosts();
     require('views/extracts_view.php');
 }
 
 //POST/CHAPTER PAGE "le volume"
 // Get one post data + comments datas from posts_manager.php and show only the post(chapter) asked by the user with the linked comments  
 function showOnePost($chapterId)
-{
-    $onePost=getOnePost($chapterId);
-    $comments=getComments($chapterId); 
+{  
+    $cm = new CommentsManager();
+    $pman = new PostsManager();
+    $onePost= $pman->getOnePost($chapterId);
+    $comments= $cm->getComments($chapterId); 
     if ($onePost === false)
     {
         showError();
     } else {
         $listNumbChapter = []; 
-        foreach (getNumberChapter() as $getNumberchapter){
+        foreach ($pman->getNumberChapter() as $getNumberchapter){
             $listNumbChapter[] = $getNumberchapter['id'];
         };
         $tempId= (string)$onePost['id'];
@@ -74,7 +77,8 @@ function addComment($chapterId)//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!pb
         $commentAuthor = htmlspecialchars($_POST['comment_pseudo']);
         $commentSubject = htmlspecialchars($_POST['comment_subject']);
         $commentContent = htmlspecialchars($_POST['comment_content']);
-        $affectedLines = postComment($chapterId, $commentAuthor, $commentSubject, $commentContent);
+        $cm = new CommentsManager();
+        $affectedLines = $cm->postComment($chapterId, $commentAuthor, $commentSubject, $commentContent);
     }
     //test request return    
     if ($affectedLines === false) {
@@ -87,13 +91,14 @@ function addComment($chapterId)//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!pb
 //Report/signal comment
 function toReportComment($commentId)
 {
-    $reportComment = reportComment($commentId);
+    $cm = new CommentsManager();
+    $reportComment = $cm->reportComment($commentId);
     if($reportComment === false)
     {
         showError();
     }
     else{
-        $chapterId=getCommentChapId($commentId);
+        $chapterId = $cm->getCommentChapId($commentId);
         header('Location: index.php?action=showOnePost&id=' .$chapterId );
     }
 }
@@ -123,12 +128,13 @@ function addMail() //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!pb
 //CONNECT PAGE 
 //Check entry login & password
 function connectVerify()
-{ 
+{   
+    $cman= new ConnectManager();
     $login = $_POST['login'];    
-    $adminInfos = adminConnect($login);
+    $adminInfos = $cman->adminInfosConnect($login);
     if (!empty($_POST['login']) && !empty($_POST['password']))
     {   //compare password entry with db hashed password 
-        $correctPassword=password_verify($_POST['password'], $adminInfos['password']);
+        $correctPassword = password_verify($_POST['password'], $adminInfos['password']);
         if(!$adminInfos || !$correctPassword){
             //echo "mauvais identifiants";
         } else {            

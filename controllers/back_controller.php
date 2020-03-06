@@ -2,8 +2,8 @@
 //ADMIN HOME - QUICK VIEW
 //Quick values : number of published & draft posts  , unread mails, reported comments 
 function adminHome()
-{   
-    $data=adminHomeValues();
+{   $pman = new PostsManager();
+    $data= $pman->adminHomeValues();
     require_once('views/admin_home_view.php');
 }
 //Disconnect from admin page
@@ -27,50 +27,57 @@ function adminDisconnect()
 //Posts by status
 function adminPostsList()
 {
-    $publishedPosts = getAdminPosts("published");
-    $draftPosts = getAdminPosts("draft");
+    $pman = new PostsManager();
+    $publishedPosts = $pman->getAdminPosts("published");
+    $draftPosts = $pman->getAdminPosts("draft");
     require('views/admin_post_view.php');
 }
 //Delete a post
 function adminDeletePost($id)
 {
-    adminErasePost($id);
+    $pman = new PostsManager();
+    $pman->adminErasePost($id);
     header('Location: index.php?action=adminPostsList');
 }
 //Valid & publish a draft post
 function adminValidPost($id)
 {
-    adminPublishPost($id);
+    $pman = new PostsManager();
+    $pman->adminPublishPost($id);
     header('Location: index.php?action=adminPostsList');
 }
 //Change status of a published post , published to draft
 function adminDraftPost($id)
 {
-    adminToDraftPost($id);
+    $pman = new PostsManager();
+    $pman->adminToDraftPost($id);
     header('Location: index.php?action=adminPostsList');
 }
 
 //ADMIN COMMENTS
 //comment list by status
 function adminCommentsList()
-{   
-   $postedComments = getAdminComments("posted");
-   $reportedComments = getAdminComments("reported");
-   $validatedComments = getAdminComments("validated");
+{  
+   $cm = new CommentsManager(); 
+   $postedComments = $cm->getAdminComments("posted");
+   $reportedComments = $cm->getAdminComments("reported");
+   $validatedComments = $cm->getAdminComments("validated");
    require('views/admin_comment_view.php');
 }
 
 //Delete comment
 function adminDeleteComment($id)
 {
-    adminEraseComment($id);
+    $cm = new CommentsManager();
+    $cm->adminEraseComment($id);
     header('Location: index.php?action=adminCommentsList');
-    
 }
+
 //Validate & publish comment
 function adminConfirmComment($id) 
 {
-    adminValidComment($id);
+    $cm = new CommentsManager();
+    $cm->adminValidComment($id);
     header('Location: index.php?action=adminCommentsList');
 }
 
