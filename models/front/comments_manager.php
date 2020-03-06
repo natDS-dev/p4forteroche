@@ -36,6 +36,13 @@ function reportComment($commentId)
     return $reportComment->execute(array($commentId));
 }
 
+function getCommentChapId($commentId)
+{
+    $db=dbConnect();
+    $chapterId = $db->prepare('SELECT chapters_id FROM comments WHERE id=?');
+    $chapterId->execute(array($commentId));
+    return $chapterId->fetch()['chapters_id'];
+}
 //***BACK***
 //to db (select) - Get all reported comments in order to have it in admin view
   
@@ -55,7 +62,7 @@ function adminEraseComment($commentId)
     return $deleteComment->execute(array($commentId));
 }
 
-function adminConfirmComment($commentId)
+function adminValidComment($commentId)
 {
     $db=dbConnect();
     $confirmComment = $db->prepare('UPDATE comments SET statut_user_comment = "validated" WHERE id=? ' );
@@ -63,6 +70,6 @@ function adminConfirmComment($commentId)
 }
 
 /*SELECT comments.*, chapters.number_chapter FROM comments
-INNER JOIN chapters ON chapters.id = comments.chapters_id
+INNER JOIN chapters ON chapters.id = comments.chapters_id*/
 
 //POO CLASS ComManager

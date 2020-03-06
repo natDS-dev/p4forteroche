@@ -16,7 +16,15 @@ function adminDisconnect()
 
 
 //ADMIN POST
-//Post by status
+/*function adminSavePublish()
+{
+
+}*/
+
+
+
+
+//Posts by status
 function adminPostsList()
 {
     $publishedPosts = getAdminPosts("published");
@@ -36,9 +44,9 @@ function adminValidPost($id)
     header('Location: index.php?action=adminPostsList');
 }
 //Change status of a published post , published to draft
-function adminToDraftPost($id)//!!!!!!!!!!!!!!!!!!!!!!!!!!!pb = action ok mais page blanche
+function adminDraftPost($id)
 {
-    adminDraftPost($id);
+    adminToDraftPost($id);
     header('Location: index.php?action=adminPostsList');
 }
 
@@ -60,9 +68,9 @@ function adminDeleteComment($id)
     
 }
 //Validate & publish comment
-function adminValidComment($id)
+function adminConfirmComment($id) 
 {
-    adminConfirmComment($id);
+    adminValidComment($id);
     header('Location: index.php?action=adminCommentsList');
 }
 
@@ -70,14 +78,24 @@ function adminValidComment($id)
 //Mail list 
 function adminMail()
 {
-   $contactMails=getMails();
+   $mn= new MailsManager(); 
+   $contactMails=$mn->getMails();
    require ('views/admin_mail_view.php');
 }
+/* $contactMails=(new MailsManager())->getMails();*/
 
 //Change status mail (unread to read)
 function adminReadMail($id)
 {
-    adminUpdateMail($id);
+    $mn= new MailsManager();
+    $mn->adminUpdateMail($id);
+    header('Location: index.php?action=adminMail');
+}
+
+function adminDeleteMail($id)
+{
+    $mn= new MailsManager();
+    $mn->deleteMail($id);
     header('Location: index.php?action=adminMail');
 }
 

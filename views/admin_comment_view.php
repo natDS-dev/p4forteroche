@@ -10,7 +10,7 @@
             <?php require_once("includes/menu_admin.php"); ?>
             <section class="admin_action_block" id="admin_comments_view"> 
                 <table class="table" id="validated_comments_table">
-                    <caption>Commentaires validés</caption>s
+                    <caption>Commentaires validés</caption>
                     <thead>
                     <tr>
                         <th scope="col">Auteur </th>

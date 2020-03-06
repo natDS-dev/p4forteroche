@@ -1,9 +1,23 @@
 A faire :
-
-**General**
+URGENT
+1/-!!!! REVOIR pour que : suppression post = suppression commentaires 
+2/-!!! jointure table pour récup n° chapitre dans comments
+3/**Sécurité**
+-pas d'accès aux pages admin si pas connecté
+4/- refaire admin home avec une vue simplifiée de tout (ex:cercle ou jauge ou tâches encre ou liste)
+        =>indiquer : (incrémentation)
+            -nb de mails (pas lu) =>!!! condition suppl et ajouter statut checked/unchecked dans db
+            -nb com signalés
+            -nb com non validés
+            -nb publi totale
+            -nb publi brouillon
+5/**General**
 -passer en POO
 -changement nom dans routeur, donc controller etc..
 
+****************************
+
+AUTRES
 **page chapitre/volume**
 - numéro chapitre => quand saut d'un n° 
         =>une phrase indicative
@@ -18,24 +32,17 @@ A faire :
 -Message => variable de session
 
 
-
 **htaccess**
+-si réecriture url ou pas
 
 **ADMIN**
 **page admin générale***
--Menu de toutes les pages dans le header pour que jean puisse accéder au site même si connecté 
--Renommer en utilisant les noms du menu 
-
-- refaire admin home avec une vue simplifiée de tout (ex:cercle ou jauge ou tâches encre ou liste)
-        =>indiquer : (incrémentation)
-            -nb de mails (pas lu) =>!!! condition suppl et ajouter statut checked/unchecked dans db
-            -nb com signalés
-            -nb com non validés
-            -nb publi totale
-            -nb publi brouillon
+-Renommer page en utilisant les noms du menu 
 
 
-**page commentaire admin**
--jointure table pour récup n° chapitre dans comments
+
+
+
+
 
 **

@@ -63,6 +63,14 @@ function adminHomeValues()
 
 //ADMIN POST
 //select from db - get post by status (posted/reported/validated)
+/*function adminToSavePublish()
+{
+    $db=dbConnect();
+    $createPost = $db->prepare('INSERT INTO chapters(author_comment,title_comment, content_comment, date_comment) VALUES(?, ?, ?, ?, NOW())');
+    $affectedLines = $comments->execute(array($chapterId,$commentAuthor,$commentSubject,$commentContent));
+    return $affectedLines;
+}*/
+
 function getAdminPosts($statusPost)
 {
     $db = dbConnect();
@@ -91,7 +99,7 @@ function adminPublishPost($postId)
 }
  
 //Update db - published/validated post => draft post
-function adminDraftPost($postId)
+function adminToDraftPost($postId)
 {
     $db=dbConnect();
     $draftPost = $db->prepare('UPDATE chapters SET status_chapter = "draft" WHERE id=? ' );

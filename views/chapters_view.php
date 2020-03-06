@@ -55,7 +55,7 @@
             </div>
             <!--Comment form-->
             <section class="comments_block">
-                <form id="comments_form" action="index.php?action=showComment&id=<?= $onePost['id'] ?>" method="post"> <!--COM PERSO : remplir action -->
+                <form id="comments_form" action="index.php?action=addComment&id=<?= $onePost['id'] ?>" method="post"> <!--COM PERSO : remplir action -->
                     <h3>A vous de prendre votre plume !</h3>
                     <div class="place_form">
                         <label for="comment_pseudo">Pseudo : </label>

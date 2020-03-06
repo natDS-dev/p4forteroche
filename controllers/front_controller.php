@@ -85,7 +85,7 @@ function addComment($chapterId)//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!pb
 }
 
 //Report/signal comment
-function toReportComment($commentId, $chapterId)
+function toReportComment($commentId)
 {
     $reportComment = reportComment($commentId);
     if($reportComment === false)
@@ -93,7 +93,7 @@ function toReportComment($commentId, $chapterId)
         showError();
     }
     else{
-       
+        $chapterId=getCommentChapId($commentId);
         header('Location: index.php?action=showOnePost&id=' .$chapterId );
     }
 }
@@ -103,11 +103,12 @@ function toReportComment($commentId, $chapterId)
 function addMail() //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!pb
 { 
     if (!empty($_POST['contact_name']) && !empty($_POST['contact_mail']) && !empty($_POST['contact_subject']) && !empty($_POST['contact_content'])){
-        $nameContact = htmlspecialchars($_POST['contact_name']);
+        $mn= new MailsManager();
+        $nameContact =  htmlspecialchars($_POST['contact_name']);
         $mailContact = htmlspecialchars($_POST['contact_mail']);
         $subjectContact = htmlspecialchars($_POST['contact_subject']);
         $messageContact = htmlspecialchars($_POST['contact_content']);
-        $affectedLines = postMail($nameContact, $mailContact, $subjectContact, $messageContact);
+        $affectedLines = $mn->postMail($nameContact, $mailContact, $subjectContact, $messageContact);
     } else {
         showError();
     }

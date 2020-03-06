@@ -196,6 +196,7 @@ main
     height: 85VH;
     margin: 0;
     padding: 0;
+    margin-top: 160px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -527,6 +528,7 @@ ERROR - CONNECT - ADMIN
 {
     width: 100%;
     min-height: 100vh;
+    margin-top: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -541,7 +543,7 @@ ERROR - CONNECT - ADMIN
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:#6d6b67 ;
+    background-color:white ;
 }
 
 /**Admin page menu**/
@@ -561,8 +563,8 @@ ERROR - CONNECT - ADMIN
 
 .menu_admin li
 {
-    width: 100PX;
-    padding: 15px;
+    width: 110PX;
+    padding: 10px;
     margin: 5px;
     background-color: white;
     border: 3px solid #a7a4a4;
@@ -611,10 +613,10 @@ table caption
   
 table tr 
 {
-    background-color: #f8f8f8;
+    background-color: #e8e8e7;
     border: 1px solid #a7a4a4;
 }
-  
+
 table th,table td 
 {
     padding: 5px 5px 5px 5px;
@@ -624,8 +626,9 @@ table th,table td
   
 table th 
 {
-   
-    background-color:#d0d9da ;
+    background-color: #316b75;
+    color: white;
+    font-size: 1.5em;
 }
 
 table .unread_mail

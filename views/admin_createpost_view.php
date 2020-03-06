@@ -24,6 +24,10 @@
                     <label for="input_tinymce_title">Entrer un titre* (obligatoire) :</label> <!---COM PERSO : FAIRE VERIF SUPPLEMENTAIRES DES ENTREES-->
                     <input type="text" id="input_tinymce_title" name="input_tinymce_title" pattern="[a-zA-Z ]+" required>
                 </div>
+                <div class="place_form" id="tinymce_url_img">
+                    <label for="input_tinymce_url">Entrer l'url d'une image*(obligatoire) :</label> <!---COM PERSO : FAIRE VERIF SUPPLEMENTAIRES DES ENTREES-->
+                    <input type="url" id="input_tinymce_url" name="input_tinymce_url" pattern="https?://.+" required>
+                </div>
                 <label for="mytextarea">Entrer un texte :</label>
                 <textarea id="mytextarea"></textarea>
                 <div class="button_form">

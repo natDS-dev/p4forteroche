@@ -35,7 +35,7 @@
                                 <?php else : ?>
                                     <p>Lu</p> <!--COM PERSO : Compléter lien-->
                                 <?php endif; ?>
-                                <p><a href=""onclick="return confirm('Ce mail sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce mail ?');">Suppr.</a></p>
+                                <p><a href="index.php?action=adminDeleteMail&id=<?= $contactMail['id'] ?>" onclick="return confirm('Ce mail sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce mail ?');">Suppr.</a></p>
                             </td>
                         </tr>
                     <?php endforeach; ?>  
