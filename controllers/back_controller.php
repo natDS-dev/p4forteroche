@@ -111,7 +111,8 @@ function adminDeleteMail($id)
 //Create a post with right number chapter value
 function adminCreatePost()
 {
-    $numbChapter = adminAllNumbChapter();
+    $pman = new PostsManager();
+    $numbChapter = $pman->adminAllNumbChapter();
     $unavailableNumChap=[];
     foreach($numbChapter as $key=>$value){
         $unavailableNumChap[]=(int)$value['number_chapter'];
