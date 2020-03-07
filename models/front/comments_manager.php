@@ -63,9 +63,3 @@ class CommentsManager extends Manager
     }
 
 }
-
-
-/*SELECT comments.*, chapters.number_chapter FROM comments
-INNER JOIN chapters ON chapters.id = comments.chapters_id*/
-
-//POO CLASS ComManager

@@ -333,7 +333,10 @@ textarea
     display: flex;
     text-align: center;
     justify-content: space-around;
+    margin-top: 5px;
+    align-items: center;
 }
+
 
 form button
 {
@@ -633,7 +636,7 @@ table th
 
 table .unread_mail
 {
-    background:#5d5b58;
+    background:#797672;
 }
 
 .admin_main_container .admin_subtitles

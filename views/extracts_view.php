@@ -32,11 +32,11 @@
                 <?php foreach ($allPosts as $allPost): ?>
                     <article> 
                         <img  src=" <?= ($allPost['picture_chapter']) ?> "/>    
-                        <h3><?= htmlspecialchars($allPost['number_chapter']) ?>.<?= htmlspecialchars($allPost['title_chapter']) ?></h3>
-                        <p class="date_chapter">Posté le : <?=  nl2br(htmlspecialchars($allPost['date_chapter_fr'])) ?></p>
+                        <h3><?= htmlspecialchars_decode($allPost['number_chapter']) ?>.<?= htmlspecialchars_decode($allPost['title_chapter']) ?></h3>
+                        <p class="date_chapter">Posté le : <?=  nl2br(htmlspecialchars_decode($allPost['date_chapter_fr'])) ?></p>
                         <p class="text_chapter">
                             <?php if(strlen($allPost['content_chapter']) > 30) {$allPost['content_chapter'] = substr($allPost['content_chapter'], 0, 70); } ?>
-                            <?= htmlspecialchars($allPost['content_chapter']); ?>...</p>
+                            <?= htmlspecialchars_decode($allPost['content_chapter']); ?>...</p>
                         <p>
                             <a href="index.php?action=showOnePost&id=<?= $allPost['id'] ?>">Lire la suite</a>
                         </p>

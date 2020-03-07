@@ -19,12 +19,12 @@
                     <tbody>
                         <?php foreach ($publishedPosts as $publishedPost): ?>
                             <tr>
-                                <td data-label="N° chapitre"><?= htmlspecialchars($publishedPost['number_chapter']) ?></td>
-                                <td data-label="Titre"><?= htmlspecialchars($publishedPost['title_chapter']) ?></td>
+                                <td data-label="N° chapitre"><?= htmlspecialchars_decode($publishedPost['number_chapter']) ?></td>
+                                <td data-label="Titre"><?= htmlspecialchars_decode($publishedPost['title_chapter']) ?></td>
                                 <td data-label="Action ?">
                                     <p><a href="">Editer</a></p> <!--COM PERSO : Compléter lien-->
-                                    <p><a href="index.php?action=adminDraftPost&id=<?= htmlspecialchars($publishedPost['id']) ?>">Mettre dans brouillon</a></p>
-                                    <p><a href="index.php?action=adminDeletePost&id=<?= htmlspecialchars($publishedPost['id']) ?>" onclick="return confirm('Ce chapitre sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce chapitre ?');">Suppr.</a></p>
+                                    <p><a href="index.php?action=adminDraftPost&id=<?= htmlspecialchars_decode($publishedPost['id']) ?>">Mettre dans brouillon</a></p>
+                                    <p><a href="index.php?action=adminDeletePost&id=<?= htmlspecialchars_decode($publishedPost['id']) ?>" onclick="return confirm('Ce chapitre sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce chapitre ?');">Suppr.</a></p>
                                 </td>
                             </tr>
                         <?php endforeach; ?> 
@@ -44,12 +44,12 @@
                     <tbody>
                         <?php foreach ($draftPosts as $draftPost): ?>
                             <tr>
-                                <td data-label="N° chapitre"><?= htmlspecialchars($draftPost['number_chapter']) ?></td>
-                                <td data-label="Titre"><?= htmlspecialchars($draftPost['title_chapter']) ?></td>
+                                <td data-label="N° chapitre"><?= htmlspecialchars_decode($draftPost['number_chapter']) ?></td>
+                                <td data-label="Titre"><?= htmlspecialchars_decode($draftPost['title_chapter']) ?></td>
                                 <td data-label="Action ?">
                                     <p><a href="">Editer</a></p> <!--COM PERSO : Compléter lien-->
-                                    <p><a href="index.php?action=adminValidPost&id=<?= htmlspecialchars($draftPost['id']) ?>">Publier</a></p>
-                                    <p><a href="index.php?action=adminDeletePost&id=<?= htmlspecialchars($draftPost['id']) ?>"onclick="return confirm('Ce chapitre sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce chapitre ?');">Suppr.</a></p>
+                                    <p><a href="index.php?action=adminValidPost&id=<?= htmlspecialchars_decode($draftPost['id']) ?>">Publier</a></p>
+                                    <p><a href="index.php?action=adminDeletePost&id=<?= htmlspecialchars_decode($draftPost['id']) ?>"onclick="return confirm('Ce chapitre sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce chapitre ?');">Suppr.</a></p>
                                 </td>
                             </tr>
                         <?php endforeach; ?> 

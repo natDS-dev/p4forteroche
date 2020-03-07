@@ -8,7 +8,7 @@
         selector: '#mytextarea',
         language: "fr_FR",
         themes: "mobile",
-        plugins : "autosave,emoticons,fullscreen,fullpage,image,insertdatetime,link,media,pagebreak,preview,table,template, quickbars,visualblocks"
+        plugins : "autosave,emoticons,fullscreen,image,insertdatetime,link,media,pagebreak,preview,table,template, quickbars,visualblocks"
         
     });
     </script>

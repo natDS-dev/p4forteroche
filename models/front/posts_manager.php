@@ -5,6 +5,8 @@ require_once ("models/front/manager.php");
 
 class PostsManager extends Manager
 {
+    //FRONT
+
     //EXTRACTS(segments)
     //req to db(select) - gets chapter's/post's list in order to produce the extracts/list posts (limited string in the controller)
     public function getAllPosts()
@@ -27,7 +29,6 @@ class PostsManager extends Manager
         return $onePost;
     }
 
-
     //req to db(select) - gets chapter's/post number
     public function getNumberChapter()  
     {
@@ -36,9 +37,9 @@ class PostsManager extends Manager
         $req->closeCursor();
         return $listNumbChapter;
     }  
-    //POO : class PostManager
+    
 
-    //***BACK***
+    //BACK
 
     //ADMIN HOME QUICK VIEW
     // To db select & count - Get & count values of  posts/reported comments/unread mails  
@@ -58,17 +59,8 @@ class PostsManager extends Manager
         return $data;
     }
 
-
-    //ADMIN POST
-    //select from db - get post by status (posted/reported/validated)
-    /*function adminToSavePublish()
-    {
-        $db=dbConnect();
-        $createPost = $db->prepare('INSERT INTO chapters(author_comment,title_comment, content_comment, date_comment) VALUES(?, ?, ?, ?, NOW())');
-        $affectedLines = $comments->execute(array($chapterId,$commentAuthor,$commentSubject,$commentContent));
-        return $affectedLines;
-    }*/
-
+    //ADMIN POSTS
+    //To db select - Get status post
     public function getAdminPosts($statusPost)
     {
         $req = $this->db->query('SELECT id,number_chapter,title_chapter,content_chapter,status_chapter,DATE_FORMAT(date_chapter, \'%d/%m/%Y à %Hh%imin%ss\')
@@ -100,6 +92,8 @@ class PostsManager extends Manager
         return $draftPost->execute(array($postId));
     }
 
+    //ADMIN CREATE POST
+    //To db select - Get all chapters' number (not id) => to get the list of available chapter's number
     public function adminAllNumbChapter()
     {
         $req = $this->db->query('SELECT number_chapter FROM chapters ORDER BY number_chapter ');
@@ -107,5 +101,15 @@ class PostsManager extends Manager
         $req->closeCursor();
         return $numbChapter;
     }
- 
+    
+    //Insert to db - Save a new post
+    public function adminPostNewPost($adminId, $numChap, $titleChap, $contChap, $pictChap, $statusChap)
+    {
+        $saveNewPost = $this->db->prepare('INSERT INTO chapters(admin_id, number_chapter, title_chapter, content_chapter, picture_chapter,status_chapter, date_chapter) VALUES(?, ?, ?, ?, ?, ?, NOW())');
+        $test=array($adminId, $numChap, $titleChap, $contChap, $pictChap, $statusChap);
+        $affectLines = $saveNewPost->execute($test);
+        return $affectLines;
+    }
+
+
 }

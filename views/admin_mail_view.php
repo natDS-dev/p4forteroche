@@ -20,25 +20,30 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($contactMails as $contactMail): ?>
-                        <tr  <?php if ($contactMail['status_mail_contact'] !== 'read') echo  ('class="unread_mail"') ?>>
-                            <td data-label="Date"><?= htmlspecialchars($contactMail['date_contact_fr']) ?></td>
-                            <td data-label="Auteur"><?= htmlspecialchars($contactMail['user_name_contact']) ?></td>
-                            <td data-label="Adresse mail"><?= htmlspecialchars($contactMail['user_mail_contact']) ?></td>
-                            <td data-label="Objet"><?= htmlspecialchars($contactMail['subject_contact']) ?></td>
-                            <td data-label="Contenu">
-                                <?= htmlspecialchars($contactMail['message_contact']) ?>
-                            </td>
-                            <td data-label="Action ?">
-                                <?php if($contactMail['status_mail_contact'] !== 'read'): ?> 
-                                    <p><a href="index.php?action=adminReadMail&id=<?= $contactMail['id'] ?>">Marquer comme "lu"</a></p> <!--COM PERSO : Compléter lien-->
-                                <?php else : ?>
-                                    <p>Lu</p> <!--COM PERSO : Compléter lien-->
-                                <?php endif; ?>
-                                <p><a href="index.php?action=adminDeleteMail&id=<?= $contactMail['id'] ?>" onclick="return confirm('Ce mail sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce mail ?');">Suppr.</a></p>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>  
+                    <?php if(!empty($contactMails)) : ?>
+                        <?php foreach ($contactMails as $contactMail): ?>
+                            <tr  <?php if ($contactMail['status_mail_contact'] !== 'read') echo  ('class="unread_mail"') ?>>
+                                <td data-label="Date"><?= htmlspecialchars($contactMail['date_contact_fr']) ?></td>
+                                <td data-label="Auteur"><?= htmlspecialchars($contactMail['user_name_contact']) ?></td>
+                                <td data-label="Adresse mail"><?= htmlspecialchars($contactMail['user_mail_contact']) ?></td>
+                                <td data-label="Objet"><?= htmlspecialchars($contactMail['subject_contact']) ?></td>
+                                <td data-label="Contenu">
+                                    <?= htmlspecialchars($contactMail['message_contact']) ?>
+                                </td>
+                                <td data-label="Action ?">
+                                    <?php if($contactMail['status_mail_contact'] !== 'read'): ?> 
+                                        <p><a href="index.php?action=adminReadMail&id=<?= $contactMail['id'] ?>">Marquer comme "lu"</a></p> <!--COM PERSO : Compléter lien-->
+                                    <?php else : ?>
+                                        <p>Lu</p> <!--COM PERSO : Compléter lien-->
+                                    <?php endif; ?>
+                                    <p><a href="index.php?action=adminDeleteMail&id=<?= $contactMail['id'] ?>" onclick="return confirm('Ce mail sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce mail ?');">Suppr.</a></p>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <td colspan="4">Aucun mail à afficher</td>                            
+                    <?php endif; ?>
+
                 </tbody>
             </table> 
         </section>                 

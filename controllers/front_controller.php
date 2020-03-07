@@ -68,8 +68,8 @@ function showOnePost($chapterId)
     }
 }
 //Comments
-//Comment form =>test request return + add comment to bdd
-function addComment($chapterId)//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!pb
+//Comment form =>test request return + add comment to db
+function addComment($chapterId)
 {
     if (empty($_POST['comment_pseudo']) || empty($_POST['comment_subject']) || empty($_POST['comment_content'])){
         showError();
@@ -82,6 +82,7 @@ function addComment($chapterId)//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!pb
     }
     //test request return    
     if ($affectedLines === false) {
+
         showError();
     } else {
         header('Location: index.php?action=showOnePost&id=' . $chapterId);
@@ -105,7 +106,7 @@ function toReportComment($commentId)
 
 //CONTACT PAGE
 //Contact form => test req return + add message to bdd
-function addMail() //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!pb
+function addMail() 
 { 
     if (!empty($_POST['contact_name']) && !empty($_POST['contact_mail']) && !empty($_POST['contact_subject']) && !empty($_POST['contact_content'])){
         $mn= new MailsManager();

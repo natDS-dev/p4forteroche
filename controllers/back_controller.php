@@ -14,16 +14,6 @@ function adminDisconnect()
     header('Location: index.php?action=showConnect');
 }
 
-
-//ADMIN POST
-/*function adminSavePublish()
-{
-
-}*/
-
-
-
-
 //Posts by status
 function adminPostsList()
 {
@@ -108,7 +98,7 @@ function adminDeleteMail($id)
 
 
 //ADMIN CREATE POST
-//Create a post with right number chapter value
+//Get avalailable number chapter value => to create a list of availables numbers chapter + margin(+20)
 function adminCreatePost()
 {
     $pman = new PostsManager();
@@ -119,6 +109,29 @@ function adminCreatePost()
     }
     $maxChapter = end($unavailableNumChap)+20;
     require('views/admin_createpost_view.php');
+}
+
+//TinyMCE - test request return and add new post to db
+function adminAddNewPost(){
+    
+    if (empty($_POST['input_tinymce_number']) || empty($_POST['input_tinymce_title']) || empty($_POST['mytextarea']) || empty($_POST['input_tinymce_url']) || empty($_POST['status'])){
+       adminShowError();
+    } else {       
+        $numChap = htmlspecialchars($_POST['input_tinymce_number']);
+        $titleChap = htmlspecialchars($_POST['input_tinymce_title']);
+        $contChap = htmlspecialchars($_POST['mytextarea']);
+        $pictChap = htmlspecialchars($_POST['input_tinymce_url']);
+        $statusChap = htmlspecialchars($_POST['status']);
+       
+        $pman = new PostsManager();
+        $affectLines = $pman->adminPostNewPost($_SESSION['id'], $numChap, $titleChap, $contChap, $pictChap, $statusChap);
+    }
+    //test request return    
+    if ($affectLines === false) {
+       adminShowError();
+    } else {
+       header('Location: index.php?action=adminPostsList');
+    }
 }
 
 //ERROR ADMIN PAGE

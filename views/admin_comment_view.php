@@ -20,16 +20,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($validatedComments as $validatedComment): ?>
+                        <?php if(!empty($validatedComments)) : ?>
+                            <?php foreach ($validatedComments as $validatedComment): ?>
+                                <tr>
+                                    <td data-label="Auteur"><?= htmlspecialchars($validatedComment['author_comment']) ?></td>
+                                    <td data-label="Sujet"><?= htmlspecialchars($validatedComment['title_comment']) ?></td>
+                                    <td data-label="Message"><?= htmlspecialchars($validatedComment['content_comment']) ?></td>                            
+                                    <td data-label="Action ?">
+                                        <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($validatedComment['id']) ?>">Suppr.</a></p>                          
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?> 
+                        <?php else: ?>
                             <tr>
-                                <td data-label="Auteur"><?= htmlspecialchars($validatedComment['author_comment']) ?></td>
-                                <td data-label="Sujet"><?= htmlspecialchars($validatedComment['title_comment']) ?></td>
-                                <td data-label="Message"><?= htmlspecialchars($validatedComment['content_comment']) ?></td>                            
-                                <td data-label="Action ?">
-                                    <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($validatedComment['id']) ?>">Suppr.</a></p>                          
-                                </td>
+                                <td colspan="4">Aucun message à afficher</td>
                             </tr>
-                        <?php endforeach; ?>                         
+                        <?php endif ;?>                         
                     </tbody>
                 </table>
             </section>  
@@ -45,18 +51,24 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($postedComments as $postedComment): ?>
+                        <?php if(!empty($postedComments)) : ?>
+                            <?php foreach ($postedComments as $postedComment): ?>                        
+                                <tr>
+                                    <td data-label="Auteur"><?= htmlspecialchars($postedComment['author_comment']) ?></td>
+                                    <td data-label="Sujet"><?= htmlspecialchars($postedComment['title_comment']) ?></td>
+                                    <td data-label="Message"><?= htmlspecialchars($postedComment['content_comment']) ?></td>                            
+                                    <td data-label="Action ?">
+                                        <p><a href="index.php?action=adminConfirmComment&id=<?= htmlspecialchars($postedComment['id']) ?>">Valider et publier</a></p> <!--COM PERSO : Compléter lien-->
+                                        <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($postedComment['id']) ?>"onclick="return confirm('Ce commentaire sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce commentaire ?');">Suppr.</a></p> <!--COM PERSO : Compléter lien-->                           
+                                    </td>
+                                </tr>  
+                            <?php endforeach; ?>
+                        <?php else: ?>
                             <tr>
-                                <td data-label="Auteur"><?= htmlspecialchars($postedComment['author_comment']) ?></td>
-                                <td data-label="Sujet"><?= htmlspecialchars($postedComment['title_comment']) ?></td>
-                                <td data-label="Message"><?= htmlspecialchars($postedComment['content_comment']) ?></td>                            
-                                <td data-label="Action ?">
-                                    <p><a href="index.php?action=adminConfirmComment&id=<?= htmlspecialchars($postedComment['id']) ?>">Valider et publier</a></p> <!--COM PERSO : Compléter lien-->
-                                    <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($postedComment['id']) ?>"onclick="return confirm('Ce commentaire sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce commentaire ?');">Suppr.</a></p> <!--COM PERSO : Compléter lien-->                           
-                                </td>
+                                <td colspan="4">Aucun message à afficher</td>
                             </tr>
-                        <?php endforeach; ?>                         
-                    </tbody>
+                        <?php endif ;?> 
+                    </tbody> 
                 </table>
             </section> 
             <section class="admin_action_block" id="admin_reported_comments_view">
@@ -71,17 +83,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($reportedComments as $reportedComment): ?>
+                        <?php if(!empty($reportedComments)) : ?>
+                            <?php foreach ($reportedComments as $reportedComment): ?>
+                                <tr>
+                                    <td data-label="Auteur"><?= htmlspecialchars($reportedComment['author_comment']) ?></td>
+                                    <td data-label="Sujet"><?= htmlspecialchars($reportedComment['title_comment']) ?></td>
+                                    <td data-label="Message"><?= htmlspecialchars($reportedComment['content_comment']) ?></td>                            
+                                    <td data-label="Action ?">
+                                        <p><a href="index.php?action=adminConfirmComment&id=<?= htmlspecialchars($reportedComment['id']) ?>">Valider et publier</a></p> <!--COM PERSO : Compléter lien-->
+                                        <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($reportedComment['id']) ?>"onclick="return confirm('Ce commentaire sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce commentaire ?');">Suppr.</a></p>  
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?> 
+                        <?php else: ?>
                             <tr>
-                                <td data-label="Auteur"><?= htmlspecialchars($reportedComment['author_comment']) ?></td>
-                                <td data-label="Sujet"><?= htmlspecialchars($reportedComment['title_comment']) ?></td>
-                                <td data-label="Message"><?= htmlspecialchars($reportedComment['content_comment']) ?></td>                            
-                                <td data-label="Action ?">
-                                    <p><a href="index.php?action=adminConfirmComment&id=<?= htmlspecialchars($reportedComment['id']) ?>">Valider et publier</a></p> <!--COM PERSO : Compléter lien-->
-                                    <p><a href="index.php?action=adminDeleteComment&id=<?= htmlspecialchars($reportedComment['id']) ?>"onclick="return confirm('Ce commentaire sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce commentaire ?');">Suppr.</a></p>  
-                                </td>
+                                <td colspan="4">Aucun message à afficher</td>
                             </tr>
-                        <?php endforeach; ?> 
+                        <?php endif ;?> 
                     </tbody>
                 </table>
             </section>
