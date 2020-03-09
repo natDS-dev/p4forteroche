@@ -116,15 +116,21 @@ function adminAddNewPost(){
     
     if (empty($_POST['input_tinymce_number']) || empty($_POST['input_tinymce_title']) || empty($_POST['mytextarea']) || empty($_POST['input_tinymce_url']) || empty($_POST['status'])){
        adminShowError();
-    } else {       
+       exit();
+    } else {     
+        $idPost = htmlspecialchars($_POST['idPost']);
         $numChap = htmlspecialchars($_POST['input_tinymce_number']);
         $titleChap = htmlspecialchars($_POST['input_tinymce_title']);
         $contChap = htmlspecialchars($_POST['mytextarea']);
         $pictChap = htmlspecialchars($_POST['input_tinymce_url']);
         $statusChap = htmlspecialchars($_POST['status']);
-       
         $pman = new PostsManager();
-        $affectLines = $pman->adminPostNewPost($_SESSION['id'], $numChap, $titleChap, $contChap, $pictChap, $statusChap);
+        if(empty($idPost))
+        {
+            $affectLines = $pman->adminPostNewPost($_SESSION['id'], $numChap, $titleChap, $contChap, $pictChap, $statusChap);
+        } else {
+            $affectLines = $pman->adminUpdatePost($idPost, $numChap, $titleChap, $contChap, $pictChap, $statusChap);
+        }
     }
     //test request return    
     if ($affectLines === false) {
@@ -133,6 +139,26 @@ function adminAddNewPost(){
        header('Location: index.php?action=adminPostsList');
     }
 }
+
+function adminEditPost($id)
+{
+    $pman = new PostsManager();
+    $editChapter = $pman->getOnePost($id);
+    if($editChapter === false){
+        adminShowError();
+        exit();
+    }
+    $numbChapter = $pman->adminAllNumbChapter();
+    $unavailableNumChap=[];
+    foreach($numbChapter as $key=>$value){
+        $unavailableNumChap[]=(int)$value['number_chapter'];
+    }
+    $maxChapter = end($unavailableNumChap)+20;
+    require('views/admin_createpost_view.php');
+}
+
+
+
 
 //ERROR ADMIN PAGE
 function adminShowError()

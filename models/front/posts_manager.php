@@ -22,7 +22,7 @@ class PostsManager extends Manager
     public function getOnePost($chapterId)
     {
         $req = $this->db->prepare('SELECT id,number_chapter,title_chapter,content_chapter,picture_chapter,status_chapter,DATE_FORMAT(date_chapter, \'%d/%m/%Y à %Hh%imin%ss\')
-        AS date_chapter_fr  FROM chapters WHERE id = ? AND status_chapter = "published"');
+        AS date_chapter_fr  FROM chapters WHERE id = ?');
         $req->execute(array($chapterId));
         $onePost = $req->fetch();
         $req->closeCursor();
@@ -106,10 +106,16 @@ class PostsManager extends Manager
     public function adminPostNewPost($adminId, $numChap, $titleChap, $contChap, $pictChap, $statusChap)
     {
         $saveNewPost = $this->db->prepare('INSERT INTO chapters(admin_id, number_chapter, title_chapter, content_chapter, picture_chapter,status_chapter, date_chapter) VALUES(?, ?, ?, ?, ?, ?, NOW())');
-        $test=array($adminId, $numChap, $titleChap, $contChap, $pictChap, $statusChap);
-        $affectLines = $saveNewPost->execute($test);
+        $affectLines = $saveNewPost->execute(array($adminId, $numChap, $titleChap, $contChap, $pictChap, $statusChap));
         return $affectLines;
     }
 
+   
+    public function adminUpdatePost($idPost, $numChap, $titleChap, $contChap, $pictChap, $statusChap)
+    {
+        $updatePost = $this->db->prepare('UPDATE chapters SET number_chapter=?, title_chapter=?, content_chapter=?, picture_chapter=?, status_chapter=?, date_chapter=NOW() WHERE id=?');
+        $affectLines = $updatePost->execute(array( $numChap, $titleChap, $contChap, $pictChap, $statusChap, $idPost));
+        return $affectLines;
+    }
 
 }

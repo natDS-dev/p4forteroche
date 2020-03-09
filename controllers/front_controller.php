@@ -46,9 +46,10 @@ function showOnePost($chapterId)
     $pman = new PostsManager();
     $onePost= $pman->getOnePost($chapterId);
     $comments= $cm->getComments($chapterId); 
-    if ($onePost === false)
+    if ($onePost === false || $onePost['status_chapter'] === "draft")
     {
         showError();
+        exit();
     } else {
         $listNumbChapter = []; 
         foreach ($pman->getNumberChapter() as $getNumberchapter){

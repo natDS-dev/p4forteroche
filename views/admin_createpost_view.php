@@ -13,28 +13,28 @@
                     <label for="input_tinymce_number">Sélectionner un numéro de chapitre*(obligatoire) :</label> 
                     <select name="input_tinymce_number" required>
                         <?php for($i=1;$i<=$maxChapter;$i++) : ?>          
-                            <?php if(!in_array($i,$unavailableNumChap,true)) :?>                          
-                                <option value="<?= $i ?>"><?= $i ?></option>
+                            <?php if(!in_array($i, $unavailableNumChap, true) || (isset($editChapter) && $i == $editChapter['number_chapter'])) :?>                          
+                                <option value="<?= $i ?>"<?= (isset($editChapter) && $i == $editChapter['number_chapter']) ? " selected" : "" ?>><?= $i ?></option>
                             <?php endif; ?>
                         <?php endfor; ?>
                     </select>
                 </div>
                 <div class="place_form" id="tinymce_title">
                     <label for="input_tinymce_title">Entrer un titre* (obligatoire) :</label>
-                    <input type="text" id="input_tinymce_title" name="input_tinymce_title" pattern="[a-zA-Z ]+" required>
-                    <!--<input type="hidden" id="createPostId" name="createPostId" value="">remplir-->
+                    <input type="text" id="input_tinymce_title" name="input_tinymce_title" pattern="[a-zA-Z ]+"  value="<?= isset($editChapter["title_chapter"]) ? $editChapter["title_chapter"] : "" ?>" required>
+                    <input type="hidden" id="idPost" name="idPost" value="<?= isset($editChapter['id']) ? $editChapter['id'] : "" ?>">
                 </div>
                 <div class="place_form" id="tinymce_url_img">
                     <label for="input_tinymce_url">Entrer l'url d'une image*(obligatoire) :</label> 
-                    <input type="url" id="input_tinymce_url" name="input_tinymce_url" pattern="https?://.+" required>
+                    <input type="url" id="input_tinymce_url" name="input_tinymce_url" pattern="https?://.+" value="<?= isset($editChapter["picture_chapter"]) ? $editChapter["picture_chapter"] : "" ?>"  required>
                 </div>
                 <label for="mytextarea">Entrer un texte :</label>
-                <textarea id="mytextarea" name="mytextarea"></textarea>
+                <textarea id="mytextarea" name="mytextarea" ><?= isset($editChapter["content_chapter"]) ? $editChapter["content_chapter"] : "" ?></textarea>
                 <div class="button_form">
                     <label for="draft">Mettre au brouillon ?</label>
-                    <input type="radio" id="draft" name="status" value="draft" checked>
+                    <input type="radio" id="draft" name="status" value="draft" <?= (isset($editChapter["status_chapter"]) && $editChapter["status_chapter"] === "draft") ? "checked" : "" ?> >
                     <label for="published">Publier ?</label>
-                    <input type="radio" id="published" name="status" value="published" >
+                    <input type="radio" id="published" name="status" value="published" <?= (isset($editChapter["status_chapter"]) && $editChapter["status_chapter"] === "published") ? "checked" : "" ?> >
                 </div>
                 <div class="button_form">
                     <button id="publish_chapter" name="publish_chapter" type="submit">Valider</button>
