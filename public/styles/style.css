@@ -35,7 +35,7 @@ a
 {
     font-family: "secrettypewriter","arial","sans serif";
     font-size: large;
-    font-style:bold;
+    font-weight: bold;
     color:#3fb6ca;
     text-decoration: none;
 }
@@ -250,7 +250,7 @@ section .main_subtitles #alaska_book
     margin: 50px 0 50px 0;  
 }
 
-.content_block hgroup
+.content_block .content_titles
 {
     width: 70%;
     margin: 10px 0 40px 0;
@@ -693,7 +693,7 @@ table caption
 table thead
 {
     border: none;
-    clip: rect(0 0 0 0);
+    clip: rect(0,0,0,0);
     height: 1px;
     margin: -1px;
     overflow: hidden;

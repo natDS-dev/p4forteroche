@@ -39,6 +39,6 @@
     <!--PAGE MAIN TITLES-->
     <div class="website_main_titles">
         <h1>JEAN FORTEROCHE</h1>
-        <h3>"Ecrivain et acteur"</h3>        
+        <h2>"Ecrivain et acteur"</h2>        
     </div>
 </header>

@@ -45,8 +45,16 @@ class CommentsManager extends Manager
     //to db (select) - Get all reported comments in order to have it in admin view
     public function getAdminComments($statutComment)
     {
-        $req = $this->db->query('SELECT id,title_comment,author_comment,content_comment,statut_user_comment,DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\')
-        AS date_comment_fr FROM comments  WHERE statut_user_comment = "' . $statutComment . '" ORDER BY date_comment_fr DESC');
+        $req = $this->db->prepare('
+            SELECT comments.id,title_comment,author_comment,content_comment,statut_user_comment,number_chapter,
+                DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr
+            FROM comments
+            INNER JOIN chapters ON chapters.id=comments.chapters_id
+            WHERE statut_user_comment =:statutComment  
+            ORDER BY date_comment_fr DESC'
+        );
+        $req->execute(['statutComment'=>$statutComment]); 
+       
         return $req->fetchAll();
     }
 

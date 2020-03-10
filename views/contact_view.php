@@ -21,11 +21,11 @@
     </main> 
     <!--SECTION CONTENT BLOCK - DYNAMIC CONTENT-->
     <section class="content_block">        
-        <hgroup class="content_titles">
+        <div class="content_titles">
             <h2 class="page_title">CONTACT</h2>
             <img class="goldpaint_separator" id="goldpaint_separator2" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
             <h3 class="page_info">Une question ou suggestion ? Prenez votre plume !</h3>
-        </hgroup>                         
+        </div>                         
         <div class="content_text">
             <div class="contact_block">
                 <!--Contact form-->

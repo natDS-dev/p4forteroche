@@ -13,6 +13,7 @@
                     <caption>Commentaires validés</caption>
                     <thead>
                     <tr>
+                        <th scope="col">N° de chapitre</th>
                         <th scope="col">Auteur </th>
                         <th scope="col">Sujet</th>
                         <th scope="col">Message</th>
@@ -23,6 +24,7 @@
                         <?php if(!empty($validatedComments)) : ?>
                             <?php foreach ($validatedComments as $validatedComment): ?>
                                 <tr>
+                                    <td data-label="N° de chapitre"><?= htmlspecialchars($validatedComment['number_chapter']) ?></td>
                                     <td data-label="Auteur"><?= htmlspecialchars($validatedComment['author_comment']) ?></td>
                                     <td data-label="Sujet"><?= htmlspecialchars($validatedComment['title_comment']) ?></td>
                                     <td data-label="Message"><?= htmlspecialchars($validatedComment['content_comment']) ?></td>                            
@@ -33,7 +35,7 @@
                             <?php endforeach; ?> 
                         <?php else: ?>
                             <tr>
-                                <td colspan="4">Aucun message à afficher</td>
+                                <td colspan="5">Aucun message à afficher</td>
                             </tr>
                         <?php endif ;?>                         
                     </tbody>
@@ -44,6 +46,7 @@
                     <caption>Commentaires en ligne non signalés</caption>
                     <thead>
                     <tr>
+                        <th scope="col">N° de chapitre</th>
                         <th scope="col">Auteur </th>
                         <th scope="col">Sujet</th>
                         <th scope="col">Message</th>
@@ -54,6 +57,7 @@
                         <?php if(!empty($postedComments)) : ?>
                             <?php foreach ($postedComments as $postedComment): ?>                        
                                 <tr>
+                                    <td data-label="N° de chapitre"><?= htmlspecialchars($postedComment['number_chapter']) ?></td>
                                     <td data-label="Auteur"><?= htmlspecialchars($postedComment['author_comment']) ?></td>
                                     <td data-label="Sujet"><?= htmlspecialchars($postedComment['title_comment']) ?></td>
                                     <td data-label="Message"><?= htmlspecialchars($postedComment['content_comment']) ?></td>                            
@@ -65,7 +69,7 @@
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
-                                <td colspan="4">Aucun message à afficher</td>
+                                <td colspan="5">Aucun message à afficher</td>
                             </tr>
                         <?php endif ;?> 
                     </tbody> 
@@ -76,6 +80,7 @@
                     <caption>Commentaires en ligne signalés</caption>
                     <thead>
                         <tr>
+                            <th scope="col">N° de chapitre</th>
                             <th scope="col">Auteur </th>
                             <th scope="col">Sujet</th>
                             <th scope="col">Message</th>                        
@@ -86,6 +91,7 @@
                         <?php if(!empty($reportedComments)) : ?>
                             <?php foreach ($reportedComments as $reportedComment): ?>
                                 <tr>
+                                    <td data-label="N° de chapitre"><?= htmlspecialchars($reportedComment['number_chapter']) ?></td>
                                     <td data-label="Auteur"><?= htmlspecialchars($reportedComment['author_comment']) ?></td>
                                     <td data-label="Sujet"><?= htmlspecialchars($reportedComment['title_comment']) ?></td>
                                     <td data-label="Message"><?= htmlspecialchars($reportedComment['content_comment']) ?></td>                            
@@ -97,7 +103,7 @@
                             <?php endforeach; ?> 
                         <?php else: ?>
                             <tr>
-                                <td colspan="4">Aucun message à afficher</td>
+                                <td colspan="5">Aucun message à afficher</td>
                             </tr>
                         <?php endif ;?> 
                     </tbody>

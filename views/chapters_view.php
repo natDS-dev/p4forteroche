@@ -32,7 +32,7 @@
             <div class="content_extracts_chapters">
                 <article>
                     
-                    <img  src=" <?= ($onePost['picture_chapter']) ?> "/>    
+                    <img  src=" <?= ($onePost['picture_chapter']) ?> " alt="image du chapitre"/>    
                     <h3><?= htmlspecialchars_decode($onePost['number_chapter']) ?>. <?= htmlspecialchars_decode($onePost['title_chapter']) ; ?></h3>
                     <p>
                         <a id="backto_extracts" href="index.php?action=showListPosts">Retour aux extraits </a>
@@ -51,6 +51,7 @@
                                 <a href="index.php?action=showOnePost&id=<?= $idNext ?>#goldpaint_separator2">Suivant</a>
                             <?php endif; ?>
                         </p>
+                    </div>
                 </article>
             </div>
             <!--Comment form-->
@@ -59,15 +60,15 @@
                     <h3>A vous de prendre votre plume !</h3>
                     <div class="place_form">
                         <label for="comment_pseudo">Pseudo : </label>
-                        <input type="text" id="pseudo" name="comment_pseudo" required>
+                        <input type="text" id="comment_pseudo" name="comment_pseudo" required>
                     </div>
                     <div class="place_form">
                         <label for="comment_subject">Sujet :</label>
-                        <input type="text" id="subject" name="comment_subject" required>
+                        <input type="text" id="comment_subject" name="comment_subject" required>
                     </div>
                     <div class="place_form" >
                         <label for="comment_content">Message : </label>
-                        <textarea id="comment" name="comment_content" required></textarea>
+                        <textarea id="comment_content" name="comment_content" required></textarea>
                     </div>
                     <div class="button_form">
                         <button type="submit">Envoyer</button>

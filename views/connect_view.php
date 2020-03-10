@@ -32,7 +32,7 @@
            <form id="connect_form" action="index.php?action=connectVerify" method="POST"> <!--COM PERSO : remplir action -->
                 <div class="place_form">
                     <label for="name">Identifiant : </label>
-                    <input type="text" id="login" name="login" required>
+                    <input type="text" id="name" name="login" required>
                 </div>
                 <div class="place_form">
                     <label for="password">Mot de passe : </label>

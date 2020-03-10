@@ -1,21 +1,12 @@
 A faire :
-URGENT
-1/-!!!! REVOIR pour que : suppression post = suppression commentaires 
-2/-!!! jointure table pour récup n° chapitre dans comments
-3/**Sécurité**
--pas d'accès aux pages admin si pas connecté
-4/- refaire admin home avec une vue simplifiée de tout (ex:cercle ou jauge ou tâches encre ou liste)
-        =>indiquer : (incrémentation)
-            -nb de mails (pas lu) =>!!! condition suppl et ajouter statut checked/unchecked dans db
-            -nb com signalés
-            -nb com non validés
-            -nb publi totale
-            -nb publi brouillon
-5/**General**
--passer en POO
--changement nom dans routeur, donc controller etc..
+**HEADER**
+-manque les opengraph
+-revoir H2 du header
 
-****************************
+**GENERAL**
+-supprimer head et header inutiles
+
+
 
 AUTRES
 **page chapitre/volume**

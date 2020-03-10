@@ -27,7 +27,7 @@
             <img class="goldpaint_separator" id="goldpaint_separator2" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
             <h3 class="page_info">Partons en voyage</h3>
         </div> 
-        <!------(//OPTION// : possibility of a dynamic content => Jean could have his own presentation text)---->
+        <!--(//OPTION// : possibility of a dynamic content => Jean could have his own presentation text)-->
         <div class="content_text">
             <p>Je vous propose ici un voyage dans ma contrée littéraire, 
             d'emprunter un chemin de traverse afin de découvrir, pas à pas, mon nouveau livre "Billet simple pour l'Alaska".
