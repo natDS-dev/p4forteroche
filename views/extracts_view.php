@@ -31,7 +31,7 @@
                 <!--Extract list-->
                 <?php foreach ($allPosts as $allPost): ?>
                     <article> 
-                        <img  src=" <?= ($allPost['picture_chapter']) ?> " alt="image de chapitre"/>    
+                        <img src="public/uploads/<?= ($allPost['picture_chapter']) ?> " alt="image de chapitre"/>    
                         <h3><?= htmlspecialchars_decode($allPost['number_chapter']) ?>.<?= htmlspecialchars_decode($allPost['title_chapter']) ?></h3>
                         <p class="date_chapter">Posté le : <?=  nl2br(htmlspecialchars_decode($allPost['date_chapter_fr'])) ?></p>
                         <p class="text_chapter">

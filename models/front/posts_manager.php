@@ -113,9 +113,30 @@ class PostsManager extends Manager
    
     public function adminUpdatePost($idPost, $numChap, $titleChap, $contChap, $pictChap, $statusChap)
     {
-        $updatePost = $this->db->prepare('UPDATE chapters SET number_chapter=?, title_chapter=?, content_chapter=?, picture_chapter=?, status_chapter=?, date_chapter=NOW() WHERE id=?');
-        $affectLines = $updatePost->execute(array( $numChap, $titleChap, $contChap, $pictChap, $statusChap, $idPost));
+        if($pictChap === false){
+            $updatePost = $this->db->prepare('UPDATE chapters SET number_chapter=?, title_chapter=?, content_chapter=?, status_chapter=?, date_chapter=NOW() WHERE id=?');
+            $affectLines = $updatePost->execute(array( $numChap, $titleChap, $contChap, $statusChap, $idPost));
+        } else {
+            $deletePic = $this->findActualPicChap($idPost);
+            if(!is_null($deletePic) && $deletePic != "admin/undefined.jpg" && $deletePic != $pictChap)
+            {
+               unlink("public/uploads/".$deletePic); 
+            }
+            $updatePost = $this->db->prepare('UPDATE chapters SET number_chapter=?, title_chapter=?, content_chapter=?, picture_chapter=?, status_chapter=?, date_chapter=NOW() WHERE id=?');
+            $affectLines = $updatePost->execute(array( $numChap, $titleChap, $contChap, $pictChap, $statusChap, $idPost));
+        
+        }
         return $affectLines;
+    }
+
+    public function findActualPicChap($chapterId)
+    {
+        $req = $this->db->prepare('SELECT picture_chapter FROM chapters WHERE id = ?');
+        $req->execute(array($chapterId));
+        $pictChap = $req->fetch()["picture_chapter"];
+        $req->closeCursor();
+        return $pictChap;
+
     }
 
 }

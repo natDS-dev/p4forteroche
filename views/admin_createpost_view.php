@@ -8,7 +8,7 @@
         <?php require_once("includes/subtitles_admin.php"); ?>     
         <section class="admin_main_block">
             <?php include_once("includes/menu_admin.php"); ?>
-            <form class="tinymce_block" method="post" action="index.php?action=adminAddNewPost" > 
+            <form class="tinymce_block" method="post" action="index.php?action=adminAddNewPost" enctype="multipart/form-data"> 
                 <div class="place_form" id="tinymce_number_chap">
                     <label for="input_tinymce_number">Sélectionner un numéro de chapitre*(obligatoire) :</label> 
                     <select name="input_tinymce_number" required>
@@ -21,12 +21,12 @@
                 </div>
                 <div class="place_form" id="tinymce_title">
                     <label for="input_tinymce_title">Entrer un titre* (obligatoire) :</label>
-                    <input type="text" id="input_tinymce_title" name="input_tinymce_title" pattern="[a-zA-Z ]+"  value="<?= isset($editChapter["title_chapter"]) ? $editChapter["title_chapter"] : "" ?>" required>
+                    <input type="text" id="input_tinymce_title" name="input_tinymce_title"  value="<?= isset($editChapter["title_chapter"]) ? $editChapter["title_chapter"] : "" ?>" required>
                     <input type="hidden" id="idPost" name="idPost" value="<?= isset($editChapter['id']) ? $editChapter['id'] : "" ?>">
                 </div>
                 <div class="place_form" id="tinymce_url_img">
-                    <label for="input_tinymce_url">Entrer l'url d'une image*(obligatoire) :</label> 
-                    <input type="url" id="input_tinymce_url" name="input_tinymce_url" pattern="https?://.+" value="<?= isset($editChapter["picture_chapter"]) ? $editChapter["picture_chapter"] : "" ?>"  required>
+                    <label for="input_tinymce_url">Télécharger une image au format .jpg, .jpeg, .png ou.gif :</label> 
+                    <input type="file" id="input_tinymce_url" name="input_tinymce_url" value="<?= isset($editChapter["picture_chapter"]) ? $editChapter["picture_chapter"] : "" ?>">
                 </div>
                 <label for="mytextarea">Entrer un texte :</label>
                 <textarea id="mytextarea" name="mytextarea" ><?= isset($editChapter["content_chapter"]) ? $editChapter["content_chapter"] : "" ?></textarea>

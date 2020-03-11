@@ -32,7 +32,7 @@
             <div class="content_extracts_chapters">
                 <article>
                     
-                    <img  src=" <?= ($onePost['picture_chapter']) ?> " alt="image du chapitre"/>    
+                    <img  src="public/uploads/<?= htmlspecialchars_decode($onePost['picture_chapter']) ?> " alt="image du chapitre"/>    
                     <h3><?= htmlspecialchars_decode($onePost['number_chapter']) ?>. <?= htmlspecialchars_decode($onePost['title_chapter']) ; ?></h3>
                     <p>
                         <a id="backto_extracts" href="index.php?action=showListPosts">Retour aux extraits </a>

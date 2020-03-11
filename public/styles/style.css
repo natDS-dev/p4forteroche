@@ -34,8 +34,7 @@ p,article,button
 a
 {
     font-family: "secrettypewriter","arial","sans serif";
-    font-size: large;
-    font-weight: bold;
+    font-size: medium; 
     color:#3fb6ca;
     text-decoration: none;
 }

@@ -6,6 +6,10 @@ A faire :
 **GENERAL**
 -supprimer head et header inutiles
 
+**connexion**
+-cookies ?
+-déconnexion si fermeture page
+
 
 
 AUTRES

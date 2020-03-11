@@ -114,7 +114,7 @@ function adminCreatePost()
 //TinyMCE - test request return and add new post to db
 function adminAddNewPost(){
     
-    if (empty($_POST['input_tinymce_number']) || empty($_POST['input_tinymce_title']) || empty($_POST['mytextarea']) || empty($_POST['input_tinymce_url']) || empty($_POST['status'])){
+    if (empty($_POST['input_tinymce_number']) || empty($_POST['input_tinymce_title']) || empty($_POST['mytextarea']) || empty($_POST['status'])){
        adminShowError();
        exit();
     } else {     
@@ -122,14 +122,21 @@ function adminAddNewPost(){
         $numChap = htmlspecialchars($_POST['input_tinymce_number']);
         $titleChap = htmlspecialchars($_POST['input_tinymce_title']);
         $contChap = htmlspecialchars($_POST['mytextarea']);
-        $pictChap = htmlspecialchars($_POST['input_tinymce_url']);
+        $pictChap = adminUploadPic($idPost);
         $statusChap = htmlspecialchars($_POST['status']);
         $pman = new PostsManager();
-        if(empty($idPost))
-        {
-            $affectLines = $pman->adminPostNewPost($_SESSION['id'], $numChap, $titleChap, $contChap, $pictChap, $statusChap);
+        if(empty($idPost)){
+          
+            if($pictChap === false){
+                $pictChap="admin/undefined.jpg";
+            } else {
+                $pictChap = $idPost."_".$pictChap;
+            }
+           $affectLines = $pman->adminPostNewPost($_SESSION['id'], $numChap, $titleChap, $contChap, $pictChap, $statusChap);
         } else {
+            
             $affectLines = $pman->adminUpdatePost($idPost, $numChap, $titleChap, $contChap, $pictChap, $statusChap);
+            
         }
     }
     //test request return    
@@ -137,6 +144,28 @@ function adminAddNewPost(){
        adminShowError();
     } else {
        header('Location: index.php?action=adminPostsList');
+    }
+}
+
+function adminUploadPic($idPost)
+{
+
+    if (isset($_FILES['input_tinymce_url']) && $_FILES['input_tinymce_url']['error'] == 0){
+      
+        if ($_FILES['input_tinymce_url']['size'] <= 3000000)
+        {
+            $infosfile = pathinfo($_FILES['input_tinymce_url']['name']);
+            $uploadExtension = $infosfile['extension'];
+            $validExtension = array('jpg', 'jpeg', 'gif', 'png');
+            if (in_array($uploadExtension, $validExtension))
+            {   //confirm & save file 
+                $fileName = $idPost."_". basename($_FILES['input_tinymce_url']['name']);
+                move_uploaded_file($_FILES['input_tinymce_url']['tmp_name'], 'public/uploads/'. $fileName);
+                return $fileName;
+            }
+        }
+    } else {
+        return false;
     }
 }
 
@@ -156,9 +185,6 @@ function adminEditPost($id)
     $maxChapter = end($unavailableNumChap)+20;
     require('views/admin_createpost_view.php');
 }
-
-
-
 
 //ERROR ADMIN PAGE
 function adminShowError()
