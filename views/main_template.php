@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -7,15 +6,7 @@
         <meta name="description" content="Blog du livre de Jean Forteroche Billet simple pour l'Alaska">
         <link rel="stylesheet" href="public/styles/style.css" />
         <title>Jean Forteroche</title>
-        <!--open graph-->
-
-
-
-
-        
-
-    </head>
-    
+    </head>    
     <body>
         <?php require_once("includes/header.php") ;?>
 

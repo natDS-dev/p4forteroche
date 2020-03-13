@@ -38,7 +38,7 @@
                         <a id="backto_extracts" href="index.php?action=showListPosts">Retour aux extraits </a>
                     </p>
                     <p class="date_chapter">Posté le : <?=  nl2br(htmlspecialchars_decode($onePost['date_chapter_fr'])); ?></p>
-                    <p class="text_chapter"><?=  nl2br(htmlspecialchars_decode($onePost['content_chapter'])) ?></p>                                        
+                    <p class="text_chapter"><?=  nl2br(htmlspecialchars_decode($onePost['content_chapter'])); ?></p>                                        
                     <div class="chapter_buttons">
                         <p>
                             <?php if (!is_null($idPrev)): ?>

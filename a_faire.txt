@@ -6,11 +6,8 @@ A faire :
 **GENERAL**
 -supprimer head et header inutiles
 
-**connexion**
--cookies ?
--déconnexion si fermeture page
-
-
+***create post***
+mettre balise image
 
 AUTRES
 **page chapitre/volume**
@@ -18,17 +15,11 @@ AUTRES
         =>une phrase indicative
         ou
         => ajustement automatique des n°
-- !!Revoir affichage par date des commentaires car PB!!
 
-**page extraits/segments**
-- Coupure des mots
+
 
 **page connexion**
 -Message => variable de session
-
-
-**htaccess**
--si réecriture url ou pas
 
 **ADMIN**
 **page admin générale***

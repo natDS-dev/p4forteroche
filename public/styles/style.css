@@ -23,8 +23,6 @@
     font-style: normal;
 }
 
-
-
 p,article,button
 {
     font-family: "secrettypewriter","arial","sans serif";
@@ -38,7 +36,6 @@ a
     color:#3fb6ca;
     text-decoration: none;
 }
-
 
 a:visited
 {
@@ -66,9 +63,10 @@ h3,h4,h5,h6,label,caption,th,td
 
 h2
 {
-    font-size: 2.2em;
+    font-size: 2em;
     font-family: "rajdhanibold";
     font-weight: bold;
+    font-style: italic;
 }
 
 h3,caption
@@ -96,8 +94,6 @@ body{
     margin:0;
     display: flex;
     flex-direction: column;
-   
-
 }
 
 /**************HEADER MAIN*********************************
@@ -117,16 +113,12 @@ header
     box-shadow: 0px 5px 10px 0px #31353a45;
 }
 
-
-
-
 header nav
 {
     position: relative;
     transform: rotate(5deg);
     bottom: -38PX;
     z-index: 90;
-    
 }
 
 header nav img
@@ -171,7 +163,6 @@ header #background_mainmenu
 .website_main_titles
 {
     text-align: right;
-   
 }
 
 
@@ -205,7 +196,6 @@ main
 section .main_picture
 {
     width: 30%;
-    
 }
 
 /**website main subtitles**/
@@ -218,17 +208,10 @@ section .main_subtitles #alaska_book
 {
     color:white;
     font-size: 3em;
-
 }
 .goldpaint_separator
 {
     width:10%;
-}
-
-
-#anchor_to_bottom
-{
-    
 }
 
 #anchor_to_bottom img
@@ -266,7 +249,7 @@ FOR PAGES : HOME - EXTRACTS - CHAPTERS - CONNECT - CONTACT - ERROR
 ******************************************************************/
 footer
 {
-       background-color: #316b75;   
+    background-color: #316b75;   
     border-top: groove 2px rgb(85, 64, 11);   
     height: 120px;
     align-items: center;
@@ -281,14 +264,13 @@ footer
     align-items: center;
     flex-wrap: wrap;
 }
+
 #mention a
 {
     font-family: "rajdhanisembold";
     font-size: larger;
     color: white;
     font-weight: bold;
-    
-   
 }
 
 /*******************FORMS GENERAL***************************
@@ -317,7 +299,6 @@ input
 {
     width: 40%;
     height: 30px;
-    
 }
 
 textarea
@@ -348,8 +329,6 @@ form button
     padding: 4px 4px 4px 4px;
 }
 
-
-
 /******************************GENERAL CHAPTER AND EXTRACT PAGE*************************************
 *********************************************************************************/
 .content_extracts_chapters
@@ -379,8 +358,6 @@ form button
     border-radius: 100px;
     border: 5px solid #e89f0a7d;
 }
-
-
 
 .content_extracts_chapters h3
 {
@@ -413,7 +390,6 @@ form button
     background-color: #316b75;
     padding: 4px 4px 4px 4px;
     margin-left: 15px; 
-    
 }
 
 .content_extracts_chapters .chapter_buttons
@@ -426,10 +402,6 @@ form button
 
 /*********************CHAPTERS******************************************/
 /***Block posted comments + form****/
-.comments_block
-{
-
-}
 
 .all_posted_comments
 {
@@ -489,7 +461,6 @@ form button
 
 }
 
-
 /*********************************SPECIAL PAGES*****************************************
 ERROR - CONNECT - ADMIN  
 ***********************************************************************************/
@@ -510,6 +481,7 @@ ERROR - CONNECT - ADMIN
     margin-right: 25px;
     text-align: right;
 }
+
 #logout img
 {
     width: 40px;
@@ -571,7 +543,6 @@ ERROR - CONNECT - ADMIN
     background-color: white;
     border: 3px solid #a7a4a4;
     text-align: center;
-
 }
 
 .menu_admin li a
@@ -586,14 +557,12 @@ ERROR - CONNECT - ADMIN
 {
     display: flex;
     justify-content: center;
-    
 }
 
  
 .table a
 {
     font-family:"rajdhanisembold" ;
-    
 }
 
 table
@@ -602,8 +571,6 @@ table
     width: 90%;
     margin-bottom: 30px;
     table-layout: fixed;
- 
-
 }
   
 table caption
@@ -657,12 +624,10 @@ table .unread_mail
    display: flex;
    flex-direction: column;
    border: 3px solid #a7a4a4;   
-
 }
 
 .tinymce_block #tinymce_title
 {
-  
     margin-bottom: 10px;
 }
 
@@ -672,8 +637,6 @@ table .unread_mail
     font-size: 1.5em; 
     font-style: italic;
 }
-
-
 
 /********MEDIA QUERIES*************
 ************************************/
@@ -706,7 +669,6 @@ table tr
     border-bottom: 3px solid #ddd;
     display: block;
     margin-bottom: .625em;
-    
 }
     
 table td 
@@ -720,7 +682,6 @@ table td
     
 table td::before 
 {   
-      
     content: attr(data-label);
     float: left; 
     text-transform: uppercase;

@@ -35,8 +35,17 @@
                         <h3><?= htmlspecialchars_decode($allPost['number_chapter']) ?>.<?= htmlspecialchars_decode($allPost['title_chapter']) ?></h3>
                         <p class="date_chapter">Posté le : <?=  nl2br(htmlspecialchars_decode($allPost['date_chapter_fr'])) ?></p>
                         <p class="text_chapter">
-                            <?php if(strlen($allPost['content_chapter']) > 30) {$allPost['content_chapter'] = substr($allPost['content_chapter'], 0, 70); } ?>
-                            <?= htmlspecialchars_decode($allPost['content_chapter']); ?>...</p>
+                        <?php  
+                            $rightSize = 250;
+                            $smallerString= strip_tags(htmlspecialchars_decode($allPost['content_chapter']));
+                        
+                            if (strlen($smallerString) > $rightSize) {
+                                $cut = substr($smallerString, 0, $rightSize);
+                                $smallerString= substr($cut, 0, strrpos($cut, ' '));
+                            }
+                            $allPost['content_chapter'] = $smallerString;
+                        ?>
+                            <?= $allPost['content_chapter']; ?>...</p>
                         <p>
                             <a href="index.php?action=showOnePost&id=<?= $allPost['id'] ?>">Lire la suite</a>
                         </p>
