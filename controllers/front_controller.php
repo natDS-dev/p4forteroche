@@ -1,8 +1,5 @@
 <?php
-
-
 //**STATIC PAGES**
-
 //HOME PAGE whale picture (static)
 function showHome()
 {
@@ -65,7 +62,7 @@ function showOnePost($chapterId)
         if ($actualIndexChapter < count($listNumbChapter) - 1  && count($listNumbChapter) > 1) { 
             $idNext = $listNumbChapter[$actualIndexChapter + 1];
         }
-        require ('views/chapters_view.php');
+        require('views/chapters_view.php');
     }
 }
 //Comments
@@ -83,7 +80,6 @@ function addComment($chapterId)
     }
     //test request return    
     if ($affectedLines === false) {
-
         showError();
     } else {
         header('Location: index.php?action=showOnePost&id=' . $chapterId);
@@ -154,14 +150,6 @@ function adminConnected()
 {
     return  isset( $_SESSION['id'] );
 }
-
-/*function sessionLog()
-{   
-    if (isset($_SESSION['id']) && isset($_SESSION['login']))
-    {
-       echo 'Bonjour '.$_SESSION['login'];
-    }
-}*/
 
 //ERROR PAGE
 function showError()

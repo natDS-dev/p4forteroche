@@ -1,4 +1,4 @@
-<!--ADMIN GENERAL VIEW = POST LIST-->
+<!--ADMIN MAIL VIEW-->
 <?php $title = "Administration mails"; ?>
 
 <?php ob_start(); ?>
@@ -32,9 +32,9 @@
                                 </td>
                                 <td data-label="Action ?">
                                     <?php if($contactMail['status_mail_contact'] !== 'read'): ?> 
-                                        <p><a href="index.php?action=adminReadMail&id=<?= $contactMail['id'] ?>">Marquer comme "lu"</a></p> <!--COM PERSO : Compléter lien-->
+                                        <p><a href="index.php?action=adminReadMail&id=<?= $contactMail['id'] ?>">Marquer comme "lu"</a></p>
                                     <?php else : ?>
-                                        <p>Lu</p> <!--COM PERSO : Compléter lien-->
+                                        <p>Lu</p> 
                                     <?php endif; ?>
                                     <p><a href="index.php?action=adminDeleteMail&id=<?= $contactMail['id'] ?>" onclick="return confirm('Ce mail sera définitivement supprimé. Etes-vous sûr(e) de vouloir supprimer ce mail ?');">Suppr.</a></p>
                                 </td>

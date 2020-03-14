@@ -7,7 +7,6 @@
                         <img src="public/images/home2.png" alt="baleine à travers un cercle doré" />
                     </a>
                 </li>
-                
                 <li>
                     <a href="index.php?action=showAuthor">L'Auteur</a>
                 </li>
@@ -20,7 +19,7 @@
                 <li>
                     <a href="index.php?action=showContact#goldpaint_separator2">Le lien</a>
                 </li>       
-                <li>
+                <li><!--check if admin connected or not and display the right button-->
                     <?php if(adminConnected()) : ?>
                         <a href="index.php?action=adminHome">Admin</a>
                         <a href="index.php?action=adminDisconnect">Déconnexion</a>
@@ -32,10 +31,8 @@
                 </li>
             </ul>
         </nav>
-
         <img id="background_mainmenu" src="public/images/ticket_menu1.png" alt="papier étiquette"/>
     </div>
-
     <!--PAGE MAIN TITLES-->
     <div class="website_main_titles">
         <h1>JEAN FORTEROCHE</h1>

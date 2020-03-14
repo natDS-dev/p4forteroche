@@ -29,7 +29,7 @@
         <div class="content_text">
             <div class="contact_block">
                 <!--Contact form-->
-                <form id="contact_form" action="index.php?action=addMail" method="post"> <!--COM PERSO : remplir action -->                                        
+                <form id="contact_form" action="index.php?action=addMail" method="post"> 
                     <div class="place_form">
                         <label for="contact_name">Nom-Prénom* :</label>
                         <input type="text" id="contact_name" name="contact_name" required>
@@ -53,6 +53,5 @@
             </div>
         </div>
     </section>
-  
 <?php $content = ob_get_clean(); ?>
 <?php require_once("main_template.php"); ?>

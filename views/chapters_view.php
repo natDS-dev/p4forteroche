@@ -1,5 +1,4 @@
 <!--CHAPTERS VIEW-->
-
 <?php $title = "Le volume"; ?>
 
 <?php ob_start(); ?>
@@ -26,12 +25,10 @@
             <h2 class="page_title">Découverte par chapitre</h2>
             <img class="goldpaint_separator" id="goldpaint_separator2" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
             <h3 class="page_info">Bonne lecture !</h3>
-        </div> 
-                        
+        </div>                         
         <div class="content_text">
             <div class="content_extracts_chapters">
-                <article>
-                    
+                <article>                    
                     <img  src="public/uploads/<?= htmlspecialchars_decode($onePost['picture_chapter']) ?> " alt="image du chapitre"/>    
                     <h3><?= htmlspecialchars_decode($onePost['number_chapter']) ?>. <?= htmlspecialchars_decode($onePost['title_chapter']) ; ?></h3>
                     <p>
@@ -56,7 +53,7 @@
             </div>
             <!--Comment form-->
             <section class="comments_block">
-                <form id="comments_form" action="index.php?action=addComment&id=<?= $onePost['id'] ?>" method="post"> <!--COM PERSO : remplir action -->
+                <form id="comments_form" action="index.php?action=addComment&id=<?= $onePost['id'] ?>" method="post">
                     <h3>A vous de prendre votre plume !</h3>
                     <div class="place_form">
                         <label for="comment_pseudo">Pseudo : </label>

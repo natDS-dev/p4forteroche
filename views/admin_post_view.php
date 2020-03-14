@@ -1,4 +1,4 @@
-<!--ADMIN VIEW POST LIST-->
+<!--ADMIN POST VIEW-->
 <?php $title = "Administration"; ?>
 
 <?php ob_start(); ?>
@@ -6,6 +6,7 @@
         <?php require_once("includes/subtitles_admin.php"); ?>     
         <section class="admin_main_block">
             <?php require_once("includes/menu_admin.php"); ?>
+            <!--Published posts-->
             <section class="admin_action_block" id="admin_plublished_posts_view">
                 <table class="table" id="chapter_table">
                     <caption>Publié(s)</caption>
@@ -31,6 +32,7 @@
                     </tbody>
                 </table>
             </section>  
+            <!--Draft posts-->
             <section class="admin_action_block" id="admin_draft_posts_view">
                 <table class="table" id="draft_chapter_table">
                     <caption>Brouillon(s) en attente</caption>

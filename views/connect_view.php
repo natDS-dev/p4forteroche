@@ -29,7 +29,7 @@
         </div>                         
         <div class="content_text">
             <!--Connect form-->
-           <form id="connect_form" action="index.php?action=connectVerify" method="POST"> <!--COM PERSO : remplir action -->
+           <form id="connect_form" action="index.php?action=connectVerify" method="POST"> 
                 <div class="place_form">
                     <label for="name">Identifiant : </label>
                     <input type="text" id="name" name="login" required>
@@ -44,7 +44,6 @@
             </form>
         </div>
     </section>
-
 <?php $content = ob_get_clean(); ?>
 <?php require_once("main_template.php"); ?>
 

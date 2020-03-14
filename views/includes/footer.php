@@ -1,7 +1,6 @@
 <!---FOOTER-->
 <footer>    
-    <div class="website_info">
-       
+    <div class="website_info">       
         <div id="mention">
             <a href="">N. De smet - 2020</a>  
             <a href="">Mentions légales</a>                    

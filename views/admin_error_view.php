@@ -1,8 +1,7 @@
 <!--ADMIN ERROR VIEW-->
 <?php $title = "Erreur page admin"; ?>
 
-<?php ob_start(); ?>
-        <!--COM PERSO : PENSER RESTRICTION => Accès seulement si id et mp corrects sinon => id et mp incorrects-->
+<?php ob_start(); ?>        
     <main class="admin_main_container" id="admin_main">
     <section class="mainblock" id="pages_main_block">
             <!--Dynamic picture => picture page -->  
@@ -14,12 +13,11 @@
                 <!--Dynamic title => page title-->
                 <h3 class="dynamic_title" ><?= $title ?> </h3>
                 <p>
-                    <a href="index.php?action=adminHome">Retour accueil admin</a><!--LIENNNNN-->
+                    <a href="index.php?action=adminHome">Retour accueil admin</a>
                 </p>   
             </div>    
         </section>
     </main>   
-    
 <?php $content = ob_get_clean(); ?>
 <?php require_once("template_admin.php"); ?>
 

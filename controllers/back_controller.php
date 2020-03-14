@@ -1,11 +1,4 @@
 <?php
-//ADMIN HOME - QUICK VIEW
-//Quick values : number of published & draft posts  , unread mails, reported comments 
-function adminHome()
-{   $pman = new PostsManager();
-    $data= $pman->adminHomeValues();
-    require_once('views/admin_home_view.php');
-}
 //Disconnect from admin page
 function adminDisconnect()
 {
@@ -14,7 +7,17 @@ function adminDisconnect()
     header('Location: index.php?action=showConnect');
 }
 
-//Posts by status
+//ADMIN HOME - QUICK VIEW
+//Quick values : number of published & draft posts  , unread mails, reported comments 
+function adminHome()
+{   $pman = new PostsManager();
+    $data= $pman->adminHomeValues();
+    require_once('views/admin_home_view.php');
+}
+
+
+//ADMIN POST VIEW
+//Posts by status draft & published
 function adminPostsList()
 {
     $pman = new PostsManager();
@@ -22,6 +25,8 @@ function adminPostsList()
     $draftPosts = $pman->getAdminPosts("draft");
     require('views/admin_post_view.php');
 }
+
+
 //Delete a post
 function adminDeletePost($id)
 {
@@ -29,14 +34,15 @@ function adminDeletePost($id)
     $pman->adminErasePost($id);
     header('Location: index.php?action=adminPostsList');
 }
-//Valid & publish a draft post
+//Valid & publish a draft post, draft => published
 function adminValidPost($id)
 {
     $pman = new PostsManager();
     $pman->adminPublishPost($id);
     header('Location: index.php?action=adminPostsList');
 }
-//Change status of a published post , published to draft
+
+//Change status of a published post , published => draft
 function adminDraftPost($id)
 {
     $pman = new PostsManager();
@@ -45,7 +51,7 @@ function adminDraftPost($id)
 }
 
 //ADMIN COMMENTS
-//comment list by status
+//comment list by status (posted/reported/validated)
 function adminCommentsList()
 {  
    $cm = new CommentsManager(); 
@@ -79,9 +85,8 @@ function adminMail()
    $contactMails=$mn->getMails();
    require ('views/admin_mail_view.php');
 }
-/* $contactMails=(new MailsManager())->getMails();*/
 
-//Change status mail (unread to read)
+//Change status mail ,unread => read
 function adminReadMail($id)
 {
     $mn= new MailsManager();
@@ -126,7 +131,6 @@ function adminAddNewPost(){
         $statusChap = htmlspecialchars($_POST['status']);
         $pman = new PostsManager();
         if(empty($idPost)){
-          
             if($pictChap === false){
                 $pictChap="admin/undefined.jpg";
             } else {
@@ -134,9 +138,7 @@ function adminAddNewPost(){
             }
            $affectLines = $pman->adminPostNewPost($_SESSION['id'], $numChap, $titleChap, $contChap, $pictChap, $statusChap);
         } else {
-            
             $affectLines = $pman->adminUpdatePost($idPost, $numChap, $titleChap, $contChap, $pictChap, $statusChap);
-            
         }
     }
     //test request return    
@@ -147,6 +149,7 @@ function adminAddNewPost(){
     }
 }
 
+//Add a picture  
 function adminUploadPic($idPost)
 {
 
@@ -169,6 +172,7 @@ function adminUploadPic($idPost)
     }
 }
 
+//ADMIN EDIT AN EXISTING POST 
 function adminEditPost($id)
 {
     $pman = new PostsManager();
@@ -177,6 +181,7 @@ function adminEditPost($id)
         adminShowError();
         exit();
     }
+    //Gives back the number chapter on edit mode
     $numbChapter = $pman->adminAllNumbChapter();
     $unavailableNumChap=[];
     foreach($numbChapter as $key=>$value){

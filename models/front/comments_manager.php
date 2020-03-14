@@ -1,18 +1,16 @@
 <?php
-
 //**CONNECT DATABASE**
 //Ask manager.php to connect to database (db)
 require_once ("models/front/manager.php");
 
 class CommentsManager extends Manager
 {
-        //****FRONT****
-    //**POST/CHAPTER PAGE "volume"**     
-    //ALL COMMENTS => req from db (select) : require all posts with the associated comments from db by id  
+    //****FRONT****
+    //**POST/CHAPTER PAGE "volume"**  
 
+    //ALL COMMENTS => req from db (select) : require all posts with the associated comments from db by id  
     public function getComments($chapterId)
     {
-        
         $comments = $this->db->prepare('SELECT id,title_comment,author_comment,content_comment,statut_user_comment,chapters_id,DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\')
         AS date_comment_fr FROM comments  WHERE chapters_id = ? ORDER BY id DESC');
         $comments->execute(array($chapterId));
@@ -34,6 +32,7 @@ class CommentsManager extends Manager
         return $reportComment->execute(array($commentId));
     }
 
+    //Get chapter id from comments
     public function getCommentChapId($commentId)
     {
         $chapterId = $this->db->prepare('SELECT chapters_id FROM comments WHERE id=?');
@@ -44,7 +43,7 @@ class CommentsManager extends Manager
     //***BACK***
     //to db (select) - Get all reported comments in order to have it in admin view
     public function getAdminComments($statutComment)
-    {
+    {//Select in db + inner join on comments table and chapters
         $req = $this->db->prepare('
             SELECT comments.id,title_comment,author_comment,content_comment,statut_user_comment,number_chapter,
                 DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr
@@ -58,12 +57,14 @@ class CommentsManager extends Manager
         return $req->fetchAll();
     }
 
+    //Delete comment from db
     public function adminEraseComment($commentId)
     {
         $deleteComment = $this->db->prepare('DELETE FROM comments WHERE id=? ' );
         return $deleteComment->execute(array($commentId));
     }
 
+    //Update status comment in db, =>validate
     public function adminValidComment($commentId)
     {
         $confirmComment = $this->db->prepare('UPDATE comments SET statut_user_comment = "validated" WHERE id=? ' );

@@ -2,13 +2,13 @@
 
 <?php $title = "Administration commentaires"; ?>
 
-<?php ob_start(); ?>
-    <!--COM PERSO : PENSER RESTRICTION => Accès seulement si id et mp corrects sinon => id et mp incorrects-->
+<?php ob_start(); ?>    
     <main class="admin_main_container">
         <?php require_once("includes/subtitles_admin.php"); ?>
         <section class="admin_main_block">
             <?php require_once("includes/menu_admin.php"); ?>
-            <section class="admin_action_block" id="admin_comments_view"> 
+            <!--Validated comments-->
+            <section class="admin_action_block" id="admin_comments_view">                
                 <table class="table" id="validated_comments_table">
                     <caption>Commentaires validés</caption>
                     <thead>
@@ -40,7 +40,8 @@
                         <?php endif ;?>                         
                     </tbody>
                 </table>
-            </section>  
+            </section> 
+            <!--Posted but not reported comments--> 
             <section class="admin_action_block" id="admin_posted_comments_view">               
                 <table class="table" id="posted_comments_table">
                     <caption>Commentaires en ligne non signalés</caption>
@@ -75,6 +76,7 @@
                     </tbody> 
                 </table>
             </section> 
+            <!--Reported comments-->
             <section class="admin_action_block" id="admin_reported_comments_view">
                 <table class="table" id="signaled_comments_table">                    
                     <caption>Commentaires en ligne signalés</caption>
@@ -111,7 +113,6 @@
             </section>
         </section>
     </main>   
-
 <?php $content = ob_get_clean(); ?>
 <?php require_once("template_admin.php"); ?>
 

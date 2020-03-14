@@ -1,3 +1,4 @@
+<!--MAIN TEMPLATE-->
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -9,13 +10,7 @@
     </head>    
     <body>
         <?php require_once("includes/header.php") ;?>
-
         <?= $content ?>
-        
         <?php require_once("includes/footer.php") ;?>
-        
-        
-
     </body>
-    
 </html>

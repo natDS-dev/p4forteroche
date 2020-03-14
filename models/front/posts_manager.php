@@ -1,11 +1,10 @@
 <?php
-
 //REQUIRE manager.php TO CONNECT TO DATABASE (db)
-require_once ("models/front/manager.php");
+require_once("models/front/manager.php");
 
 class PostsManager extends Manager
 {
-    //FRONT
+    //**FRONT**
 
     //EXTRACTS(segments)
     //req to db(select) - gets chapter's/post's list in order to produce the extracts/list posts (limited string in the controller)
@@ -37,9 +36,8 @@ class PostsManager extends Manager
         $req->closeCursor();
         return $listNumbChapter;
     }  
-    
 
-    //BACK
+    //**BACK**
 
     //ADMIN HOME QUICK VIEW
     // To db select & count - Get & count values of  posts/reported comments/unread mails  
@@ -110,9 +108,9 @@ class PostsManager extends Manager
         return $affectLines;
     }
 
-   
+   //Update post when edit mode and displays the right picture => loaded picture or undefined picture
     public function adminUpdatePost($idPost, $numChap, $titleChap, $contChap, $pictChap, $statusChap)
-    {
+    {   //if no picture
         if($pictChap === false){
             $updatePost = $this->db->prepare('UPDATE chapters SET number_chapter=?, title_chapter=?, content_chapter=?, status_chapter=?, date_chapter=NOW() WHERE id=?');
             $affectLines = $updatePost->execute(array( $numChap, $titleChap, $contChap, $statusChap, $idPost));
@@ -128,7 +126,7 @@ class PostsManager extends Manager
         }
         return $affectLines;
     }
-
+    //Get the loaded picture 
     public function findActualPicChap($chapterId)
     {
         $req = $this->db->prepare('SELECT picture_chapter FROM chapters WHERE id = ?');

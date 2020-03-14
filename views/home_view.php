@@ -19,7 +19,6 @@
             </div>    
         </section>
     </main> 
-
     <!--SECTION CONTENT BLOCK - STATIC(but could be dynamic) -->
     <section class="content_block">        
         <div class="content_titles">
@@ -30,13 +29,12 @@
         <!--(//OPTION// : possibility of a dynamic content => Jean could have his own presentation text)-->
         <div class="content_text">
             <p>Je vous propose ici un voyage dans ma contrée littéraire, 
-            d'emprunter un chemin de traverse afin de découvrir, pas à pas, mon nouveau livre "Billet simple pour l'Alaska".
+            d'emprunter un chemin de traverse afin de découvrir, pas à pas, mon nouveau livre "Billet simple pour l'Alaska".<br/>
             Une aventure numérique, hors des sentiers battus, car je sèmerais, tel le Petit Poucet, les chapitres, "segments",
             de mon dernier roman, avec l'espoir que celui-ci vous tienne suffisamment en haleine pour que nous puissions nous retrouver
             ensemble à échanger au bout de la route.</p>
         </div>
     </section>
-
 <?php $content = ob_get_clean(); ?>
 <?php require_once("main_template.php"); ?>
 

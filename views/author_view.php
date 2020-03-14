@@ -26,7 +26,7 @@
             <img class="goldpaint_separator" id="goldpaint_separator2" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
             <h3 class="page_info">Juste un homme de "l'être" aux vers solitaires...</h3>
         </div> 
-        <!------(//OPTION// : possibility of a dynamic content => Jean could have his own presentation text)---->
+        <!--(//OPTION// : possibility of a dynamic content => Jean could have his own presentation text)-->
         <div class="content_text">
             <p>Entre ces verres à pied, je perds le verbe, je perds pied.Les mots denses, et dansent, se mélangent ,
             tournoient à la Pied-tragalla... j'ai beau avoir pas-pied et crayon, les mots ne coulent sur la feuille, ils
@@ -34,6 +34,5 @@
             ils n'ont le pied marin, mais des ailes pour voler très haut....</p>
         </div>
     </section>
-
 <?php $content = ob_get_clean(); ?>
 <?php require_once("main_template.php"); ?>

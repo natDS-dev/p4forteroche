@@ -35,6 +35,7 @@
                         <h3><?= htmlspecialchars_decode($allPost['number_chapter']) ?>.<?= htmlspecialchars_decode($allPost['title_chapter']) ?></h3>
                         <p class="date_chapter">Posté le : <?=  nl2br(htmlspecialchars_decode($allPost['date_chapter_fr'])) ?></p>
                         <p class="text_chapter">
+                        <!--Limit extract words and cut properly after a word-->
                         <?php  
                             $rightSize = 250;
                             $smallerString= strip_tags(htmlspecialchars_decode($allPost['content_chapter']));
@@ -54,6 +55,5 @@
             </div>
         </div>
     </section>
-
 <?php $content = ob_get_clean(); ?>
 <?php require_once("main_template.php"); ?>

@@ -1,4 +1,4 @@
-<!--ADMIN HOME VUE RAPIDE-->
+<!--ADMIN HOME - QUICK VIEW-->
 <?php $title = "Administration vue rapide"; ?>
 
 <?php ob_start(); ?>
