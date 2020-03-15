@@ -581,7 +581,7 @@ table th
 
 table .unread_mail
 {
-    background:#888683;
+    background:rgba(136,134,131,0.7);
 }
 
 .admin_main_container .admin_subtitles
@@ -619,8 +619,33 @@ table .unread_mail
 
 /********MEDIA QUERIES*************
 ************************************/
-/***Table****/
 @media screen and (max-width: 600px) {
+/**Mainblock**/
+.mainblock 
+{
+    height: 83vh;
+    margin-top: 180px;
+    display: block;
+}
+
+section .main_picture 
+{
+    width: 70%;
+    margin-top: 110px;
+}
+
+.goldpaint_separator 
+{
+    width: 20%;
+}
+
+#anchor_to_bottom img
+{
+    width: 10%;
+}
+
+/****ADMIN*******/
+/***Table****/
 table 
 {
    border: 0;
