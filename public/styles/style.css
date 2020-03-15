@@ -33,7 +33,7 @@ a,th
 {
     font-family: "rajdhanibold","arial","sans serif";
     font-size: large; 
-    color:#3fb6ca;
+    color:#316b75;
     font-weight: bold;
     text-decoration: none;
 }
@@ -472,6 +472,15 @@ ERROR - CONNECT - ADMIN
 
 
 /****ADMIN CONTENT***/
+
+#admin_main_picture
+{
+    width: 40%;
+    border: solid 4px #316b75;
+    border-radius: 200px;
+    margin-bottom: 30px;
+}
+
 .admin_main_container
 {
     width: 100%;
