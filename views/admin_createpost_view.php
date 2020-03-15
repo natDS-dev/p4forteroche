@@ -7,7 +7,8 @@
         <section class="admin_main_block">
             <?php include_once("includes/menu_admin.php"); ?>
             <!--Create post form-->
-            <form class="tinymce_block" method="post" action="index.php?action=adminAddNewPost" enctype="multipart/form-data"> 
+            <h1> Création de chapitre </h1>  
+            <form class="tinymce_block" method="post" action="index.php?action=adminAddNewPost" enctype="multipart/form-data">
                 <div class="place_form" id="tinymce_number_chap">
                     <label for="input_tinymce_number">Sélectionner un numéro de chapitre*(obligatoire) :</label> 
                     <select name="input_tinymce_number" required>

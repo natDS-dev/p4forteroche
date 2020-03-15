@@ -1,10 +1,9 @@
-/***************************GENERAL***********************************************
-*********************************************************************************/
+/**GENERAL**/
 
-/****FONTS*****/
+/**FONTS**/
 @font-face{
-    font-family: "secrettypewriter";
-    src: url("fonts/text/web_fonts/secrettypewriter_regular_macroman/veteran_typewriter-webfont.woff");
+    font-family: "typoslabserif";
+    src: url("fonts/text/web_fonts/typoslabserif-light_regular_macroman/TypoSlabserif-Light-webfont.woff");
     font-weight: normal;
     font-style: normal;
 }
@@ -23,17 +22,19 @@
     font-style: normal;
 }
 
-p,article,button
+p,article,button,td
 {
-    font-family: "secrettypewriter","arial","sans serif";
+    font-family: "typoslabserif","arial","sans serif";
     font-size: large;
+    font-weight: bold;
 }
 
-a
+a,th
 {
-    font-family: "secrettypewriter","arial","sans serif";
-    font-size: medium; 
+    font-family: "rajdhanibold","arial","sans serif";
+    font-size: large; 
     color:#3fb6ca;
+    font-weight: bold;
     text-decoration: none;
 }
 
@@ -56,17 +57,17 @@ h1
     color:white;
 }
 
-h3,h4,h5,h6,label,caption,th,td
+h3,h4,h5,h6,label,caption
 {
-    font-family: "rajdhanisembold";
+    font-family: "typoslabserif";
+    font-weight: bold;
 }
 
 h2
 {
     font-size: 2em;
-    font-family: "rajdhanibold";
+    font-family: "typoslabserif";
     font-weight: bold;
-    font-style: italic;
 }
 
 h3,caption
@@ -85,7 +86,8 @@ h5
 {
     font-size: 1.2em; 
 }
-/**********BODY********
+
+/**BODY***************
 FOR ALL PAGES
 ***********************/
 body{
@@ -379,7 +381,6 @@ form button
     margin: 0 15px 5px 15px;
 }
 
-
 .content_extracts_chapters a
 {
     width: 100px;
@@ -445,36 +446,9 @@ form button
     color:rgb(190, 42, 42);
 }
 
-/****Block comment form****/
-.comments_block form
-{
-
-}
-
-.comments_block form label
-{
-
-}
-
-.comments_block form button
-{
-
-}
-
 /*********************************SPECIAL PAGES*****************************************
 ERROR - CONNECT - ADMIN  
 ***********************************************************************************/
-/***ERROR***/
-
-/*******CONNECT PAGE*********
-*****************************/
-
-/****CONNECT CONTENT****/
-
-
-/********ADMIN PAGE**********
-*****************************/
-
 /***ADMIN HEADER***/
 #admin_page_title
 {
@@ -517,7 +491,8 @@ ERROR - CONNECT - ADMIN
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:#565655 ;
+    background-image:url("../images/background_desk.jpg");
+    background-size: cover;
 }
 
 /**Admin page menu**/
@@ -540,17 +515,16 @@ ERROR - CONNECT - ADMIN
     width: 110PX;
     padding: 10px;
     margin: 5px;
-    background-color: white;
-    border: 3px solid #a7a4a4;
+    border-radius: 5px;
+    background-color: #d4a776;
+    box-shadow: -5px 5px 15px rgb(66, 54, 41);
     text-align: center;
 }
 
 .menu_admin li a
 {
-    color:black;
+    color:#292927;
 }
-
-/****************/
 
 /***General admin action blocks : chapters & comments**/
 .admin_action_block
@@ -558,18 +532,12 @@ ERROR - CONNECT - ADMIN
     display: flex;
     justify-content: center;
 }
-
  
-.table a
-{
-    font-family:"rajdhanisembold" ;
-}
-
 table
 {
-    border: 3px solid #a7a4a4;    
     width: 90%;
     margin-bottom: 30px;
+    box-shadow: -5px 5px 15px rgb(70, 66, 61);
     table-layout: fixed;
 }
   
@@ -582,7 +550,7 @@ table caption
   
 table tr 
 {
-    background-color: #e8e8e7;
+    background-color: rgba(232,232,231,0.7);
     border: 1px solid #a7a4a4;
 }
 
@@ -591,26 +559,28 @@ table th,table td
     padding: 5px 5px 5px 5px;
     text-align: center;
     overflow-wrap: break-word;
+    font-size: 1.1em;
 }
   
 table th 
 {
     background-color: #316b75;
+    border-radius: 5px 5px 0 0;
     color: white;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 table .unread_mail
 {
-    background:#797672;
+    background:#888683;
 }
 
 .admin_main_container .admin_subtitles
 {
     text-align: center;
-    margin:30px 0 30px 0;
-
+    margin: 100px 0 30px 0;
 }
+
 
 .admin_main_container .admin_subtitles h2
 {

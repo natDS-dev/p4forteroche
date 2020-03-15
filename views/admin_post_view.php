@@ -6,6 +6,7 @@
         <?php require_once("includes/subtitles_admin.php"); ?>     
         <section class="admin_main_block">
             <?php require_once("includes/menu_admin.php"); ?>
+            <h1> Le volume et ses segments </h1>
             <!--Published posts-->
             <section class="admin_action_block" id="admin_plublished_posts_view">
                 <table class="table" id="chapter_table">

@@ -7,6 +7,7 @@
         <?php require_once("includes/subtitles_admin.php"); ?>
         <section class="admin_main_block">
             <?php require_once("includes/menu_admin.php"); ?>
+            <h1>Commentaires</h1>
             <!--Validated comments-->
             <section class="admin_action_block" id="admin_comments_view">                
                 <table class="table" id="validated_comments_table">

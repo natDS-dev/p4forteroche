@@ -6,6 +6,7 @@
 <?php require_once("includes/subtitles_admin.php"); ?>     
     <section class="admin_main_block">
         <?php require_once("includes/menu_admin.php"); ?>
+        <h1>Le lien</h1> 
         <section class="admin_action_block" id="admin_mails_view">
             <table class="table" id="mails_table">
                 <caption>Mail(s)</caption>
