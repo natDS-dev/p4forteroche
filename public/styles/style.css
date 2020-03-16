@@ -603,6 +603,9 @@ table .unread_mail
    display: flex;
    flex-direction: column;
    border: 3px solid #a7a4a4;   
+   background: rgba(136,134,131,0.7);
+   color:white;
+
 }
 
 .tinymce_block #tinymce_title

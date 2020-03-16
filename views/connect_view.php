@@ -29,7 +29,7 @@
         </div>                         
         <div class="content_text">
             <!--Connect form-->
-           <form id="connect_form" action="index.php?action=connectVerify" method="POST"> 
+            <form id="connect_form" action="index.php?action=connectVerify" method="POST"> 
                 <div class="place_form">
                     <label for="name">Identifiant : </label>
                     <input type="text" id="name" name="login" required>

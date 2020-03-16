@@ -134,15 +134,14 @@ function connectVerify()
     {   //compare password entry with db hashed password 
         $correctPassword = password_verify($_POST['password'], $adminInfos['password']);
         if(!$adminInfos || !$correctPassword){
-            //echo "mauvais identifiants";
+            header('Location:index.php?action=connectVerify#goldpaint_separator2');
         } else {            
             $_SESSION['id'] = $adminInfos['id'];
-            $_SESSION['login'] = $login;
-           
+            $_SESSION['login'] = $login;           
             header('Location: index.php?action=adminHome');
         }
     } else {
-        //echo "Veuillez remplir les champs";
+        showConnect();
     }
 }
 
