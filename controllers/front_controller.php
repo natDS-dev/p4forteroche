@@ -18,8 +18,8 @@ function showContact()
     require('views/contact_view.php');
 }
 
-//CONNECT PAGE heart picture
-function showConnect()
+//CONNECT PAGE heart picture - parameter $logId to display messages
+function showConnect($logId)
 {
     require('views/connect_view.php');
 }
@@ -134,14 +134,14 @@ function connectVerify()
     {   //compare password entry with db hashed password 
         $correctPassword = password_verify($_POST['password'], $adminInfos['password']);
         if(!$adminInfos || !$correctPassword){
-            header('Location:index.php?action=connectVerify#goldpaint_separator2');
+            header('Location:index.php?action=showConnect&id=1#goldpaint_separator2');
         } else {            
             $_SESSION['id'] = $adminInfos['id'];
             $_SESSION['login'] = $login;           
             header('Location: index.php?action=adminHome');
         }
     } else {
-        showConnect();
+        header('Location:index.php?action=showConnect&id=2#goldpaint_separator2');
     }
 }
 

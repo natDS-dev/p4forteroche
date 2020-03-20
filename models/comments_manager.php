@@ -1,7 +1,7 @@
 <?php
 //**CONNECT DATABASE**
 //Ask manager.php to connect to database (db)
-require_once ("models/front/manager.php");
+require_once ("models/manager.php");
 
 class CommentsManager extends Manager
 {

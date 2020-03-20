@@ -4,7 +4,7 @@ function adminDisconnect()
 {
     unset($_SESSION['id']);
     unset($_SESSION['login']);
-    header('Location: index.php?action=showConnect');
+    header('Location:index.php?action=showConnect&id=3#goldpaint_separator2');;
 }
 
 //ADMIN HOME - QUICK VIEW

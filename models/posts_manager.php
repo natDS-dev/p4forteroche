@@ -1,6 +1,6 @@
 <?php
 //REQUIRE manager.php TO CONNECT TO DATABASE (db)
-require_once("models/front/manager.php");
+require_once("models/manager.php");
 
 class PostsManager extends Manager
 {

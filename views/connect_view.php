@@ -38,6 +38,21 @@
                     <label for="password">Mot de passe : </label>
                     <input type="password" id="password" name="password" required>
                 </div>
+                <div>
+                <?php //session message 
+                    switch($logId){
+                        case 1 :
+                            echo "problème d'identifiant/mot de passe";
+                        break;
+                        case 2 :
+                            echo "Aucun identifiant";
+                        break;
+                        case 3 :
+                            echo "Vous avez bien été déconnecté";
+                        break;
+                    }
+                ?>
+            </div>
                 <div class="button_form">
                     <button type="submit">Se connecter</button>
                 </div>

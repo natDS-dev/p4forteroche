@@ -48,7 +48,7 @@
                         ?>
                             <?= $allPost['content_chapter']; ?>...</p>
                         <p>
-                            <a href="index.php?action=showOnePost&id=<?= $allPost['id'] ?>">Lire la suite</a>
+                            <a href="index.php?action=showOnePost&id=<?= $allPost['id'] ?>#goldpaint_separator2">Lire la suite</a>
                         </p>
                     </article>
                 <?php endforeach; ?>
