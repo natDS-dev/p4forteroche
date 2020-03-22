@@ -25,6 +25,7 @@
             <h2 class="page_title">Découverte par chapitre</h2>
             <img class="goldpaint_separator" id="goldpaint_separator2" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
             <h3 class="page_info">Bonne lecture !</h3>
+            <h4>"L'inspiration à ses lois, aussi, chers lecteurs, certains chapitres peuvent être manquants car tout simplement en cours de modification ou d'écriture"</h4> 
         </div>                         
         <div class="content_text">
             <div class="content_extracts_chapters">
@@ -35,7 +36,9 @@
                         <a id="backto_extracts" href="index.php?action=showListPosts">Retour aux extraits </a>
                     </p>
                     <p class="date_chapter">Posté le : <?=  nl2br(htmlspecialchars_decode($onePost['date_chapter_fr'])); ?></p>
-                    <p class="text_chapter"><?=  nl2br(htmlspecialchars_decode($onePost['content_chapter'])); ?></p>                                        
+                    <div class="text_chapter">
+                        <?=  nl2br(htmlspecialchars_decode($onePost['content_chapter'])); ?>
+                    </div>                                        
                     <div class="chapter_buttons">
                         <p>
                             <?php if (!is_null($idPrev)): ?>
@@ -80,7 +83,7 @@
                                 <h4>Posté par : <?= htmlspecialchars($comment['author_comment']) ?><br/>  le <?=  nl2br(htmlspecialchars($comment['date_comment_fr'])); ?> </h4>
                                 <h5><?= htmlspecialchars($comment['title_comment']) ?></h5>
                                 <p><?= htmlspecialchars($comment['content_comment']) ?></p>
-                                <p class="comment_status">
+                                <div class="comment_status">
                                     <?php if($comment['statut_user_comment'] =='posted'):?>
                                         <a class="report_link" href="index.php?action=toReportComment&id=<?= $comment['id']; ?>&chapter_id=<?= $onePost['id']; ?>">Signaler</a>
                                     <?php elseif($comment['statut_user_comment'] =='validated') :?>
@@ -88,7 +91,7 @@
                                     <?php else: ?>
                                         <p  class="reported_comment">Le commentaire a déjà été signalé</p>
                                     <?php endif; ?> 
-                                </p>                   
+                                </div>                   
                             </section>
                         <?php endforeach; ?>
                     <?php else : ?>

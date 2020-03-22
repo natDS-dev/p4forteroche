@@ -25,6 +25,8 @@
             <h2 class="page_title">Bienvenue</h2>
             <img class="goldpaint_separator" id="goldpaint_separator2" src="public/images/goldpaint_separator.png" alt="trace peinture or" />
             <h3 class="page_info">Partons en voyage</h3>
+            <h5> Avant de prendre la route, voici une légende qui vous aidera à parcourir ce chemin littéraire.<br/>
+            L'auteur : Eléments biographiques - Les segments : Extraits du roman - Le volume : Chapitres complets - Le lien : Contact</h5>
         </div> 
         <!--(//OPTION// : possibility of a dynamic content => Jean could have his own presentation text)-->
         <div class="content_text">

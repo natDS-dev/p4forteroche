@@ -4,7 +4,7 @@
             <ul> 
                 <li>
                     <a href="index.php?action=showHome">
-                        <img src="public/images/home2.png" alt="baleine à travers un cercle doré" />
+                        <img src="public/images/homepage.png" alt="baleine à travers un cercle doré" />
                     </a>
                 </li>
                 <li>
